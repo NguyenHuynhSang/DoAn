@@ -155,7 +155,7 @@ namespace DoAnSapXep
             btn2.Width = btn2.Height = ThamSo.KichCoNode;
             // btn3.Width = btn3.Height = ThamSo.KichCoNode;
             btn1.BackColor = btn2.BackColor = Color.Gray;
-            Point center = new Point(sapxepPanel.Width / 2 - btn1.Width / 2 + ThamSo.KichCoNode / 2, sapxepPanel.Height / 2 - btn1.Height / 2);
+            Point center = new Point(sapxepPanel.Width / 2, sapxepPanel.Height / 2 - btn1.Height / 2);
             //  btn3.Location = center;
             btn1.Location = new Point(center.X - ThamSo.KhoangCachCacNode / 2 - ThamSo.KichCoNode, center.Y);
             btn2.Location = new Point((center.X + ThamSo.KhoangCachCacNode / 2), center.Y);

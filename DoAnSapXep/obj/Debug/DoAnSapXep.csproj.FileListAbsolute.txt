@@ -6,3 +6,5 @@ C:\Users\HUynhSang\Desktop\Đồ án cuối kỳ LTTQ\LapTrinhTrucQuan-master\La
 C:\Users\HUynhSang\Desktop\Đồ án cuối kỳ LTTQ\LapTrinhTrucQuan-master\LapTrinhTrucQuan-master\DoAnSapXep\DoAnSapXep\obj\Debug\DoAnSapXep.exe
 C:\Users\HUynhSang\Desktop\Đồ án cuối kỳ LTTQ\LapTrinhTrucQuan-master\LapTrinhTrucQuan-master\DoAnSapXep\DoAnSapXep\obj\Debug\DoAnSapXep.pdb
 C:\Users\HUynhSang\Desktop\Đồ án cuối kỳ LTTQ\LapTrinhTrucQuan-master\LapTrinhTrucQuan-master\DoAnSapXep\DoAnSapXep\obj\Debug\DoAnSapXep.Mainform.resources
+D:\Git\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.exe
+D:\Git\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.pdb
