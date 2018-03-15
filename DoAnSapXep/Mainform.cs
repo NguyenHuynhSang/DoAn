@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+
 namespace DoAnSapXep
 {
     public partial class Mainform : Form
@@ -13,13 +14,18 @@ namespace DoAnSapXep
         public Mainform()
         {
             InitializeComponent();
+          
+            
         }
 
         /// <summary>
         /// Các biến toàn cục
         /// </summary>
-        public bool isSapXepTang = true;
-        public bool isDangChay = false;
+
+        public int loaiThuatToan;
+        ThuatToan HienThuattoan = new ThuatToan();
+        
+        public bool isRunning = false;
         public int SoLuongNode =2;
         public List<int> DanhSachThamSo;
         public List<Button> DanhSachButton;
@@ -165,9 +171,51 @@ namespace DoAnSapXep
             MessageBox.Show(btn1.Location + "    " + btn2.Location + ThamSo.KhoangCachCacNode);
         }
 
-        private void sapxepPanel_Paint(object sender, PaintEventArgs e)
+
+
+
+
+
+       
+        
+
+        private void radiobtn_CheckedChanged(object sender, EventArgs e)
         {
+            if (!isRunning)
+            {
+                hienThiThuatToanNCodeC();
+            }
 
         }
+        private void hienThiThuatToanNCodeC()
+        {
+            //Gán yTuongTextBox, codeListBox và isSapXepTang
+            ThuatToan.yTuongThuatToan = yTuongTextBox;
+            ThuatToan.codeListBox = codeListBox;
+            bool tang = tangrdbtn.Checked;
+            //chọn sort
+            if (selectionrdbtn.Checked)
+            {
+                ThuatToan.SelectionSort(tang);
+               
+            }
+            else if(insertionrdbtn.Checked)
+            {
+                ThuatToan.InsertionSort(tang);
+            }
+
+        }
+
+
+
+        
+
+        
+
+        
+
+        
+
+        
     }
 }

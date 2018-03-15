@@ -1,4 +1,10 @@
-﻿namespace DoAnSapXep
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.Drawing;
+namespace DoAnSapXep
 {
     partial class Mainform
     {
@@ -43,6 +49,7 @@
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.chuasapxepPanel = new System.Windows.Forms.Panel();
             this.DebugPanel = new System.Windows.Forms.Panel();
+            this.yTuongTextBox = new System.Windows.Forms.TextBox();
             this.thuattoanpanel = new System.Windows.Forms.Panel();
             this.insertionrdbtn = new System.Windows.Forms.RadioButton();
             this.mergerdbtn = new System.Windows.Forms.RadioButton();
@@ -58,7 +65,7 @@
             this.giamrdbtn = new System.Windows.Forms.RadioButton();
             this.tangrdbtn = new System.Windows.Forms.RadioButton();
             this.HienThiPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.codeListBox = new System.Windows.Forms.ListBox();
             this.dieukhienpanel = new System.Windows.Forms.Panel();
             this.huybnt = new System.Windows.Forms.Button();
             this.dungbtn = new System.Windows.Forms.Button();
@@ -110,9 +117,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 13);
+            this.label3.Size = new System.Drawing.Size(95, 13);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Từng Bước Chạy";
+            this.label3.Text = "Ý tưởng thuật toán";
             // 
             // label4
             // 
@@ -180,7 +187,6 @@
             this.sapxepPanel.Name = "sapxepPanel";
             this.sapxepPanel.Size = new System.Drawing.Size(1144, 290);
             this.sapxepPanel.TabIndex = 18;
-            this.sapxepPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.sapxepPanel_Paint);
             // 
             // label10
             // 
@@ -213,12 +219,24 @@
             // 
             this.DebugPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.DebugPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DebugPanel.Controls.Add(this.yTuongTextBox);
             this.DebugPanel.Controls.Add(this.label3);
             this.DebugPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DebugPanel.Location = new System.Drawing.Point(6, 355);
+            this.DebugPanel.Location = new System.Drawing.Point(6, 515);
             this.DebugPanel.Name = "DebugPanel";
             this.DebugPanel.Size = new System.Drawing.Size(350, 135);
             this.DebugPanel.TabIndex = 20;
+            // 
+            // yTuongTextBox
+            // 
+            this.yTuongTextBox.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.yTuongTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.yTuongTextBox.Location = new System.Drawing.Point(5, 24);
+            this.yTuongTextBox.Multiline = true;
+            this.yTuongTextBox.Name = "yTuongTextBox";
+            this.yTuongTextBox.ReadOnly = true;
+            this.yTuongTextBox.Size = new System.Drawing.Size(340, 106);
+            this.yTuongTextBox.TabIndex = 12;
             // 
             // thuattoanpanel
             // 
@@ -235,7 +253,7 @@
             this.thuattoanpanel.Controls.Add(this.binaryinsertionrdbtn);
             this.thuattoanpanel.Controls.Add(this.interchangerdbtn);
             this.thuattoanpanel.Controls.Add(this.label7);
-            this.thuattoanpanel.Location = new System.Drawing.Point(6, 496);
+            this.thuattoanpanel.Location = new System.Drawing.Point(6, 355);
             this.thuattoanpanel.Name = "thuattoanpanel";
             this.thuattoanpanel.Size = new System.Drawing.Size(255, 154);
             this.thuattoanpanel.TabIndex = 4;
@@ -249,6 +267,7 @@
             this.insertionrdbtn.TabIndex = 12;
             this.insertionrdbtn.Text = "Insertion sort";
             this.insertionrdbtn.UseVisualStyleBackColor = true;
+            this.insertionrdbtn.CheckedChanged += new System.EventHandler(this.radiobtn_CheckedChanged);
             // 
             // mergerdbtn
             // 
@@ -259,6 +278,7 @@
             this.mergerdbtn.TabIndex = 21;
             this.mergerdbtn.Text = "Merge sort";
             this.mergerdbtn.UseVisualStyleBackColor = true;
+            this.mergerdbtn.CheckedChanged += new System.EventHandler(this.radiobtn_CheckedChanged);
             // 
             // shellrdbtn
             // 
@@ -269,6 +289,7 @@
             this.shellrdbtn.TabIndex = 20;
             this.shellrdbtn.Text = "Shell sort";
             this.shellrdbtn.UseVisualStyleBackColor = true;
+            this.shellrdbtn.CheckedChanged += new System.EventHandler(this.radiobtn_CheckedChanged);
             // 
             // quickrdbtn
             // 
@@ -279,6 +300,7 @@
             this.quickrdbtn.TabIndex = 19;
             this.quickrdbtn.Text = "Quick sort";
             this.quickrdbtn.UseVisualStyleBackColor = true;
+            this.quickrdbtn.CheckedChanged += new System.EventHandler(this.radiobtn_CheckedChanged);
             // 
             // shakerrdbtn
             // 
@@ -289,6 +311,7 @@
             this.shakerrdbtn.TabIndex = 18;
             this.shakerrdbtn.Text = "Shaker sort";
             this.shakerrdbtn.UseVisualStyleBackColor = true;
+            this.shakerrdbtn.CheckedChanged += new System.EventHandler(this.radiobtn_CheckedChanged);
             // 
             // selectionrdbtn
             // 
@@ -299,6 +322,7 @@
             this.selectionrdbtn.TabIndex = 17;
             this.selectionrdbtn.Text = "Selection sort";
             this.selectionrdbtn.UseVisualStyleBackColor = true;
+            this.selectionrdbtn.CheckedChanged += new System.EventHandler(this.radiobtn_CheckedChanged);
             // 
             // heaprdbtn
             // 
@@ -309,6 +333,7 @@
             this.heaprdbtn.TabIndex = 12;
             this.heaprdbtn.Text = "Heap sort";
             this.heaprdbtn.UseVisualStyleBackColor = true;
+            this.heaprdbtn.CheckedChanged += new System.EventHandler(this.radiobtn_CheckedChanged);
             // 
             // bubblerdbtn
             // 
@@ -319,6 +344,7 @@
             this.bubblerdbtn.TabIndex = 16;
             this.bubblerdbtn.Text = "Bubble sort";
             this.bubblerdbtn.UseVisualStyleBackColor = true;
+            this.bubblerdbtn.CheckedChanged += new System.EventHandler(this.radiobtn_CheckedChanged);
             // 
             // binaryinsertionrdbtn
             // 
@@ -329,6 +355,7 @@
             this.binaryinsertionrdbtn.TabIndex = 12;
             this.binaryinsertionrdbtn.Text = "Binary insertion sort";
             this.binaryinsertionrdbtn.UseVisualStyleBackColor = true;
+            this.binaryinsertionrdbtn.CheckedChanged += new System.EventHandler(this.radiobtn_CheckedChanged);
             // 
             // interchangerdbtn
             // 
@@ -339,6 +366,7 @@
             this.interchangerdbtn.TabIndex = 12;
             this.interchangerdbtn.Text = "Interchange sort";
             this.interchangerdbtn.UseVisualStyleBackColor = true;
+            this.interchangerdbtn.CheckedChanged += new System.EventHandler(this.radiobtn_CheckedChanged);
             // 
             // Loaisapxeppanel
             // 
@@ -347,7 +375,7 @@
             this.Loaisapxeppanel.Controls.Add(this.giamrdbtn);
             this.Loaisapxeppanel.Controls.Add(this.tangrdbtn);
             this.Loaisapxeppanel.Controls.Add(this.label8);
-            this.Loaisapxeppanel.Location = new System.Drawing.Point(267, 496);
+            this.Loaisapxeppanel.Location = new System.Drawing.Point(267, 355);
             this.Loaisapxeppanel.Name = "Loaisapxeppanel";
             this.Loaisapxeppanel.Size = new System.Drawing.Size(89, 87);
             this.Loaisapxeppanel.TabIndex = 21;
@@ -362,6 +390,7 @@
             this.giamrdbtn.TabStop = true;
             this.giamrdbtn.Text = "Giảm";
             this.giamrdbtn.UseVisualStyleBackColor = true;
+            this.giamrdbtn.CheckedChanged += new System.EventHandler(this.radiobtn_CheckedChanged);
             // 
             // tangrdbtn
             // 
@@ -373,27 +402,27 @@
             this.tangrdbtn.TabStop = true;
             this.tangrdbtn.Text = "Tăng";
             this.tangrdbtn.UseVisualStyleBackColor = true;
+            this.tangrdbtn.CheckedChanged += new System.EventHandler(this.radiobtn_CheckedChanged);
             // 
             // HienThiPanel
             // 
             this.HienThiPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.HienThiPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.HienThiPanel.Controls.Add(this.button1);
+            this.HienThiPanel.Controls.Add(this.codeListBox);
             this.HienThiPanel.Controls.Add(this.label2);
             this.HienThiPanel.Location = new System.Drawing.Point(362, 355);
             this.HienThiPanel.Name = "HienThiPanel";
             this.HienThiPanel.Size = new System.Drawing.Size(479, 295);
             this.HienThiPanel.TabIndex = 22;
             // 
-            // button1
+            // codeListBox
             // 
-            this.button1.Location = new System.Drawing.Point(218, 108);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.codeListBox.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.codeListBox.FormattingEnabled = true;
+            this.codeListBox.Location = new System.Drawing.Point(3, 22);
+            this.codeListBox.Name = "codeListBox";
+            this.codeListBox.Size = new System.Drawing.Size(471, 264);
+            this.codeListBox.TabIndex = 4;
             // 
             // dieukhienpanel
             // 
@@ -546,7 +575,7 @@
             // 
             this.panel10.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel10.Location = new System.Drawing.Point(267, 589);
+            this.panel10.Location = new System.Drawing.Point(267, 448);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(89, 61);
             this.panel10.TabIndex = 26;
@@ -558,13 +587,13 @@
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1162, 662);
             this.Controls.Add(this.thuattoanpanel);
+            this.Controls.Add(this.DebugPanel);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.huypanel);
             this.Controls.Add(this.khoitaopanel);
             this.Controls.Add(this.dieukhienpanel);
             this.Controls.Add(this.HienThiPanel);
             this.Controls.Add(this.Loaisapxeppanel);
-            this.Controls.Add(this.DebugPanel);
             this.Controls.Add(this.chuasapxepPanel);
             this.Controls.Add(this.sapxepPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -641,7 +670,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button button1;
+        private TextBox yTuongTextBox;
+        private ListBox codeListBox;
     }
 }
 

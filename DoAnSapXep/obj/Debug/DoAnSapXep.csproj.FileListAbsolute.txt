@@ -6,3 +6,12 @@ C:\Users\HUynhSang\Desktop\Đồ án cuối kỳ LTTQ\LapTrinhTrucQuan-master\La
 C:\Users\HUynhSang\Desktop\Đồ án cuối kỳ LTTQ\LapTrinhTrucQuan-master\LapTrinhTrucQuan-master\DoAnSapXep\DoAnSapXep\obj\Debug\DoAnSapXep.exe
 C:\Users\HUynhSang\Desktop\Đồ án cuối kỳ LTTQ\LapTrinhTrucQuan-master\LapTrinhTrucQuan-master\DoAnSapXep\DoAnSapXep\obj\Debug\DoAnSapXep.pdb
 C:\Users\HUynhSang\Desktop\Đồ án cuối kỳ LTTQ\LapTrinhTrucQuan-master\LapTrinhTrucQuan-master\DoAnSapXep\DoAnSapXep\obj\Debug\DoAnSapXep.Mainform.resources
+C:\Users\percy\Documents\GitHub\DoAn\DoAnSapXep\bin\Debug\DoAnSapXep.exe
+C:\Users\percy\Documents\GitHub\DoAn\DoAnSapXep\bin\Debug\DoAnSapXep.pdb
+C:\Users\percy\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.csprojResolveAssemblyReference.cache
+C:\Users\percy\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.Mainform.resources
+C:\Users\percy\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.Properties.Resources.resources
+C:\Users\percy\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.csproj.GenerateResource.Cache
+C:\Users\percy\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.csproj.CoreCompileInputs.cache
+C:\Users\percy\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.exe
+C:\Users\percy\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.pdb
