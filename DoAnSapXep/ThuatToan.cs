@@ -84,18 +84,18 @@ Bước 5: Lặp lại cho tới khi toàn bộ danh sách đã được sắp x
 
             string[] code = ChuyenText(
 @"Sắp tăng:
-            void SelecttionSort(int arr[], int N)
-            {
-                int min, i, j;
-                for (i=0; i < N-1; i++)
-                {
-                    min = i;
-                    for (j=i+1; j <N; j++)
-                        if (a[j] < a[min])
-                                min=j;
-                    Swap(a[min], a[i]);   
-                } 
-            }");
+void SelecttionSort(int arr[], int N)
+{
+    int min, i, j;
+    for (i=0; i < N-1; i++)
+        {
+             min = i;
+             for (j=i+1; j <N; j++)
+             if (a[j] < a[min])
+                 min=j;
+                 Swap(a[min], a[i]);   
+        } 
+}");
             //thêm code vào codeListBox
 
             codeListBox.Items.Clear();
@@ -107,7 +107,7 @@ Bước 5: Lặp lại cho tới khi toàn bộ danh sách đã được sắp x
             if (!tang)
             {
                 codeListBox.Items[0] = "Sắp Giảm";
-                codeListBox.Items[8] = "                        if (a[j] > a[min])";
+                codeListBox.Items[8] = "             if (a[j] > a[min])";
             }
         }
         #endregion
