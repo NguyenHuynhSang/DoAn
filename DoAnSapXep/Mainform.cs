@@ -207,6 +207,34 @@ namespace DoAnSapXep
             {
                 ThuatToan.ShakerSort(tang);
             }
+            else if (quickrdbtn.Checked)
+            {
+                ThuatToan.QuickSort(tang);
+            }
+            else if (shellrdbtn.Checked)
+            {
+                ThuatToan.ShellSort(tang);
+            }
+            else if (interchangerdbtn.Checked)
+            {
+                ThuatToan.InterchangeSort(tang);
+            }
+            else if (binaryinsertionrdbtn.Checked)
+            {
+                ThuatToan.BinaryInsertionSort(tang);
+            }
+            else if (bubblerdbtn.Checked)
+            {
+                ThuatToan.BubbleSort(tang);
+            }
+            else if (heaprdbtn.Checked)
+            {
+                ThuatToan.HeapSort(tang);
+            }
+            else if (mergerdbtn.Checked)
+            {
+                ThuatToan.MergeSort(tang);
+            }
         }
 
 
