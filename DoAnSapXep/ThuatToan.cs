@@ -442,14 +442,75 @@ void Shift(int a[], int l, int r)
         public static void MergeSort(bool tang = true)
         {
             string yTuong =
-@"
-";
+@"Sắp xếp dãy a(1),a(2),...,a(n) dựa trên nhận xét sau :
+-Mỗi dãy a(1),a(2),...,a(n) bất kỳ là một tập hợp các dãy con liên tiếp mà mỗi dãy con đều đã có thứ tự. 
+-Dãy đã có thứ tự coi như có 1 dãy con.           
+Hướng tiếp cận : tìm cách làm giảm số dãy con không giảm của dãy ban đầu.";
             //Thêm yTuong vào yTuongThuatToan
             yTuongThuatToan.Clear();
             yTuongThuatToan.Text = yTuong;
 
             string[] code = ChuyenText(
-@"
+@"Sắp tăng
+int b[MAX], c[MAX], nb, nc;
+int Min(int a, int b)
+{
+    if(a > b) return b;
+    else return a;
+}
+void Distribute(int a[], int N, int &nb, int &nc, int k)
+{
+    int i, pa, pb, pc;
+    pa = pb = pc = 0 ;
+    while(pa < N)
+    {
+        for(i = 0; (pa < N) && (i < k); i++, pa++, pb++)
+            b[pb] = a[pa];
+        for(i = 0; (pa < N) && (i < k); i++, pa++, pc++)
+            c[pc] = a[pa];
+    }
+    nb = pb; nc = pc;
+}
+void Merge(int a[], int nb, int nc, int k)
+{
+    int p, pb, pc, ib, ic, kb, kc;
+    p = pb = pc = 0; ib = ic = 0;
+    while((nb > 0) && (nc > 0))
+    {
+        kb = Min(k, nb); kc = Min(k, nc);
+        if(c[pc + ic] < b[pb + ib] == false)
+        {
+            a[p++] = b[pb + ib]; ib++;
+            if(ib == kb)
+            {
+                for(;ic < kc; ic++)
+                    a[p++] = c[pc + ic];
+                pb += kb; pc += kc; ib = ic = 0;
+                nb -= kb; nc -= kc;
+            }
+        }
+        else
+        {
+            a[p++] = c[pc + ic]; ic++;
+            if(ic == kc)
+            {
+                for(;ib < kb; ib++)
+                    a[p++] = b[pb + ib];
+                pb += kb; pc += kc; ib = ib = 0;
+                nb -= kb; nc -= kc;
+            }
+        }
+    }
+}
+void MergeSort(int a[], int N)
+{
+        int k;
+        for(k = 1; k < N; k*= 2)
+        {
+            Distribute(a, N, nb, nc, k);
+            Merge(a, nb, nc, k);
+        }
+}
 ");
             //thêm code vào codeListBox 
             codeListBox.Items.Clear();
@@ -458,10 +519,11 @@ void Shift(int a[], int l, int r)
                 codeListBox.Items.Add(item);
             }
             //nếu sắp giảm thì sửa lại
-            //if (!tang)
-            //{
-
-            //}
+            if (!tang)
+            {
+                codeListBox.Items[0] = "Sắp giảm";
+                codeListBox.Items[27] = "        if(c[pc + ic] > b[pb + ib] == false)";
+            }
         }
         #endregion
     }
