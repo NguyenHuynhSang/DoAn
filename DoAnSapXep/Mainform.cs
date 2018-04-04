@@ -23,12 +23,12 @@ namespace DoAnSapXep
         /// </summary>
 
         public int loaiThuatToan;
-        ThuatToan HienThuattoan = new ThuatToan();
+        HienThiThuatToan HienThuattoan = new HienThiThuatToan();
         
         public bool isRunning = false;
         public int SoLuongNode =2;
         public List<int> DanhSachThamSo;
-        public List<Button> DanhSachButton;
+        public List<TbxBtn> DanhSachButton;
         Random rank = new Random();
         //int a = 2;
        
@@ -100,7 +100,7 @@ namespace DoAnSapXep
         void VeNut()
         {
             DanhSachThamSo = new List<int>(SoLuongNode);
-            DanhSachButton = new List<Button>(SoLuongNode);
+            DanhSachButton = new List<TbxBtn>(SoLuongNode);
             sapxepPanel.Controls.Clear(); // Xóa những btn cũ trên panel ở phiên làm việc
             int temp = -SoLuongNode / 2;
             int temp2 = ThamSo.KhoangCachCacNode / 2;
@@ -108,7 +108,7 @@ namespace DoAnSapXep
             Point newPoint;
             for (int i = 0; i < SoLuongNode; i++)
             {
-                Button btn = new Button();
+                TbxBtn btn = new TbxBtn();
                 int value = rank.Next(2, 100);
               
                 btn.Text = value.ToString();
@@ -135,7 +135,7 @@ namespace DoAnSapXep
                     temp3++;
                 }
                 
-                btn.Enabled = false;
+               
                 sapxepPanel.Controls.Add(btn);
                 DanhSachButton.Add(btn);
                 DanhSachButton[i] = btn;
@@ -145,39 +145,6 @@ namespace DoAnSapXep
            
 
         }
-        /// <summary>
-        /// Phần kiểm thử làm rồi xóa sau
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-            Button btn1 = new Button();
-            Button btn2 = new Button();
-            //  Button btn3 = new Button();
-
-            btn1.Width = btn1.Height = ThamSo.KichCoNode;
-            btn2.Width = btn2.Height = ThamSo.KichCoNode;
-            // btn3.Width = btn3.Height = ThamSo.KichCoNode;
-            btn1.BackColor = btn2.BackColor = Color.Gray;
-            Point center = new Point(sapxepPanel.Width / 2, sapxepPanel.Height / 2 - btn1.Height / 2);
-            //  btn3.Location = center;
-            btn1.Location = new Point(center.X - ThamSo.KhoangCachCacNode / 2 - ThamSo.KichCoNode, center.Y);
-            btn2.Location = new Point((center.X + ThamSo.KhoangCachCacNode / 2), center.Y);
-            sapxepPanel.Controls.Add(btn1);
-            sapxepPanel.Controls.Add(btn2);
-            //  sapxepPanel.Controls.Add(btn3);
-            MessageBox.Show(btn1.Location + "    " + btn2.Location + ThamSo.KhoangCachCacNode);
-        }
-
-
-
-
-
-
-       
-        
 
         private void radiobtn_CheckedChanged(object sender, EventArgs e)
         {
@@ -190,63 +157,51 @@ namespace DoAnSapXep
         private void hienThiThuatToanNCodeC()
         {
             //Gán yTuongTextBox, codeListBox và isSapXepTang
-            ThuatToan.yTuongThuatToan = yTuongTextBox;
-            ThuatToan.codeListBox = codeListBox;
+            HienThiThuatToan.yTuongThuatToan = yTuongTextBox;
+            HienThiThuatToan.codeListBox = codeListBox;
             bool tang = tangrdbtn.Checked;
             //chọn sort
             if (selectionrdbtn.Checked)
             {
-                ThuatToan.SelectionSort(tang);
+                HienThiThuatToan.SelectionSort(tang);
                
             }
             else if(insertionrdbtn.Checked)
             {
-                ThuatToan.InsertionSort(tang);
+                HienThiThuatToan.InsertionSort(tang);
             }
             else if (shakerrdbtn.Checked)
             {
-                ThuatToan.ShakerSort(tang);
+                HienThiThuatToan.ShakerSort(tang);
             }
             else if (quickrdbtn.Checked)
             {
-                ThuatToan.QuickSort(tang);
+                HienThiThuatToan.QuickSort(tang);
             }
             else if (shellrdbtn.Checked)
             {
-                ThuatToan.ShellSort(tang);
+                HienThiThuatToan.ShellSort(tang);
             }
             else if (interchangerdbtn.Checked)
             {
-                ThuatToan.InterchangeSort(tang);
+                HienThiThuatToan.InterchangeSort(tang);
             }
             else if (binaryinsertionrdbtn.Checked)
             {
-                ThuatToan.BinaryInsertionSort(tang);
+                HienThiThuatToan.BinaryInsertionSort(tang);
             }
             else if (bubblerdbtn.Checked)
             {
-                ThuatToan.BubbleSort(tang);
+                HienThiThuatToan.BubbleSort(tang);
             }
             else if (heaprdbtn.Checked)
             {
-                ThuatToan.HeapSort(tang);
+                HienThiThuatToan.HeapSort(tang);
             }
             else if (mergerdbtn.Checked)
             {
-                ThuatToan.MergeSort(tang);
+                HienThiThuatToan.MergeSort(tang);
             }
         }
-
-
-
-        
-
-        
-
-        
-
-        
-
-        
     }
 }

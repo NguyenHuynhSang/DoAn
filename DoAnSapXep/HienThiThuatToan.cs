@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace DoAnSapXep
 {
-    public class ThuatToan
+    public class HienThiThuatToan
     {
         
         public  static ListBox codeListBox;
