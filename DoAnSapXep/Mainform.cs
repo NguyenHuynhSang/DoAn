@@ -274,10 +274,12 @@ namespace DoAnSapXep
             if (btnNgonNgu.Text=="Tiếng Việt")
             {
                 btnNgonNgu.Text = "English";
+                setLang("vi-VN");
             }
             else if(btnNgonNgu.Text=="English")
             {
                 btnNgonNgu.Text = "Tiếng Việt";
+                setLang("en-US");
             }
         }
     }
