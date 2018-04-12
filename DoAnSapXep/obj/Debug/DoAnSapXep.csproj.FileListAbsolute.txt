@@ -20,3 +20,11 @@ C:\Users\percy\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.pdb
 D:\Git\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.exe
 D:\Git\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.pdb
 >>>>>>> 8f90d862c1298ce4f7c3140cfe0252312f0ce53e
+C:\Users\Admin\Desktop\DoAn_LTTQ\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.exe
+C:\Users\Admin\Desktop\DoAn_LTTQ\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.pdb
+C:\Users\Admin\Desktop\DoAn_LTTQ\DoAn\DoAnSapXep\bin\Debug\DoAnSapXep.exe
+C:\Users\Admin\Desktop\DoAn_LTTQ\DoAn\DoAnSapXep\bin\Debug\DoAnSapXep.pdb
+C:\Users\Admin\Desktop\DoAn_LTTQ\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\DoAn_LTTQ\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.Mainform.resources
+C:\Users\Admin\Desktop\DoAn_LTTQ\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.Properties.Resources.resources
+C:\Users\Admin\Desktop\DoAn_LTTQ\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.csproj.GenerateResource.Cache
