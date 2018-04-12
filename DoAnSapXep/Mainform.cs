@@ -255,18 +255,8 @@ namespace DoAnSapXep
             xoamangbtn.Text = rm.GetString("xoamang", culture);
             huyqtbtn.Text = rm.GetString("huyquatrinh", culture);
             lbNgonNgu.Text = rm.GetString("ngonngu", culture);
+            this.Text = rm.GetString("fname", culture);
         }
-
-
-
-
-
-
-
-
-
-
-
         #endregion
 
         private void btnNgonNgu_Click(object sender, EventArgs e)
