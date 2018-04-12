@@ -6,22 +6,25 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Reflection;
+using System.Resources;
+using System.Globalization;
 
 namespace DoAnSapXep
 {
     public partial class Mainform : Form
     {
+        
         public Mainform()
         {
             InitializeComponent();
-          
-            
+            culture = CultureInfo.CurrentCulture;
         }
 
         /// <summary>
         /// Các biến toàn cục
         /// </summary>
-
+        CultureInfo culture;
         public int loaiThuatToan;
         ThuatToan HienThuattoan = new ThuatToan();
         
@@ -134,16 +137,12 @@ namespace DoAnSapXep
                     temp++;
                     temp3++;
                 }
-                
                 btn.Enabled = false;
                 sapxepPanel.Controls.Add(btn);
                 DanhSachButton.Add(btn);
                 DanhSachButton[i] = btn;
                 DanhSachThamSo.Add(value);
             }
-            
-           
-
         }
         /// <summary>
         /// Phần kiểm thử làm rồi xóa sau
@@ -170,15 +169,6 @@ namespace DoAnSapXep
             //  sapxepPanel.Controls.Add(btn3);
             MessageBox.Show(btn1.Location + "    " + btn2.Location + ThamSo.KhoangCachCacNode);
         }
-
-
-
-
-
-
-       
-        
-
         private void radiobtn_CheckedChanged(object sender, EventArgs e)
         {
             if (!isRunning)
@@ -238,15 +228,57 @@ namespace DoAnSapXep
         }
 
 
+        #region Set Ngôn Ngữ
+        void setLang(string cultureName)
+        {
+            culture = new CultureInfo(cultureName);
+            ResourceManager rm = new ResourceManager("DoAnSapXep.Lang.myResource", typeof(Mainform).Assembly);
+            ManHinh_label.Text = rm.GetString("manhinh", culture);
+            lbMangChuaSapXep.Text = rm.GetString("mangchuasapxep", culture);
+            lbThuatToan.Text = rm.GetString("thuattoan", culture);
+            lbSapXep.Text = rm.GetString("sapxep", culture);
+            tangrdbtn.Text = rm.GetString("tang", culture);
+            giamrdbtn.Text = rm.GetString("giam", culture);
+            lbYTuongThuaToan.Text = rm.GetString("ytuongthuattoan", culture);
+            lbDieuKhien.Text = rm.GetString("dieukhien", culture);
+            lbTocDo.Text = rm.GetString("tocdo", culture);
+            batdaubtn.Text = rm.GetString("batdau", culture);
+            dungbtn.Text = rm.GetString("dung", culture);
+            huybnt.Text = rm.GetString("huydieukhien", culture);
+            lbKhoiTao.Text = rm.GetString("khoitao", culture);
+            lbSoPhanTu.Text = rm.GetString("sophantu", culture);
+            taongaunhienbtn.Text = rm.GetString("taongaunhien", culture);
+            venutbtn.Text = rm.GetString("venut", culture);
+            docfilebtn.Text = rm.GetString("docfile", culture);
+            nhaptaybtn.Text = rm.GetString("nhapbangtay", culture);
+            lbHuy.Text = rm.GetString("huyquatrinh", culture);
+            xoamangbtn.Text = rm.GetString("xoamang", culture);
+            huyqtbtn.Text = rm.GetString("huyquatrinh", culture);
+            lbNgonNgu.Text = rm.GetString("ngonngu", culture);
+        }
 
-        
 
-        
 
-        
 
-        
 
-        
+
+
+
+
+
+
+        #endregion
+
+        private void btnNgonNgu_Click(object sender, EventArgs e)
+        {
+            if (btnNgonNgu.Text=="Tiếng Việt")
+            {
+                btnNgonNgu.Text = "English";
+            }
+            else if(btnNgonNgu.Text=="English")
+            {
+                btnNgonNgu.Text = "Tiếng Việt";
+            }
+        }
     }
 }
