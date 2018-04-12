@@ -247,7 +247,7 @@ namespace DoAnSapXep
             huybnt.Text = rm.GetString("huydieukhien", culture);
             lbKhoiTao.Text = rm.GetString("khoitao", culture);
             lbSoPhanTu.Text = rm.GetString("sophantu", culture);
-            taongaunhienbtn.Text = rm.GetString("taongaunhien", culture);
+            taongaunhienbtn.Text = rm.GetString("ngaunhien", culture);
             venutbtn.Text = rm.GetString("venut", culture);
             docfilebtn.Text = rm.GetString("docfile", culture);
             nhaptaybtn.Text = rm.GetString("nhapbangtay", culture);
