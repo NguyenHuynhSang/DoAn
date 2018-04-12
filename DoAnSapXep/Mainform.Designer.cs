@@ -65,8 +65,10 @@ namespace DoAnSapXep
             this.giamrdbtn = new System.Windows.Forms.RadioButton();
             this.tangrdbtn = new System.Windows.Forms.RadioButton();
             this.HienThiPanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.codeListBox = new System.Windows.Forms.ListBox();
             this.dieukhienpanel = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.huybnt = new System.Windows.Forms.Button();
             this.dungbtn = new System.Windows.Forms.Button();
             this.batdaubtn = new System.Windows.Forms.Button();
@@ -82,6 +84,9 @@ namespace DoAnSapXep
             this.xoamangbtn = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.sapxepPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.chuasapxepPanel.SuspendLayout();
@@ -142,7 +147,7 @@ namespace DoAnSapXep
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 8);
+            this.label6.Location = new System.Drawing.Point(3, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 13);
             this.label6.TabIndex = 14;
@@ -191,7 +196,7 @@ namespace DoAnSapXep
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(249, 8);
+            this.label10.Location = new System.Drawing.Point(249, 54);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(42, 13);
             this.label10.TabIndex = 4;
@@ -200,7 +205,7 @@ namespace DoAnSapXep
             // trackBar1
             // 
             this.trackBar1.AutoSize = false;
-            this.trackBar1.Location = new System.Drawing.Point(108, 2);
+            this.trackBar1.Location = new System.Drawing.Point(85, 39);
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(135, 32);
             this.trackBar1.TabIndex = 3;
@@ -408,6 +413,7 @@ namespace DoAnSapXep
             // 
             this.HienThiPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.HienThiPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.HienThiPanel.Controls.Add(this.button1);
             this.HienThiPanel.Controls.Add(this.codeListBox);
             this.HienThiPanel.Controls.Add(this.label2);
             this.HienThiPanel.Location = new System.Drawing.Point(362, 355);
@@ -415,19 +421,31 @@ namespace DoAnSapXep
             this.HienThiPanel.Size = new System.Drawing.Size(479, 295);
             this.HienThiPanel.TabIndex = 22;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(124, 58);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // codeListBox
             // 
             this.codeListBox.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.codeListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.codeListBox.FormattingEnabled = true;
             this.codeListBox.Location = new System.Drawing.Point(3, 22);
             this.codeListBox.Name = "codeListBox";
-            this.codeListBox.Size = new System.Drawing.Size(471, 264);
+            this.codeListBox.Size = new System.Drawing.Size(471, 262);
             this.codeListBox.TabIndex = 4;
             // 
             // dieukhienpanel
             // 
             this.dieukhienpanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.dieukhienpanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dieukhienpanel.Controls.Add(this.label11);
             this.dieukhienpanel.Controls.Add(this.label10);
             this.dieukhienpanel.Controls.Add(this.huybnt);
             this.dieukhienpanel.Controls.Add(this.trackBar1);
@@ -437,12 +455,21 @@ namespace DoAnSapXep
             this.dieukhienpanel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dieukhienpanel.Location = new System.Drawing.Point(847, 355);
             this.dieukhienpanel.Name = "dieukhienpanel";
-            this.dieukhienpanel.Size = new System.Drawing.Size(303, 87);
+            this.dieukhienpanel.Size = new System.Drawing.Size(303, 116);
             this.dieukhienpanel.TabIndex = 23;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(136, 23);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(34, 13);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "00:00";
             // 
             // huybnt
             // 
-            this.huybnt.Location = new System.Drawing.Point(200, 40);
+            this.huybnt.Location = new System.Drawing.Point(216, 77);
             this.huybnt.Name = "huybnt";
             this.huybnt.Size = new System.Drawing.Size(75, 23);
             this.huybnt.TabIndex = 8;
@@ -451,21 +478,23 @@ namespace DoAnSapXep
             // 
             // dungbtn
             // 
-            this.dungbtn.Location = new System.Drawing.Point(114, 40);
+            this.dungbtn.Location = new System.Drawing.Point(118, 77);
             this.dungbtn.Name = "dungbtn";
             this.dungbtn.Size = new System.Drawing.Size(75, 23);
             this.dungbtn.TabIndex = 9;
             this.dungbtn.Text = "Dừng";
             this.dungbtn.UseVisualStyleBackColor = true;
+            this.dungbtn.Click += new System.EventHandler(this.dungbtn_Click);
             // 
             // batdaubtn
             // 
-            this.batdaubtn.Location = new System.Drawing.Point(28, 40);
+            this.batdaubtn.Location = new System.Drawing.Point(20, 77);
             this.batdaubtn.Name = "batdaubtn";
             this.batdaubtn.Size = new System.Drawing.Size(75, 23);
             this.batdaubtn.TabIndex = 10;
             this.batdaubtn.Text = "Bắt đầu";
             this.batdaubtn.UseVisualStyleBackColor = true;
+            this.batdaubtn.Click += new System.EventHandler(this.batdaubtn_Click);
             // 
             // khoitaopanel
             // 
@@ -478,7 +507,7 @@ namespace DoAnSapXep
             this.khoitaopanel.Controls.Add(this.venutbtn);
             this.khoitaopanel.Controls.Add(this.taongaunhienbtn);
             this.khoitaopanel.Controls.Add(this.label5);
-            this.khoitaopanel.Location = new System.Drawing.Point(847, 448);
+            this.khoitaopanel.Location = new System.Drawing.Point(847, 477);
             this.khoitaopanel.Name = "khoitaopanel";
             this.khoitaopanel.Size = new System.Drawing.Size(303, 115);
             this.khoitaopanel.TabIndex = 24;
@@ -547,14 +576,14 @@ namespace DoAnSapXep
             this.huypanel.Controls.Add(this.huyqtbtn);
             this.huypanel.Controls.Add(this.xoamangbtn);
             this.huypanel.Controls.Add(this.label4);
-            this.huypanel.Location = new System.Drawing.Point(847, 573);
+            this.huypanel.Location = new System.Drawing.Point(847, 598);
             this.huypanel.Name = "huypanel";
-            this.huypanel.Size = new System.Drawing.Size(303, 77);
+            this.huypanel.Size = new System.Drawing.Size(303, 52);
             this.huypanel.TabIndex = 25;
             // 
             // huyqtbtn
             // 
-            this.huyqtbtn.Location = new System.Drawing.Point(165, 36);
+            this.huyqtbtn.Location = new System.Drawing.Point(163, 20);
             this.huyqtbtn.Name = "huyqtbtn";
             this.huyqtbtn.Size = new System.Drawing.Size(128, 26);
             this.huyqtbtn.TabIndex = 14;
@@ -564,7 +593,7 @@ namespace DoAnSapXep
             // 
             // xoamangbtn
             // 
-            this.xoamangbtn.Location = new System.Drawing.Point(19, 36);
+            this.xoamangbtn.Location = new System.Drawing.Point(19, 20);
             this.xoamangbtn.Name = "xoamangbtn";
             this.xoamangbtn.Size = new System.Drawing.Size(122, 26);
             this.xoamangbtn.TabIndex = 15;
@@ -579,6 +608,20 @@ namespace DoAnSapXep
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(89, 61);
             this.panel10.TabIndex = 26;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 10;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // Mainform
             // 
@@ -672,6 +715,11 @@ namespace DoAnSapXep
         private System.Windows.Forms.ToolTip toolTip1;
         private TextBox yTuongTextBox;
         private ListBox codeListBox;
+        private Timer timer1;
+        private Button button1;
+        private Label label11;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Timer timer2;
     }
 }
 

@@ -14,8 +14,8 @@ namespace DoAnSapXep
         public Mainform()
         {
             InitializeComponent();
-          
-            
+
+
         }
 
         /// <summary>
@@ -24,17 +24,19 @@ namespace DoAnSapXep
 
         public int loaiThuatToan;
         HienThiThuatToan HienThuattoan = new HienThiThuatToan();
-        
+
         public bool isRunning = false;
-        public int SoLuongNode =2;
+        public int SoLuongNode = 2;
         public List<int> DanhSachThamSo;
         public List<TbxBtn> DanhSachButton;
         Random rank = new Random();
+        private int Phut;
+        private int Giay;
         //int a = 2;
-       
+
         private void huyqtbtn_Click(object sender, EventArgs e)
         {
-            
+
         }
         /// <summary>
         /// Khi sự kiện text đã thay đổi kiểm tra xem slnodetbx có là rỗng hay không nếu rổng rán lại số lượng node=0 vì trường hợp người dùng
@@ -44,8 +46,8 @@ namespace DoAnSapXep
         /// <param name="e"></param>
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
-           
-            if (soluongNodetbx.Text=="")
+
+            if (soluongNodetbx.Text == "")
             {
                 SoLuongNode = 0;
             }
@@ -65,30 +67,30 @@ namespace DoAnSapXep
         {
             if ((!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar)))
             {
-            
-                    MessageBox.Show("Số phần tử phải là số nguyên lớn hơn 2 và nhỏ hơn " + ThamSo.SoluongNodeLonNhat);
-                    e.Handled = true;// dừng tất cả các tiến trình có liên quan đến thằng e
-              
+
+                MessageBox.Show("Số phần tử phải là số nguyên lớn hơn 2 và nhỏ hơn " + ThamSo.SoluongNodeLonNhat);
+                e.Handled = true;// dừng tất cả các tiến trình có liên quan đến thằng e
+
             }
         }
 
         private void taongaunhienbtn_Click(object sender, EventArgs e)
         {
-           
-            SoLuongNode = rank.Next(2,ThamSo.SoluongNodeLonNhat);
+
+            SoLuongNode = rank.Next(2, ThamSo.SoluongNodeLonNhat);
             VeNut();
         }
 
         private void HienThiPanel_Paint(object sender, PaintEventArgs e)
         {
-        
+
         }
 
         private void venutbtn_Click(object sender, EventArgs e)
         {
-            if (SoLuongNode<2||SoLuongNode>ThamSo.SoluongNodeLonNhat)
+            if (SoLuongNode < 2 || SoLuongNode > ThamSo.SoluongNodeLonNhat)
             {
-                MessageBox.Show("Số lượng Node phải lớn hơn hoặc bằng 2 và nhỏ hơn "+ThamSo.SoluongNodeLonNhat);
+                MessageBox.Show("Số lượng Node phải lớn hơn hoặc bằng 2 và nhỏ hơn " + ThamSo.SoluongNodeLonNhat);
                 soluongNodetbx.Focus();
                 return;
             }
@@ -110,39 +112,39 @@ namespace DoAnSapXep
             {
                 TbxBtn btn = new TbxBtn();
                 int value = rank.Next(2, 100);
-              
+
                 btn.Text = value.ToString();
-                btn.Width =btn.Height= ThamSo.KichCoNode;
+                btn.Width = btn.Height = ThamSo.KichCoNode;
                 btn.BackColor = Color.Gray;
-                if (SoLuongNode%2!=0)
+                if (SoLuongNode % 2 != 0)
                 {
                     newPoint = new Point(sapxepPanel.Width / 2 - btn.Width / 2,
                                          sapxepPanel.Height / 2 - btn.Height / 2);
-                    btn.Location =new Point(newPoint.X+temp*btn.Width+temp*ThamSo.KhoangCachCacNode,newPoint.Y);
+                    btn.Location = new Point(newPoint.X + temp * btn.Width + temp * ThamSo.KhoangCachCacNode, newPoint.Y);
                     temp++;
                 }
                 else
                 {
-                    if (i==SoLuongNode/2)
+                    if (i == SoLuongNode / 2)
                     {
                         temp2 = -temp2;
                         temp3 = 0;
                     }
-                    
+
                     newPoint = new Point(sapxepPanel.Width / 2 - btn.Width / 2 + ThamSo.KichCoNode / 2, sapxepPanel.Height / 2 - btn.Height / 2);
-                    btn.Location = new Point(newPoint.X - temp2 + temp3 * ThamSo.KhoangCachCacNode+ temp *btn.Width,newPoint.Y);// Node Xuất hiện giữa panel
+                    btn.Location = new Point(newPoint.X - temp2 + temp3 * ThamSo.KhoangCachCacNode + temp * btn.Width, newPoint.Y);// Node Xuất hiện giữa panel
                     temp++;
                     temp3++;
                 }
-                
-               
+
+
                 sapxepPanel.Controls.Add(btn);
                 DanhSachButton.Add(btn);
                 DanhSachButton[i] = btn;
                 DanhSachThamSo.Add(value);
             }
-            
-           
+
+
 
         }
 
@@ -164,9 +166,9 @@ namespace DoAnSapXep
             if (selectionrdbtn.Checked)
             {
                 HienThiThuatToan.SelectionSort(tang);
-               
+
             }
-            else if(insertionrdbtn.Checked)
+            else if (insertionrdbtn.Checked)
             {
                 HienThiThuatToan.InsertionSort(tang);
             }
@@ -202,6 +204,130 @@ namespace DoAnSapXep
             {
                 HienThiThuatToan.MergeSort(tang);
             }
+
         }
+
+        int i = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (isRunning == false)
+            {
+                timer1.Stop();
+
+            }
+            DemThoiGian();
+        }
+
+        private void DemThoiGian()
+        {
+            if (Giay > 59)
+            {
+                Giay = 0;
+                Phut++;
+            }
+            Giay++;
+            label11.Text = Phut + ":" + Giay;
+        }
+        void batdaubtn_Click(object sender, EventArgs e)
+        {
+            isRunning = true;
+            timer1.Enabled = true;
+            timer2.Start();
+        }
+
+        private void dungbtn_Click(object sender, EventArgs e)
+        {
+            isRunning = false;
+            timer1.Stop();
+            timer2.Stop();
+
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (DanhSachButton != null)
+            {
+                foreach (TbxBtn item in DanhSachButton)
+                {
+                    MessageBox.Show(item.Location.ToString()+item.X_vitri);
+                }
+            }
+        }
+        private bool flag = true;
+        private void SwapHaiNode(TbxBtn node1,TbxBtn node2,int vitrimoi)
+        {
+            
+             int  temp = sapxepPanel.Height / 2 - node1.Height / 2 - ThamSo.DoCaoDiChuyen;
+            
+           
+            if (node1.Location.Y>temp&& flag==true)
+            {
+                node1.BackColor = node2.BackColor = Color.Green;
+                    node1.ChuyenLen();
+                    node2.ChuyenXuong();
+                
+            }
+            else
+            {  
+                    if (node1.Location.X < node2.X_vitri)
+                    {
+                        TbxBtn.ChuyenNgang(node1, node2);
+                      
+                    }
+                    else
+                    {
+                    node2.ChuyenLen();
+                    flag = false;
+                    node1.ChuyenXuong();
+                    if (node1.Location.X==node2.X_vitri && node1.Location.Y == (sapxepPanel.Height / 2 - node1.Height / 2))
+                    {
+                        timer2.Stop();
+                        isRunning = false;
+                        node1.BackColor = node2.BackColor = Color.Gray;
+                    }
+                        
+                    }
+                
+            }
+          
+        }
+
+        /// <summary>
+        /// Thử dùng backgoundWalker
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+            
+
+
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            
+            SwapHaiNode(DanhSachButton[0],DanhSachButton[1],2);
+           
+        }
+
+
+        private void InterchangeSort(List<int> danhsach)
+        {
+            int i, j;
+            for (i = 0; i < DanhSachThamSo.Count() - 1; i++)
+                for (j = i + 1; j < DanhSachThamSo.Count(); j++)
+                    if (DanhSachThamSo[j] < DanhSachThamSo[i]) ;
+                       // Swap([i], DanhSachThamSo[j]);
+        }
+
+
+
+
+
+
+
     }
 }

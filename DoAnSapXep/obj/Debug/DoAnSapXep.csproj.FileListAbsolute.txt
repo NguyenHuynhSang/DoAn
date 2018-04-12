@@ -29,3 +29,12 @@ D:\GitHub\DoAnSapXep\obj\Debug\DoAnSapXep.Mainform.resources
 D:\GitHub\DoAnSapXep\obj\Debug\DoAnSapXep.Properties.Resources.resources
 D:\GitHub\DoAnSapXep\obj\Debug\DoAnSapXep.TbxBtn.resources
 D:\GitHub\DoAnSapXep\obj\Debug\DoAnSapXep.csproj.GenerateResource.Cache
+C:\Users\HUynhSang\Desktop\GitHub\DoAnSapXep\obj\Debug\DoAnSapXep.exe
+C:\Users\HUynhSang\Desktop\GitHub\DoAnSapXep\obj\Debug\DoAnSapXep.pdb
+C:\Users\HUynhSang\Desktop\GitHub\DoAnSapXep\bin\Debug\DoAnSapXep.exe
+C:\Users\HUynhSang\Desktop\GitHub\DoAnSapXep\bin\Debug\DoAnSapXep.pdb
+C:\Users\HUynhSang\Desktop\GitHub\DoAnSapXep\obj\Debug\DoAnSapXep.csprojResolveAssemblyReference.cache
+C:\Users\HUynhSang\Desktop\GitHub\DoAnSapXep\obj\Debug\DoAnSapXep.Mainform.resources
+C:\Users\HUynhSang\Desktop\GitHub\DoAnSapXep\obj\Debug\DoAnSapXep.Properties.Resources.resources
+C:\Users\HUynhSang\Desktop\GitHub\DoAnSapXep\obj\Debug\DoAnSapXep.TbxBtn.resources
+C:\Users\HUynhSang\Desktop\GitHub\DoAnSapXep\obj\Debug\DoAnSapXep.csproj.GenerateResource.Cache

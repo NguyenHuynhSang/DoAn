@@ -61,6 +61,8 @@
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.tbx1);
             this.Name = "TbxBtn";
+            this.Load += new System.EventHandler(this.TbxBtn_Load);
+            this.BackColorChanged += new System.EventHandler(this.TbxBtn_BackColorChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
