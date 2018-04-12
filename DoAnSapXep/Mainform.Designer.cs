@@ -624,7 +624,7 @@ namespace DoAnSapXep
             this.MaximizeBox = false;
             this.Name = "Mainform";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "text";
+            this.Text = "PHẦN MỀN MÔ PHỎNG THUẬT TOÁN SẮP XẾP v1.0";
             this.sapxepPanel.ResumeLayout(false);
             this.sapxepPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
