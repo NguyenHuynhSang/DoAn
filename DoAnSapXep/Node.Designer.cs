@@ -1,6 +1,6 @@
 ﻿namespace DoAnSapXep
 {
-    partial class TbxBtn
+    partial class Node
     {
         /// <summary> 
         /// Required designer variable.

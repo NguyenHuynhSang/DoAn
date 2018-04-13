@@ -38,3 +38,4 @@ C:\Users\HUynhSang\Desktop\GitHub\DoAnSapXep\obj\Debug\DoAnSapXep.Mainform.resou
 C:\Users\HUynhSang\Desktop\GitHub\DoAnSapXep\obj\Debug\DoAnSapXep.Properties.Resources.resources
 C:\Users\HUynhSang\Desktop\GitHub\DoAnSapXep\obj\Debug\DoAnSapXep.TbxBtn.resources
 C:\Users\HUynhSang\Desktop\GitHub\DoAnSapXep\obj\Debug\DoAnSapXep.csproj.GenerateResource.Cache
+C:\Users\HUynhSang\Desktop\GitHub\DoAnSapXep\obj\Debug\DoAnSapXep.Node.resources

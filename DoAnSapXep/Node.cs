@@ -9,12 +9,13 @@ using System.Windows.Forms;
 
 namespace DoAnSapXep
 {
-    public partial class    TbxBtn : UserControl
+    public partial class    Node : UserControl
     {
-        public TbxBtn()
+        public Node(int vitrihientai)
         {
             InitializeComponent();
             DatGiaTriMatDinh();
+            this.vitriHienTai = vitrihientai;
 
         }
         private void DatGiaTriMatDinh()
@@ -25,9 +26,10 @@ namespace DoAnSapXep
             tbx1.TextAlign = HorizontalAlignment.Center;
             this.Size = new Size(ThamSo.KichCoNode, ThamSo.KichCoNode);
             this.Anchor = (AnchorStyles.Top | AnchorStyles.Left);
-            btn1.BackColor = Color.Gray;
-            tbx1.BackColor = Color.Gray;
+            btn1.BackColor = Color.Red;
+            tbx1.BackColor = Color.White;
             tbx1.AcceptsReturn = true;
+            btn1.Font =tbx1.Font= new Font("Consolas", ThamSo.KichCoNode / 3, FontStyle.Bold);
             X_vitri = this.Location.X ;
 
 
@@ -35,6 +37,7 @@ namespace DoAnSapXep
         public event EventHandler ValueChange;
         private int value = 0;
         private int x_vitri;
+       
         public override string Text
         {
             get
@@ -48,20 +51,6 @@ namespace DoAnSapXep
                 btn1.Text = value.ToString();
             }
         }
-
-        public int Value
-        {
-            get
-            {
-                return value;
-            }
-
-            set
-            {
-                this.value = value;
-            }
-        }
-
         public int X_vitri
         {
             get
@@ -75,6 +64,8 @@ namespace DoAnSapXep
             }
         }
 
+        public int vitriHienTai;
+
         private void btn1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Clicks == 2)
@@ -84,7 +75,7 @@ namespace DoAnSapXep
                 tbx1.SelectionStart = tbx1.Text.Length;// dat con tro chuot "cusor" qua ben phai neu so da co
                 tbx1.BringToFront();
                 tbx1.Focus();
-                MessageBox.Show(x_vitri+"");
+              
             }
         }
 
@@ -99,16 +90,19 @@ namespace DoAnSapXep
 
         private void tbx1_Enter(object sender, EventArgs e)
         {
-
+            if (tbx1.Text!=null)
+            {
+                btn1.Text = tbx1.Text;
+            }
         }
 
         private void tbx1_KeyDown(object sender, KeyEventArgs e)
-        {
+        { 
             if (e.KeyCode == Keys.Enter)
             {
 
-                e.Handled = true;
-                btn1.Text = value.ToString();
+               // e.Handled = true;
+                btn1.Text = tbx1.ToString();
                 btn1.Visible = true;
                 btn1.BringToFront();
                 btn1.Focus();
@@ -120,8 +114,8 @@ namespace DoAnSapXep
         {
             if (tbx1.Text != "")
             {
-
-                value = Int32.Parse(tbx1.Text);
+                //  value = Int32.Parse(tbx1.Text);
+                btn1.Text = tbx1.Text;
             }
 
         }
@@ -129,24 +123,52 @@ namespace DoAnSapXep
         /// Các hàm di chuyển node;
         /// </summary>
         /// <param name="Node"></param>
-        public  void ChuyenLen()
+        public static System.Threading.ManualResetEvent pauseStatus = new System.Threading.ManualResetEvent(true);
+        public void ChuyenLen() 
         {
-            this.Location = new Point(this.Location.X,this.Location.Y-1);
+            int y_ViTriMoi = 120 - ThamSo.DoCaoDiChuyen;
+            while (this.Location.Y > y_ViTriMoi)
+            {
+              
+                //Task.Delay(ThamSo.TocDo);
+                this.Location = new Point(this.Location.X, this.Location.Y - 1);
+            }   
 
         }
         public void ChuyenXuong()
         {
-            this.Location = new Point(this.Location.X, this.Location.Y + 1);
+            int y_ViTriMoi = 120+ ThamSo.DoCaoDiChuyen;
+            while (this.Location.Y < y_ViTriMoi)
+            {
+              
+                this.Location = new Point(this.Location.X, this.Location.Y + 1);
+            }
+
 
 
         }
-        public static void ChuyenNgang(TbxBtn Node1, TbxBtn Node2)
-        { 
-                Node1.Location = new Point(Node1.Location.X+1,Node1.Location.Y);
-                Node2.Location = new Point(Node2.Location.X -1, Node2.Location.Y);
-
+        public void ChuyenNgang(int vitriMoi)
+        {
+            int x_vitririMoi;
+            if (vitriMoi > this.vitriHienTai)
+            {
+                x_vitririMoi = this.Location.X + ((vitriMoi - vitriHienTai) * ThamSo.KhoangCachCacNode);
+                while (this.Location.X < x_vitririMoi)
+                {
+                  
+                    this.Location = new Point(this.Location.X + 2, this.Location.Y);
+                }
+            }
+            else
+            {
+                x_vitririMoi = this.Location.X - ((vitriHienTai - vitriMoi) * ThamSo.KhoangCachCacNode);
+                while (this.Location.X > x_vitririMoi)
+                {
+                   
+                    this.Location = new Point(this.Location.X - 2, this.Location.Y);
+                }
+            }
         }
-
         private void ChonDongListBox(int dong)
         {
             
@@ -158,6 +180,7 @@ namespace DoAnSapXep
 
         private void TbxBtn_Load(object sender, EventArgs e)
         {
+            
             x_vitri = this.Location.X;
         }
     }

@@ -65,9 +65,11 @@ namespace DoAnSapXep
             this.giamrdbtn = new System.Windows.Forms.RadioButton();
             this.tangrdbtn = new System.Windows.Forms.RadioButton();
             this.HienThiPanel = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.codeListBox = new System.Windows.Forms.ListBox();
             this.dieukhienpanel = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.huybnt = new System.Windows.Forms.Button();
             this.dungbtn = new System.Windows.Forms.Button();
@@ -83,10 +85,8 @@ namespace DoAnSapXep
             this.huyqtbtn = new System.Windows.Forms.Button();
             this.xoamangbtn = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.sapxepPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.chuasapxepPanel.SuspendLayout();
@@ -206,9 +206,14 @@ namespace DoAnSapXep
             // 
             this.trackBar1.AutoSize = false;
             this.trackBar1.Location = new System.Drawing.Point(85, 39);
+            this.trackBar1.Maximum = 50;
+            this.trackBar1.Minimum = 1;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(135, 32);
             this.trackBar1.TabIndex = 3;
+            this.trackBar1.TickFrequency = 10;
+            this.trackBar1.Value = 1;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // chuasapxepPanel
             // 
@@ -413,6 +418,7 @@ namespace DoAnSapXep
             // 
             this.HienThiPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.HienThiPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.HienThiPanel.Controls.Add(this.button2);
             this.HienThiPanel.Controls.Add(this.button1);
             this.HienThiPanel.Controls.Add(this.codeListBox);
             this.HienThiPanel.Controls.Add(this.label2);
@@ -421,15 +427,25 @@ namespace DoAnSapXep
             this.HienThiPanel.Size = new System.Drawing.Size(479, 295);
             this.HienThiPanel.TabIndex = 22;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(22, 213);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(433, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Kiem tra Button";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(124, 58);
+            this.button1.Location = new System.Drawing.Point(109, 184);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(274, 23);
             this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
+            this.button1.Text = "Kiem tra tham so";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // codeListBox
             // 
@@ -445,6 +461,7 @@ namespace DoAnSapXep
             // 
             this.dieukhienpanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.dieukhienpanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dieukhienpanel.Controls.Add(this.label12);
             this.dieukhienpanel.Controls.Add(this.label11);
             this.dieukhienpanel.Controls.Add(this.label10);
             this.dieukhienpanel.Controls.Add(this.huybnt);
@@ -457,6 +474,16 @@ namespace DoAnSapXep
             this.dieukhienpanel.Name = "dieukhienpanel";
             this.dieukhienpanel.Size = new System.Drawing.Size(303, 116);
             this.dieukhienpanel.TabIndex = 23;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(21, 40);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 13);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "label12";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label11
             // 
@@ -612,16 +639,14 @@ namespace DoAnSapXep
             // timer1
             // 
             this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // backgroundWorker1
             // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            // 
-            // timer2
-            // 
-            this.timer2.Interval = 10;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
             // Mainform
             // 
@@ -644,6 +669,7 @@ namespace DoAnSapXep
             this.Name = "Mainform";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PHẦN MỀM MÔ PHỎNG THUẬT TOÁN SẮP XẾP v1.0";
+            this.Load += new System.EventHandler(this.Mainform_Load);
             this.sapxepPanel.ResumeLayout(false);
             this.sapxepPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
@@ -712,14 +738,14 @@ namespace DoAnSapXep
         private System.Windows.Forms.TextBox soluongNodetbx;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.ToolTip toolTip1;
         private TextBox yTuongTextBox;
         private ListBox codeListBox;
         private Timer timer1;
-        private Button button1;
         private Label label11;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private Timer timer2;
+        private Button button2;
+        private Button button1;
+        private Label label12;
     }
 }
 
