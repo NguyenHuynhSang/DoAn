@@ -53,8 +53,7 @@ namespace DoAnSapXep
             VeNut();
             interchangerdbtn.Checked = true;
             tangrdbtn.Checked = true;
-            thuattoanpanel.Enabled = false;
-            dungbtn.Enabled = huybnt.Enabled = false;
+           
         }
 
 
@@ -258,10 +257,10 @@ namespace DoAnSapXep
         void batdaubtn_Click(object sender, EventArgs e)
         {
        
-         //   isRunning = true;
-           // Enable_Disable_Control(isRunning);  
-          //  Reset_CountTime();
-           // timer1.Start();
+         isRunning = true;
+         Enable_Disable_Control(isRunning);  
+         Reset_CountTime();
+         timer1.Start();
           
             backgroundWorker1.RunWorkerAsync(); // goi ham do work  
           
@@ -634,7 +633,7 @@ namespace DoAnSapXep
             isRunning = false;
             
             MessageBox.Show("Sắp xếp hoàn tất");
-            //  Enable_Disable_Control(isRunning);
+             Enable_Disable_Control(isRunning);
             batdaubtn.Enabled = true;
           
             Loaisapxeppanel.Enabled = true;

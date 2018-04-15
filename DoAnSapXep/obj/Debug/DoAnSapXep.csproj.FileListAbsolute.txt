@@ -80,3 +80,19 @@ C:\Users\HUynhSang\Desktop\nhac\nhac (3)\nhac\Sorting ALgorithm Project\Sorting 
 C:\Users\HUynhSang\Desktop\nhac\nhac (3)\nhac\Sorting ALgorithm Project\Sorting ALgorithm Project\DoAnSapXep\obj\Debug\DoAnSapXep.csproj.GenerateResource.Cache
 C:\Users\HUynhSang\Desktop\nhac\nhac (3)\nhac\Sorting ALgorithm Project\Sorting ALgorithm Project\DoAnSapXep\obj\Debug\en-US\DoAnSapXep.resources.dll
 C:\Users\HUynhSang\Desktop\nhac\nhac (3)\nhac\Sorting ALgorithm Project\Sorting ALgorithm Project\DoAnSapXep\obj\Debug\vi-VN\DoAnSapXep.resources.dll
+D:\Git\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.exe
+D:\Git\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.pdb
+D:\Git\DoAn\DoAnSapXep\bin\Debug\DoAnSapXep.exe
+D:\Git\DoAn\DoAnSapXep\bin\Debug\DoAnSapXep.pdb
+D:\Git\DoAn\DoAnSapXep\bin\Debug\en-US\DoAnSapXep.resources.dll
+D:\Git\DoAn\DoAnSapXep\bin\Debug\vi-VN\DoAnSapXep.resources.dll
+D:\Git\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.csprojResolveAssemblyReference.cache
+D:\Git\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.Lang.myResource.resources
+D:\Git\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.Mainform.resources
+D:\Git\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.Properties.Resources.resources
+D:\Git\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.Node.resources
+D:\Git\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.Lang.myResource.en-US.resources
+D:\Git\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.Lang.myResource.vi-VN.resources
+D:\Git\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.csproj.GenerateResource.Cache
+D:\Git\DoAn\DoAnSapXep\obj\Debug\en-US\DoAnSapXep.resources.dll
+D:\Git\DoAn\DoAnSapXep\obj\Debug\vi-VN\DoAnSapXep.resources.dll
