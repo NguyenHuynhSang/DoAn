@@ -309,6 +309,10 @@ namespace DoAnSapXep
             {
                 SelectionSort();
             }
+            if (insertionrdbtn.Checked==true)
+            {
+                InsertionSort();
+            }
          
         }
         /// <summary>
@@ -478,55 +482,134 @@ namespace DoAnSapXep
                     }   
                 }
             }
-        }
+        } //xong
         private void SelectionSort()
         {
             int min, i, j;
-            
+            bool flag = false;
+            HienThiThuatToan.ChayCodeC(3);
             for (i = 0; i < SoLuongNode - 1; i++)
             {
-                min = i;
+                HienThiThuatToan.ChayCodeC(4);
+                HienThiThuatToan.ChayCodeC(6);
                 for (j = i + 1; j < SoLuongNode; j++)
-                    if (DanhSachThamSo[j] < DanhSachThamSo[min])
-                        min = j;
-                Thread.Sleep(ThamSo.ThoiGianDoi);
-                DanhSachButton[i].BackColor = DanhSachButton[min].BackColor = Color.Green;
-                CapNhatThamSo(min, i);
-                DichuyenCacNode(min, i);
+                {
+                    HienThiThuatToan.ChayCodeC(7);
+                    flag = false;
+                    min = i;
+                    if (tangrdbtn.Checked == true)
+                    {
+                        HienThiThuatToan.ChayCodeC(8);
+                        if (DanhSachThamSo[j] < DanhSachThamSo[min])
+                        {
+                            min = j;
+                            flag = true;
+                        }
+                    }
+                    if (giamrdbtn.Checked == true)
+                    {
+                        HienThiThuatToan.ChayCodeC(8);
+                        if (DanhSachThamSo[j] > DanhSachThamSo[min])
+                        {
+                            min = j;
+                            flag = true;
+                        }
+                    }
+                    if (flag == true)
+                    {
+                        HienThiThuatToan.ChayCodeC(9);
+                        HienThiThuatToan.ChayCodeC(10);
+                        Thread.Sleep(ThamSo.ThoiGianDoi);
+                        DanhSachButton[i].BackColor = DanhSachButton[min].BackColor = Color.Green;
+                        CapNhatThamSo(min, i);
+                        DichuyenCacNode(min, i);
+                    }
+                }
             }
-        }
-        //xong
+        }//xong
         private void BubbleSort()
         {
             int i, j;
             bool flag = false;
+            HienThiThuatToan.ChayCodeC(3);
+            HienThiThuatToan.ChayCodeC(4);
             for (i = 0; i < SoLuongNode - 1; i++)
+            {
+                HienThiThuatToan.ChayCodeC(5);
                 for (j = SoLuongNode - 1; j > i; j--)
                 {
-                flag = false;
-                if (tangrdbtn.Checked==true)
-                {
-                    if (DanhSachThamSo[j] < DanhSachThamSo[j - 1]) flag = true;
+                    flag = false;
+                    if (tangrdbtn.Checked == true)
+                    {
+                        HienThiThuatToan.ChayCodeC(6);
+                        if (DanhSachThamSo[j] < DanhSachThamSo[j - 1]) flag = true;
+                    }
+                    if (giamrdbtn.Checked == true)
+                    {
+                        HienThiThuatToan.ChayCodeC(6);
+                        if (DanhSachThamSo[j] > DanhSachThamSo[j - 1]) flag = true;
+                    }
+                    if (flag == true)
+                    {
+                        HienThiThuatToan.ChayCodeC(7);
+                        Thread.Sleep(ThamSo.ThoiGianDoi);
+                        DanhSachButton[j].BackColor = DanhSachButton[j - 1].BackColor = Color.Green;
+                        CapNhatThamSo(j, j - 1);
+                        DichuyenCacNode(j, j - 1);
+                    }
+
                 }
-                if (giamrdbtn.Checked==true)
-                {
-                    if (DanhSachThamSo[j] > DanhSachThamSo[j - 1]) flag = true;
-                }
-                if (flag==true)
-                {
-                   
-                    Thread.Sleep(ThamSo.ThoiGianDoi);
-                    DanhSachButton[j].BackColor = DanhSachButton[j - 1].BackColor = Color.Green;
-                    CapNhatThamSo(j, j - 1);
-                    DichuyenCacNode(j, j - 1);
-                }
-                 
-                }
-                  
+            }
                         
-        }
-
-
+        } //xong
+        private void InsertionSort()
+        {
+            int pos, key;
+            bool flag = false;
+            HienThiThuatToan.ChayCodeC(3);
+            HienThiThuatToan.ChayCodeC(4);
+            for (int i = 1; i < SoLuongNode ; i++)
+            {
+                key = DanhSachThamSo[i];
+                pos = i - 1;
+                flag = false;
+                HienThiThuatToan.ChayCodeC(5);
+                HienThiThuatToan.ChayCodeC(7);
+                HienThiThuatToan.ChayCodeC(8);
+                if (tangrdbtn.Checked == true)
+                {
+                    while ((pos >= 0) && (DanhSachThamSo[pos] > key))
+                    {
+                        HienThiThuatToan.ChayCodeC(10);
+                        Thread.Sleep(ThamSo.ThoiGianDoi);
+                        DanhSachButton[pos + 1].BackColor = DanhSachButton[pos].BackColor = Color.Green;
+                        CapNhatThamSo(pos + 1, pos);
+                        DichuyenCacNode(pos + 1, pos);
+                        HienThiThuatToan.ChayCodeC(11);
+                        pos--;
+                    }
+                    flag = true;
+                }
+                if (giamrdbtn.Checked == true)
+                {
+                    while ((pos >= 0) && (DanhSachThamSo[pos] < key))
+                    {
+                        HienThiThuatToan.ChayCodeC(10);
+                        Thread.Sleep(ThamSo.ThoiGianDoi);
+                        DanhSachButton[pos + 1].BackColor = DanhSachButton[pos].BackColor = Color.Green;
+                        CapNhatThamSo(pos + 1, pos);
+                        DichuyenCacNode(pos + 1, pos);
+                        HienThiThuatToan.ChayCodeC(11);
+                        pos--;
+                    }
+                    flag = true;
+                }
+                if (flag == true)
+                {
+                    DanhSachThamSo[pos + 1] = key;
+                }
+            }
+        }//xong
 
         private void DichuyenCacNode(int vt1, int vt2)
         {
