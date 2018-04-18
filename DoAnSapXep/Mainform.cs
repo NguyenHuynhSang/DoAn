@@ -30,7 +30,7 @@ namespace DoAnSapXep
         /// <summary>
         /// Các biến toàn cục
         /// </summary>
-
+        public static bool isEnglish = false;
         CultureInfo culture;
 
         public int loaiThuatToan;
@@ -185,10 +185,30 @@ namespace DoAnSapXep
                 hienThiThuatToanNCodeC();
             }
             isTang = true;
-
         }
+        #region Thêm ý tưởng vào yTuongTextBox
+        private void addYTuong()
+        {
+            this.yTuongTextBox.Controls.Clear();
+            this.yTuongTextBox.Text = HienThiThuatToan.yTuongVi;
+        }
+        private void addIdea()
+        {
+            this.yTuongTextBox.Controls.Clear();
+            this.yTuongTextBox.Text = HienThiThuatToan.yTuongEn;
+        }
+        #endregion
+
         private void hienThiThuatToanNCodeC()
         {
+            if (isEnglish == true)
+            {
+                addIdea();
+            }
+            else
+            {
+                addYTuong();
+            }
             //Gán yTuongTextBox, codeListBox và isSapXepTang
             HienThiThuatToan.yTuongThuatToan = yTuongTextBox;
             HienThiThuatToan.codeListBox = codeListBox;
@@ -298,7 +318,6 @@ namespace DoAnSapXep
             HienThiThuatToan.ChayCodeC(1);
             if (interchangerdbtn.Checked==true)
             {
-            
                 InterchangeSort();
             }
             if (bubblerdbtn.Checked==true)
@@ -453,28 +472,28 @@ namespace DoAnSapXep
 
             int i, j;
             bool flag;
-            HienThiThuatToan.ChayCodeC(3);
+            HienThiThuatToan.ChayCodeC(2);
             //status st = new status(); 
             for (i = 0; i < SoLuongNode - 1; i++)
             {
-                HienThiThuatToan.ChayCodeC(4);
+                HienThiThuatToan.ChayCodeC(3);
                 for (j = i + 1; j < SoLuongNode; j++)
                 {
-                    HienThiThuatToan.ChayCodeC(5);
+                    HienThiThuatToan.ChayCodeC(4);
                     flag = false;
                     if (tangrdbtn.Checked==true)
                     {
-                        HienThiThuatToan.ChayCodeC(6);
+                        HienThiThuatToan.ChayCodeC(5);
                         if (DanhSachThamSo[j] < DanhSachThamSo[i]) flag = true;
                     }
                     if (giamrdbtn.Checked==true)
                     {
-                        HienThiThuatToan.ChayCodeC(6);
+                        HienThiThuatToan.ChayCodeC(5);
                         if (DanhSachThamSo[j] > DanhSachThamSo[i]) flag = true;
                     }
                     if (flag)
                     {
-                        HienThiThuatToan.ChayCodeC(7);
+                        HienThiThuatToan.ChayCodeC(6);
                         Thread.Sleep(ThamSo.ThoiGianDoi);
                         DanhSachButton[i].BackColor = DanhSachButton[j].BackColor = Color.Green;
                         CapNhatThamSo(i, j);
@@ -487,19 +506,19 @@ namespace DoAnSapXep
         {
             int min, i, j;
             bool flag = false;
-            HienThiThuatToan.ChayCodeC(3);
+            HienThiThuatToan.ChayCodeC(2);
             for (i = 0; i < SoLuongNode - 1; i++)
             {
-                HienThiThuatToan.ChayCodeC(4);
-                HienThiThuatToan.ChayCodeC(6);
+                HienThiThuatToan.ChayCodeC(3);
+                HienThiThuatToan.ChayCodeC(5);
                 for (j = i + 1; j < SoLuongNode; j++)
                 {
-                    HienThiThuatToan.ChayCodeC(7);
+                    HienThiThuatToan.ChayCodeC(6);
                     flag = false;
                     min = i;
                     if (tangrdbtn.Checked == true)
                     {
-                        HienThiThuatToan.ChayCodeC(8);
+                        HienThiThuatToan.ChayCodeC(7);
                         if (DanhSachThamSo[j] < DanhSachThamSo[min])
                         {
                             min = j;
@@ -508,7 +527,7 @@ namespace DoAnSapXep
                     }
                     if (giamrdbtn.Checked == true)
                     {
-                        HienThiThuatToan.ChayCodeC(8);
+                        HienThiThuatToan.ChayCodeC(7);
                         if (DanhSachThamSo[j] > DanhSachThamSo[min])
                         {
                             min = j;
@@ -517,8 +536,8 @@ namespace DoAnSapXep
                     }
                     if (flag == true)
                     {
+                        HienThiThuatToan.ChayCodeC(8);
                         HienThiThuatToan.ChayCodeC(9);
-                        HienThiThuatToan.ChayCodeC(10);
                         Thread.Sleep(ThamSo.ThoiGianDoi);
                         DanhSachButton[i].BackColor = DanhSachButton[min].BackColor = Color.Green;
                         CapNhatThamSo(min, i);
@@ -531,27 +550,27 @@ namespace DoAnSapXep
         {
             int i, j;
             bool flag = false;
+            HienThiThuatToan.ChayCodeC(2);
             HienThiThuatToan.ChayCodeC(3);
-            HienThiThuatToan.ChayCodeC(4);
             for (i = 0; i < SoLuongNode - 1; i++)
             {
-                HienThiThuatToan.ChayCodeC(5);
+                HienThiThuatToan.ChayCodeC(4);
                 for (j = SoLuongNode - 1; j > i; j--)
                 {
                     flag = false;
                     if (tangrdbtn.Checked == true)
                     {
-                        HienThiThuatToan.ChayCodeC(6);
+                        HienThiThuatToan.ChayCodeC(5);
                         if (DanhSachThamSo[j] < DanhSachThamSo[j - 1]) flag = true;
                     }
                     if (giamrdbtn.Checked == true)
                     {
-                        HienThiThuatToan.ChayCodeC(6);
+                        HienThiThuatToan.ChayCodeC(5);
                         if (DanhSachThamSo[j] > DanhSachThamSo[j - 1]) flag = true;
                     }
                     if (flag == true)
                     {
-                        HienThiThuatToan.ChayCodeC(7);
+                        HienThiThuatToan.ChayCodeC(6);
                         Thread.Sleep(ThamSo.ThoiGianDoi);
                         DanhSachButton[j].BackColor = DanhSachButton[j - 1].BackColor = Color.Green;
                         CapNhatThamSo(j, j - 1);
@@ -566,26 +585,26 @@ namespace DoAnSapXep
         {
             int pos, key;
             bool flag = false;
+            HienThiThuatToan.ChayCodeC(2);
             HienThiThuatToan.ChayCodeC(3);
-            HienThiThuatToan.ChayCodeC(4);
             for (int i = 1; i < SoLuongNode ; i++)
             {
                 key = DanhSachThamSo[i];
                 pos = i - 1;
                 flag = false;
-                HienThiThuatToan.ChayCodeC(5);
+                HienThiThuatToan.ChayCodeC(4);
+                HienThiThuatToan.ChayCodeC(6);
                 HienThiThuatToan.ChayCodeC(7);
-                HienThiThuatToan.ChayCodeC(8);
                 if (tangrdbtn.Checked == true)
                 {
                     while ((pos >= 0) && (DanhSachThamSo[pos] > key))
                     {
-                        HienThiThuatToan.ChayCodeC(10);
+                        HienThiThuatToan.ChayCodeC(9);
                         Thread.Sleep(ThamSo.ThoiGianDoi);
                         DanhSachButton[pos + 1].BackColor = DanhSachButton[pos].BackColor = Color.Green;
                         CapNhatThamSo(pos + 1, pos);
                         DichuyenCacNode(pos + 1, pos);
-                        HienThiThuatToan.ChayCodeC(11);
+                        HienThiThuatToan.ChayCodeC(10);
                         pos--;
                     }
                     flag = true;
@@ -594,12 +613,12 @@ namespace DoAnSapXep
                 {
                     while ((pos >= 0) && (DanhSachThamSo[pos] < key))
                     {
-                        HienThiThuatToan.ChayCodeC(10);
+                        HienThiThuatToan.ChayCodeC(9);
                         Thread.Sleep(ThamSo.ThoiGianDoi);
                         DanhSachButton[pos + 1].BackColor = DanhSachButton[pos].BackColor = Color.Green;
                         CapNhatThamSo(pos + 1, pos);
                         DichuyenCacNode(pos + 1, pos);
-                        HienThiThuatToan.ChayCodeC(11);
+                        HienThiThuatToan.ChayCodeC(10);
                         pos--;
                     }
                     flag = true;
@@ -766,14 +785,22 @@ namespace DoAnSapXep
         #region Set English
         private void btnEn_Click(object sender, EventArgs e)
         {
+            isEnglish = true;
+            HienThiThuatToan.yTuongThuatToan.Clear();
+            addIdea();
             setLang("en-US");
         }
         #endregion
 
         #region Set Tiếng Việt
+
         private void btnVi_Click(object sender, EventArgs e)
         {
+            isEnglish = false;
+            HienThiThuatToan.yTuongThuatToan.Clear();
+            addYTuong();
             setLang("vi-VN");
+
         }
         #endregion
 

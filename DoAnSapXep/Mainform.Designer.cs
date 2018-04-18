@@ -687,11 +687,11 @@ namespace DoAnSapXep
             // lbNgonNgu
             // 
             this.lbNgonNgu.AutoSize = true;
-            this.lbNgonNgu.Location = new System.Drawing.Point(3, 4);
+            this.lbNgonNgu.Location = new System.Drawing.Point(35, 4);
             this.lbNgonNgu.Name = "lbNgonNgu";
-            this.lbNgonNgu.Size = new System.Drawing.Size(109, 13);
+            this.lbNgonNgu.Size = new System.Drawing.Size(56, 13);
             this.lbNgonNgu.TabIndex = 0;
-            this.lbNgonNgu.Text = "Ngôn Ngữ/Language";
+            this.lbNgonNgu.Text = "Ngôn Ngữ";
             // 
             // Mainform
             // 
