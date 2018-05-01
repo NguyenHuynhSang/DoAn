@@ -297,8 +297,7 @@ namespace DoAnSapXep
             // Ham dowork thuc hien xong goi ham complete
             HienThiThuatToan.ChayCodeC(1);
             if (interchangerdbtn.Checked==true)
-            {
-            
+            {    
                 InterchangeSort();
             }
             if (bubblerdbtn.Checked==true)
@@ -313,7 +312,22 @@ namespace DoAnSapXep
             {
                 InsertionSort();
             }
-         
+            if (binaryinsertionrdbtn.Checked==true)
+            {
+                BInsertionSort();
+            }
+            if (quickrdbtn.Checked==true)
+            {
+                QuickSort(0, SoLuongNode - 1);
+            }
+            if (shakerrdbtn.Checked==true)
+            {
+                ShakerSort();
+            }
+            if (shellrdbtn.Checked==true)
+            {
+                ShellSort();
+            }
         }
         /// <summary>
         /// Khu vuc bao tri 
@@ -610,6 +624,284 @@ namespace DoAnSapXep
                 }
             }
         }//xong
+        private void BInsertionSort()
+        {
+            HienThiThuatToan.ChayCodeC(3);
+            HienThiThuatToan.ChayCodeC(4);
+            HienThiThuatToan.ChayCodeC(5);
+            int left, right, m, pos;
+            int x;
+            for (int i = 1; i < SoLuongNode; i++)
+            {
+                HienThiThuatToan.ChayCodeC(7);
+                x = DanhSachThamSo[i]; left = 0; right = i - 1;
+                HienThiThuatToan.ChayCodeC(8);
+                while (left <= right)
+                {
+                    HienThiThuatToan.ChayCodeC(10);
+                    m = (left + right) / 2;
+                    if (tangrdbtn.Checked == true)
+                    {
+                        HienThiThuatToan.ChayCodeC(11);
+                        if (x < DanhSachThamSo[m])
+                            right = m - 1;
+                        else
+                        {
+                            HienThiThuatToan.ChayCodeC(12);
+                            left = m + 1;
+                        }
+                    }
+                    if (giamrdbtn.Checked == true)
+                    {
+                        HienThiThuatToan.ChayCodeC(11);
+                        if (x > DanhSachThamSo[m])
+                            right = m - 1;
+                        else
+                        {
+                            HienThiThuatToan.ChayCodeC(12);
+                            left = m + 1;
+                        }
+                    }
+                }
+                HienThiThuatToan.ChayCodeC(14);
+                for (pos = i - 1; pos >= left; pos--)
+                {
+                    HienThiThuatToan.ChayCodeC(15);
+                    Thread.Sleep(ThamSo.ThoiGianDoi);
+                    DanhSachButton[pos + 1].BackColor = DanhSachButton[pos].BackColor = Color.Green;
+                    CapNhatThamSo(pos + 1, pos);
+                    DichuyenCacNode(pos + 1, pos);
+                }
+                DanhSachThamSo[left] = x;
+            }
+        } // xong
+        private void QuickSort(int left, int right)
+        {
+            int i, j, x;
+            HienThiThuatToan.ChayCodeC(2);
+            HienThiThuatToan.ChayCodeC(3);
+            HienThiThuatToan.ChayCodeC(4);
+            HienThiThuatToan.ChayCodeC(5);
+            x = DanhSachThamSo[(left + right) / 2];
+            i = left;
+            j = right;
+            do
+            {
+                if (tangrdbtn.Checked == true)
+                {
+                    HienThiThuatToan.ChayCodeC(8);
+                    while (DanhSachThamSo[i] < x)
+                    {
+                        HienThiThuatToan.ChayCodeC(9);
+                        i++;
+                    }
+                    HienThiThuatToan.ChayCodeC(10);
+                    while (x < DanhSachThamSo[j])
+                    {
+                        HienThiThuatToan.ChayCodeC(11);
+                        j--;
+                    }
+                    HienThiThuatToan.ChayCodeC(12);
+                    if (i <= j)
+                    {
+                        HienThiThuatToan.ChayCodeC(14);
+                        Thread.Sleep(ThamSo.ThoiGianDoi);
+                        DanhSachButton[i].BackColor = DanhSachButton[j].BackColor = Color.Green;
+                        CapNhatThamSo(i, j);
+                        DichuyenCacNode(j, i);
+                        i++;
+                        j--;
+                    }
+                }
+                if (giamrdbtn.Checked == true)
+                {
+                    HienThiThuatToan.ChayCodeC(8);
+                    while (DanhSachThamSo[i] > x)
+                    {
+                        HienThiThuatToan.ChayCodeC(9);
+                        i++;
+                    }
+                    HienThiThuatToan.ChayCodeC(10);
+                    while (x > DanhSachThamSo[j])
+                    {
+                        HienThiThuatToan.ChayCodeC(11);
+                        j--;
+                    }
+                    HienThiThuatToan.ChayCodeC(12);
+                    if (i <= j)
+                    {
+                        HienThiThuatToan.ChayCodeC(14);
+                        Thread.Sleep(ThamSo.ThoiGianDoi);
+                        DanhSachButton[i].BackColor = DanhSachButton[j].BackColor = Color.Green;
+                        CapNhatThamSo(i, j);
+                        DichuyenCacNode(j, i);
+                        i++;
+                        j--;
+                    }
+                }
+            } while (i <= j);
+            HienThiThuatToan.ChayCodeC(18);
+            if (left < j)
+            {
+                HienThiThuatToan.ChayCodeC(19);
+                QuickSort(left, j);
+            }
+            HienThiThuatToan.ChayCodeC(20);
+            if (i < right)
+            {
+                HienThiThuatToan.ChayCodeC(21);
+                QuickSort(i, right);
+            }
+        } //xong
+        private void ShakerSort()
+        {
+            int i, j, left, right, k;
+            left = 0;
+            right = SoLuongNode - 1;
+            k = SoLuongNode - 1;
+            HienThiThuatToan.ChayCodeC(3);
+            HienThiThuatToan.ChayCodeC(4);
+            HienThiThuatToan.ChayCodeC(5);
+            while (left < right)
+            {
+                if (tangrdbtn.Checked == true)
+                {
+                    HienThiThuatToan.ChayCodeC(7);
+                    for (i = right; i > left; i--)
+                    {
+                        HienThiThuatToan.ChayCodeC(8);
+                        if (DanhSachThamSo[i] < DanhSachThamSo[i - 1])
+                        {
+                            HienThiThuatToan.ChayCodeC(10);
+                            Thread.Sleep(ThamSo.ThoiGianDoi);
+                            DanhSachButton[i].BackColor = DanhSachButton[i - 1].BackColor = Color.Green;
+                            CapNhatThamSo(i, i - 1);
+                            DichuyenCacNode(i, i - 1);
+                            k = i;
+                        }
+                    }
+                    left = k;
+                    HienThiThuatToan.ChayCodeC(14);
+                    for (j = left; j < right; j++)
+                    {
+                        HienThiThuatToan.ChayCodeC(15);
+                        if (DanhSachThamSo[j] > DanhSachThamSo[j + 1])
+                        {
+                            HienThiThuatToan.ChayCodeC(17);
+                            Thread.Sleep(ThamSo.ThoiGianDoi);
+                            DanhSachButton[j + 1].BackColor = DanhSachButton[j].BackColor = Color.Green;
+                            CapNhatThamSo(j + 1, j);
+                            DichuyenCacNode(j + 1, j);
+                            k = j;
+                        }
+                    }
+                    right = k;
+                }
+                if (giamrdbtn.Checked == true)
+                {
+                    HienThiThuatToan.ChayCodeC(7);
+                    for (i = right; i > left; i--)
+                    {
+                        HienThiThuatToan.ChayCodeC(8);
+                        if (DanhSachThamSo[i] > DanhSachThamSo[i - 1])
+                        {
+                            HienThiThuatToan.ChayCodeC(10);
+                            Thread.Sleep(ThamSo.ThoiGianDoi);
+                            DanhSachButton[i].BackColor = DanhSachButton[i - 1].BackColor = Color.Green;
+                            CapNhatThamSo(i, i - 1);
+                            DichuyenCacNode(i, i - 1);
+                            k = i;
+                        }
+                    }
+                    left = k;
+                    HienThiThuatToan.ChayCodeC(14);
+                    for (j = left; j < right; j++)
+                    {
+                        HienThiThuatToan.ChayCodeC(15);
+                        if (DanhSachThamSo[j] < DanhSachThamSo[j + 1])
+                        {
+                            HienThiThuatToan.ChayCodeC(17);
+                            Thread.Sleep(ThamSo.ThoiGianDoi);
+                            DanhSachButton[j + 1].BackColor = DanhSachButton[j].BackColor = Color.Green;
+                            CapNhatThamSo(j + 1, j);
+                            DichuyenCacNode(j + 1, j);
+                            k = j;
+                        }
+                    }
+                    right = k;
+                }
+            }
+        } //xong
+        private void ShellSort()
+        {
+            HienThiThuatToan.ChayCodeC(1);
+            for (int gap = SoLuongNode/2; gap > 0; gap /= 2)
+            {
+                HienThiThuatToan.ChayCodeC(3);
+                for (int i = gap; i < SoLuongNode; i++)
+                {
+                    HienThiThuatToan.ChayCodeC(5);
+                    if (tangrdbtn.Checked == true)
+                    {
+                        HienThiThuatToan.ChayCodeC(7);
+                        for (int j = i; j >= gap && DanhSachThamSo[j] < DanhSachThamSo[j - gap]; j -= gap)
+                        {
+                            HienThiThuatToan.ChayCodeC(9);
+                            Thread.Sleep(ThamSo.ThoiGianDoi);
+                            DanhSachButton[j].BackColor = DanhSachButton[j - gap].BackColor = Color.Green;
+                            CapNhatThamSo(j, j - gap);
+                            DichuyenCacNode(j, j - gap);
+                        }
+                    }
+                    if (giamrdbtn.Checked == true)
+                    {
+                        HienThiThuatToan.ChayCodeC(7);
+                        for (int j = i; j >= gap && DanhSachThamSo[j] > DanhSachThamSo[j - gap]; j -= gap)
+                        {
+                            HienThiThuatToan.ChayCodeC(9);
+                            Thread.Sleep(ThamSo.ThoiGianDoi);
+                            DanhSachButton[j].BackColor = DanhSachButton[j - gap].BackColor = Color.Green;
+                            CapNhatThamSo(j, j - gap);
+                            DichuyenCacNode(j, j - gap);
+                        }
+                    }
+                }
+
+            }
+        } // xong
+
+        void CreateHeap(int N)
+        {
+            int l;
+            l = N / 2 - 1;
+            while (l >= 0)
+            {
+                Shift(l, N - 1);
+                l--;
+            }
+        }
+
+        void Shift(int l, int r)
+        {
+            int i = l;
+            int j = 2 * i + 1;
+            while (j <= r)
+            {
+                if (j < r && DanhSachThamSo[j] < DanhSachThamSo[j + 1])
+                    j++;
+                if (DanhSachThamSo[i] < DanhSachThamSo[j])
+                {
+                    Thread.Sleep(ThamSo.ThoiGianDoi);
+                    DanhSachButton[i].BackColor = DanhSachButton[j].BackColor = Color.Green;
+                    CapNhatThamSo(i, j);
+                    DichuyenCacNode(i, j);
+                    i = j;
+                    j = 2 * i + 1;
+                }
+                else return;
+            }
+        }
+
 
         private void DichuyenCacNode(int vt1, int vt2)
         {
