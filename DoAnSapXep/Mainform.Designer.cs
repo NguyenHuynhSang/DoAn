@@ -216,7 +216,7 @@ namespace DoAnSapXep
             this.DebugPanel.Controls.Add(this.yTuongTextBox);
             this.DebugPanel.Controls.Add(this.lbYTuongThuatToan);
             this.DebugPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DebugPanel.Location = new System.Drawing.Point(6, 515);
+            this.DebugPanel.Location = new System.Drawing.Point(6, 355);
             this.DebugPanel.Name = "DebugPanel";
             this.DebugPanel.Size = new System.Drawing.Size(350, 135);
             this.DebugPanel.TabIndex = 20;
@@ -247,7 +247,7 @@ namespace DoAnSapXep
             this.thuattoanpanel.Controls.Add(this.binaryinsertionrdbtn);
             this.thuattoanpanel.Controls.Add(this.interchangerdbtn);
             this.thuattoanpanel.Controls.Add(this.lbThuatToan);
-            this.thuattoanpanel.Location = new System.Drawing.Point(6, 355);
+            this.thuattoanpanel.Location = new System.Drawing.Point(6, 496);
             this.thuattoanpanel.Name = "thuattoanpanel";
             this.thuattoanpanel.Size = new System.Drawing.Size(255, 154);
             this.thuattoanpanel.TabIndex = 4;
@@ -369,7 +369,7 @@ namespace DoAnSapXep
             this.Loaisapxeppanel.Controls.Add(this.giamrdbtn);
             this.Loaisapxeppanel.Controls.Add(this.tangrdbtn);
             this.Loaisapxeppanel.Controls.Add(this.lbSapXep);
-            this.Loaisapxeppanel.Location = new System.Drawing.Point(267, 355);
+            this.Loaisapxeppanel.Location = new System.Drawing.Point(267, 496);
             this.Loaisapxeppanel.Name = "Loaisapxeppanel";
             this.Loaisapxeppanel.Size = new System.Drawing.Size(89, 87);
             this.Loaisapxeppanel.TabIndex = 21;
@@ -581,7 +581,7 @@ namespace DoAnSapXep
             // 
             this.panel10.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel10.Location = new System.Drawing.Point(267, 448);
+            this.panel10.Location = new System.Drawing.Point(267, 589);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(89, 61);
             this.panel10.TabIndex = 26;
@@ -700,14 +700,14 @@ namespace DoAnSapXep
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1162, 662);
             this.Controls.Add(this.ngonngupanel);
+            this.Controls.Add(this.Loaisapxeppanel);
+            this.Controls.Add(this.panel10);
             this.Controls.Add(this.thuattoanpanel);
             this.Controls.Add(this.DebugPanel);
-            this.Controls.Add(this.panel10);
             this.Controls.Add(this.huypanel);
             this.Controls.Add(this.khoitaopanel);
             this.Controls.Add(this.dieukhienpanel);
             this.Controls.Add(this.HienThiPanel);
-            this.Controls.Add(this.Loaisapxeppanel);
             this.Controls.Add(this.chuasapxepPanel);
             this.Controls.Add(this.sapxepPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

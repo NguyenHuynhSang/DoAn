@@ -283,7 +283,7 @@ namespace DoAnSapXep
          DieuChinhControls(isRunning);  
          Reset_CountTime();
          timer1.Start();
-       
+            
          backgroundWorker1.RunWorkerAsync(); // goi ham do work  
 
         }
@@ -313,29 +313,7 @@ namespace DoAnSapXep
         /// <param name="sender"></param>
         /// <param name="e"></param>
         ///  
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-            //Do work xu ly du lieu nhung khong the cap nhat len Gui
-            // Ham dowork thuc hien xong goi ham complete
-            HienThiThuatToan.ChayCodeC(1);
-            if (interchangerdbtn.Checked==true)
-            {
-                InterchangeSort();
-            }
-            if (bubblerdbtn.Checked==true)
-            {
-                BubbleSort();
-            }
-            if (selectionrdbtn.Checked==true)
-            {
-                SelectionSort();
-            }
-            if (insertionrdbtn.Checked==true)
-            {
-                InsertionSort();
-            }
-         
-        }
+     
         /// <summary>
         /// Khu vuc bao tri 
         /// dang bi loi
@@ -346,7 +324,7 @@ namespace DoAnSapXep
         //Action hamSapXep;
         //public void BatDauSapXep()
         //{
-          
+
 
 
         //    sortingThread = new Thread(new ThreadStart(hamSapXep));
@@ -406,20 +384,20 @@ namespace DoAnSapXep
         //        DanhSachNode[vitriNodeB] = t;
         //    }
 
-           
+
 
         //}
         //private void InterchangeSort()
         //{
-            
-            
-           
+
+
+
         //    for (int i = 0; i < DanhSachThamSo.Count() - 1; i++)
         //    {
         //        for (int j = i + 1; j < DanhSachThamSo.Count(); j++)
         //        {
-                  
-                  
+
+
         //            if (DanhSachThamSo[j] < DanhSachThamSo[i])
         //            {
 
@@ -429,11 +407,11 @@ namespace DoAnSapXep
 
         //        }
         //    }
-             
-                   
 
-                    
-           
+
+
+
+
         //}
 
         //public void CapNhatDanhSachThamSo(int i,int j)
@@ -445,7 +423,7 @@ namespace DoAnSapXep
         //public void CapNhatDanhSachNode(int i,int j)
         //{
         //    TbxBtn temp = DanhSachNode[i];
-            
+
         //    DanhSachNode[i] = DanhSachNode[j];
         //    DanhSachNode[j] = temp;
         //    //DanhSachNode[i].Location = new Point(DanhSachNode[j].X_vitri, sapxepPanel.Height / 2 - DanhSachNode[i].Height / 2);
@@ -454,7 +432,7 @@ namespace DoAnSapXep
 
         #endregion
 
-
+        #region Cac Ham cap nhat lai mang va Node
         private void CapNhatThamSo(int vt1,int vt2)
         {
             int temp = DanhSachThamSo[vt1];
@@ -468,7 +446,143 @@ namespace DoAnSapXep
             DanhSachNode[vt1] = DanhSachNode[vt2];
             DanhSachNode[vt2]=temp;
         }
+        #endregion
 
+        #region Khung chuong trinh
+        /// <summary>
+        /// Su dung backgroundWalker de mo phong su di chuyen cua cac Node
+        /// </summary>
+        ///  Vi tri cua Node Dau tien<param name="vt1"></param>
+        /// Vi tri Node tiep theo<param name="vt2"></param>
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //Do work xu ly du lieu nhung khong the cap nhat len Gui
+            // Ham dowork thuc hien xong goi ham complete
+            HienThiThuatToan.ChayCodeC(1);
+            if (interchangerdbtn.Checked == true)
+            {
+                InterchangeSort();
+            }
+            if (bubblerdbtn.Checked == true)
+            {
+                BubbleSort();
+            }
+            if (selectionrdbtn.Checked == true)
+            {
+                SelectionSort();
+            }
+            if (insertionrdbtn.Checked == true)
+            {
+                InsertionSort();
+            }
+            if (shakerrdbtn.Checked == true)
+            {
+                ShakerSort();
+            }
+            if (shellrdbtn.Checked == true)
+            {
+                ShellSort();
+            }
+
+        }
+        private void DichuyenCacNode(int vt1, int vt2)
+        {
+
+            int Height = ThamSo.DoCaoDiChuyen + 10;
+            int _width = Math.Abs(vt1 - vt2) * (ThamSo.KichCoNode + ThamSo.KhoangCachCacNode);
+            status st = new status();
+            st.vt1 = vt1;
+            st.vt2 = vt2;
+
+            st.Type = LoaiDiChuyen.Di_LEN_DI_XUONG;
+            for (int i = 0; i < Height; i = i + 1)
+            {
+                // goiham progresschanged de cap nhat lai giao dien
+                // Khi tao brackgroundworker nho set reportprogree la true k se bi 
+
+                backgroundWorker1.ReportProgress(0, st);
+                Thread.Sleep(ThamSo.ThoiGianDoi);
+            }
+            st.Type = LoaiDiChuyen.QUA_PHAI_QUA_TRAI;
+
+            for (int i = 0; i < _width; i = i + 2)
+            {
+
+
+                backgroundWorker1.ReportProgress(0, st);
+                Thread.Sleep(ThamSo.ThoiGianDoi);
+            }
+            st.Type = LoaiDiChuyen.DI_XUONG_DI_LEN;
+            for (int i = 0; i < Height; i = i + 1)
+            {
+
+                backgroundWorker1.ReportProgress(0, st);
+                Thread.Sleep(ThamSo.ThoiGianDoi);
+            }
+            st.Type = LoaiDiChuyen.DUNG;
+            backgroundWorker1.ReportProgress(0, st);
+            Thread.Sleep(ThamSo.ThoiGianDoi);
+        }
+
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            /// Cap nhat Gui sau do goi lai ham dowork
+            status st = e.UserState as status;// lay gia tri st truyen vao ham trn
+            if (st == null)
+            {
+                return;
+            }
+            if (st.Type == LoaiDiChuyen.DUNG)
+            {
+                DanhSachNode[st.vt1].BackColor = DanhSachNode[st.vt2].BackColor = Color.Honeydew;
+                CapNhatDanhSachNode(st.vt2, st.vt1);
+
+                return;
+
+            }
+
+            if (st.Type == LoaiDiChuyen.Di_LEN_DI_XUONG)
+            {
+                DanhSachNode[st.vt1].Location = new Point(DanhSachNode[st.vt1].Location.X, DanhSachNode[st.vt1].Location.Y + 1);
+                DanhSachNode[st.vt2].Location = new Point(DanhSachNode[st.vt2].Location.X, DanhSachNode[st.vt2].Location.Y - 1);
+            }
+
+            if (st.Type == LoaiDiChuyen.QUA_PHAI_QUA_TRAI)
+            {
+                DanhSachNode[st.vt1].Location = new Point(DanhSachNode[st.vt1].Location.X - 2, DanhSachNode[st.vt1].Location.Y);
+                DanhSachNode[st.vt2].Location = new Point(DanhSachNode[st.vt2].Location.X + 2, DanhSachNode[st.vt2].Location.Y);
+            }
+
+            if (st.Type == LoaiDiChuyen.DI_XUONG_DI_LEN)
+            {
+                DanhSachNode[st.vt1].Location = new Point(DanhSachNode[st.vt1].Location.X, DanhSachNode[st.vt1].Location.Y - 1);
+                DanhSachNode[st.vt2].Location = new Point(DanhSachNode[st.vt2].Location.X, DanhSachNode[st.vt2].Location.Y + 1);
+            }
+
+
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            ///xong
+            timer1.Stop();
+
+
+            MessageBox.Show("Sắp xếp hoàn tất");
+            isRunning = false;
+            DieuChinhControls(isRunning);
+
+        }
+        #endregion
+        private void Reset_CountTime()
+        {
+
+            Phut = Giay = 0;
+            label11.Text = "00:00";
+        }
+
+        #region InterchangeSort
         private void InterchangeSort()
         {
 
@@ -504,6 +618,8 @@ namespace DoAnSapXep
                 }
             }
         } //xong
+        #endregion
+        #region SelectionSort
         private void SelectionSort()
         {
             int min, i, j;
@@ -548,6 +664,8 @@ namespace DoAnSapXep
                 }
             }
         }//xong
+        #endregion
+        #region BubbleSort
         private void BubbleSort()
         {
             int i, j;
@@ -583,6 +701,8 @@ namespace DoAnSapXep
             }
                         
         } //xong
+        #endregion
+        #region InsertionSort
         private void InsertionSort()
         {
             int pos, key;
@@ -628,45 +748,128 @@ namespace DoAnSapXep
                 
             }
         }//xong
-
-        private void DichuyenCacNode(int vt1, int vt2)
+        #endregion
+        #region ShakerSort
+        private void ShakerSort()
         {
+            int i, j, left, right, k;
+            left = 0;
+            right = SoLuongNode - 1;
+            k = SoLuongNode - 1;
+            HienThiThuatToan.ChayCodeC(3);
+            HienThiThuatToan.ChayCodeC(4);
+            HienThiThuatToan.ChayCodeC(5);
+            while (left < right)
+            {
+                if (tangrdbtn.Checked == true)
+                {
+                    HienThiThuatToan.ChayCodeC(7);
+                    for (i = right; i > left; i--)
+                    {
+                        HienThiThuatToan.ChayCodeC(8);
+                        if (DanhSachThamSo[i] < DanhSachThamSo[i - 1])
+                        {
+                            HienThiThuatToan.ChayCodeC(10);
+                            Thread.Sleep(ThamSo.ThoiGianDoi);
+                            DanhSachNode[i].BackColor = DanhSachNode[i - 1].BackColor = Color.Green;
+                            CapNhatThamSo(i, i - 1);
+                            DichuyenCacNode(i, i - 1);
+                            k = i;
+                        }
+                    }
+                    left = k;
+                    HienThiThuatToan.ChayCodeC(14);
+                    for (j = left; j < right; j++)
+                    {
+                        HienThiThuatToan.ChayCodeC(15);
+                        if (DanhSachThamSo[j] > DanhSachThamSo[j + 1])
+                        {
+                            HienThiThuatToan.ChayCodeC(17);
+                            Thread.Sleep(ThamSo.ThoiGianDoi);
+                            DanhSachNode[j + 1].BackColor = DanhSachNode[j].BackColor = Color.Green;
+                            CapNhatThamSo(j + 1, j);
+                            DichuyenCacNode(j + 1, j);
+                            k = j;
+                        }
+                    }
+                    right = k;
+                }
+                if (giamrdbtn.Checked == true)
+                {
+                    HienThiThuatToan.ChayCodeC(7);
+                    for (i = right; i > left; i--)
+                    {
+                        HienThiThuatToan.ChayCodeC(8);
+                        if (DanhSachThamSo[i] > DanhSachThamSo[i - 1])
+                        {
+                            HienThiThuatToan.ChayCodeC(10);
+                            Thread.Sleep(ThamSo.ThoiGianDoi);
+                            DanhSachNode[i].BackColor = DanhSachNode[i - 1].BackColor = Color.Green;
+                            CapNhatThamSo(i, i - 1);
+                            DichuyenCacNode(i, i - 1);
+                            k = i;
+                        }
+                    }
+                    left = k;
+                    HienThiThuatToan.ChayCodeC(14);
+                    for (j = left; j < right; j++)
+                    {
+                        HienThiThuatToan.ChayCodeC(15);
+                        if (DanhSachThamSo[j] < DanhSachThamSo[j + 1])
+                        {
+                            HienThiThuatToan.ChayCodeC(17);
+                            Thread.Sleep(ThamSo.ThoiGianDoi);
+                            DanhSachNode[j + 1].BackColor = DanhSachNode[j].BackColor = Color.Green;
+                            CapNhatThamSo(j + 1, j);
+                            DichuyenCacNode(j + 1, j);
+                            k = j;
+                        }
+                    }
+                    right = k;
+                }
+            }
 
-            int Height = ThamSo.DoCaoDiChuyen + 10;
-            int _width = Math.Abs(vt1 - vt2) * (ThamSo.KichCoNode + ThamSo.KhoangCachCacNode);
-            status st = new status();
-            st.vt1 = vt1;
-            st.vt2 = vt2;
-         
-            st.Type = LoaiDiChuyen.Di_LEN_DI_XUONG;
-            for (int i = 0  ; i < Height; i=i+1)
+        } //xong
+        #endregion
+        #region ShellSort
+        private void ShellSort()
+        {
+            HienThiThuatToan.ChayCodeC(1);
+            for (int gap = SoLuongNode / 2; gap > 0; gap /= 2)
             {
-                // goiham progresschanged de cap nhat lai giao dien
-                // Khi tao brackgroundworker nho set reportprogree la true k se bi 
-             
-                backgroundWorker1.ReportProgress(0,st);
-                Thread.Sleep(ThamSo.ThoiGianDoi);
+                HienThiThuatToan.ChayCodeC(3);
+                for (int i = gap; i < SoLuongNode; i++)
+                {
+                    HienThiThuatToan.ChayCodeC(5);
+                    if (tangrdbtn.Checked == true)
+                    {
+                        HienThiThuatToan.ChayCodeC(7);
+                        for (int j = i; j >= gap && DanhSachThamSo[j] < DanhSachThamSo[j - gap]; j -= gap)
+                        {
+                            HienThiThuatToan.ChayCodeC(9);
+                            Thread.Sleep(ThamSo.ThoiGianDoi);
+                            DanhSachNode[j].BackColor = DanhSachNode[j - gap].BackColor = Color.Green;
+                            CapNhatThamSo(j, j - gap);
+                            DichuyenCacNode(j, j - gap);
+                        }
+                    }
+                    if (giamrdbtn.Checked == true)
+                    {
+                        HienThiThuatToan.ChayCodeC(7);
+                        for (int j = i; j >= gap && DanhSachThamSo[j] > DanhSachThamSo[j - gap]; j -= gap)
+                        {
+                            HienThiThuatToan.ChayCodeC(9);
+                            Thread.Sleep(ThamSo.ThoiGianDoi);
+                            DanhSachNode[j].BackColor = DanhSachNode[j - gap].BackColor = Color.Green;
+                            CapNhatThamSo(j, j - gap);
+                            DichuyenCacNode(j, j - gap);
+                        }
+                    }
+                }
+
             }
-            st.Type = LoaiDiChuyen.QUA_PHAI_QUA_TRAI;
-          
-            for (int i = 0; i < _width; i=i+2)
-            {
-             
-               
-                backgroundWorker1.ReportProgress(0, st);
-                Thread.Sleep(ThamSo.ThoiGianDoi);
-            }
-            st.Type = LoaiDiChuyen.DI_XUONG_DI_LEN;
-            for (int i = 0; i < Height; i=i+1)
-            {
-           
-                backgroundWorker1.ReportProgress(0, st);
-                Thread.Sleep(ThamSo.ThoiGianDoi);
-            }
-            st.Type = LoaiDiChuyen.DUNG;
-            backgroundWorker1.ReportProgress(0, st);
-            Thread.Sleep(ThamSo.ThoiGianDoi);
-        }
+        } // xong
+        #endregion
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -689,61 +892,6 @@ namespace DoAnSapXep
             button2.Text = mystring;
         }
 
-        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            /// Cap nhat Gui sau do goi lai ham dowork
-            status st = e.UserState as status;// lay gia tri st truyen vao ham trn
-            if (st==null)
-            {
-                return;
-            }
-            if (st.Type==LoaiDiChuyen.DUNG)
-            {
-                DanhSachNode[st.vt1].BackColor = DanhSachNode[st.vt2].BackColor = Color.Honeydew;
-                CapNhatDanhSachNode(st.vt2, st.vt1);
-               
-                return;
-               
-            }
-           
-            if (st.Type==LoaiDiChuyen.Di_LEN_DI_XUONG)
-            {
-                DanhSachNode[st.vt1].Location = new Point(DanhSachNode[st.vt1].Location.X,DanhSachNode[st.vt1].Location.Y+1);
-                DanhSachNode[st.vt2].Location = new Point(DanhSachNode[st.vt2].Location.X, DanhSachNode[st.vt2].Location.Y - 1);
-            }
-          
-           if (st.Type==LoaiDiChuyen.QUA_PHAI_QUA_TRAI)
-                {
-                    DanhSachNode[st.vt1].Location = new Point(DanhSachNode[st.vt1].Location.X-2, DanhSachNode[st.vt1].Location.Y);
-                    DanhSachNode[st.vt2].Location = new Point(DanhSachNode[st.vt2].Location.X+2, DanhSachNode[st.vt2].Location.Y);
-                }
-               
-                if (st.Type==LoaiDiChuyen.DI_XUONG_DI_LEN)
-                    {
-                        DanhSachNode[st.vt1].Location = new Point(DanhSachNode[st.vt1].Location.X, DanhSachNode[st.vt1].Location.Y -1);
-                        DanhSachNode[st.vt2].Location = new Point(DanhSachNode[st.vt2].Location.X, DanhSachNode[st.vt2].Location.Y +1);
-                    }
-                
-            
-        }
-
-        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            ///xong
-            timer1.Stop();
-          
-            
-            MessageBox.Show("Sắp xếp hoàn tất");
-            isRunning = false;
-            DieuChinhControls(isRunning);
-  
-        }
-        private void Reset_CountTime()
-        {
-           
-            Phut = Giay = 0;
-            label11.Text = "00:00";
-        }
 
   
 
