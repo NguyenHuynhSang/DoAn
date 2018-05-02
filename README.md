@@ -1,6 +1,6 @@
 # DoAn
-Ği?u ch?nh l?i GUI
-Danh sách các thu?t toán dã xong
+Ãiá»u chá»‰nh láº¡i GUI
+Danh sÃ¡ch cÃ¡c thut toÃ¡n dÃ£ xong
 1. Interchangesoft ---sang
 2.Bubble Soft-- sang
 3.insection soft-sang
@@ -8,6 +8,6 @@ Danh sách các thu?t toán dã xong
 5.shellsort--Nhung
 6.selectionsoft
 Other
-Multilanguage --Quy-- t? nhiên th?y m khiêm t?n d? :D
-Th? hiên tham s? trên GUI--(d? ki?n)--Quy
+Multilanguage --Quy-- tá»± nhiÃªn tháº¥y m khiÃªm tá»‘n dá»¯ :D
+Thá»ƒ hiÃªn tham sá»‘ trÃªn GUI--(dá»± kiáº¿n)--Quy
 Form Desider --Nhung
