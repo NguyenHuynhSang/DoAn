@@ -38,9 +38,9 @@ namespace DoAnSapXep
 
         private bool isRunning = false;
         private bool isTang = true;
-        private int SoLuongNode = 5;
+        private int SoLuongNode;
         public List<int> DanhSachThamSo;
-        public List<Node> DanhSachButton;
+        public List<Node> DanhSachNode;
         Random rank = new Random();
         private int Phut=0;
         private int Giay=0;
@@ -51,25 +51,31 @@ namespace DoAnSapXep
         private void Mainform_Load(object sender, EventArgs e)
         {
             VeNut();
-            interchangerdbtn.Checked = true;
-            tangrdbtn.Checked = true;
+            KhoiTaoMacDinh();
            
         }
-
-
-        private void Enable_Disable_Control(bool isRunning)
+        private void KhoiTaoMacDinh()
+        {
+            interchangerdbtn.Checked = true;
+            tangrdbtn.Checked = true;
+            soluongNodetbx.Text = "5";
+            SoLuongNode = 5;
+            VeNut();
+            DieuChinhControls(isRunning);
+        }
+        private void DieuChinhControls(bool isRunning)
         {
             if (isRunning==true)
             {
-                batdaubtn.Enabled = false;
-                thuattoanpanel.Enabled = Loaisapxeppanel.Enabled = false;
+                thuattoanpanel.Enabled = sapxepPanel.Enabled=khoitaopanel.Enabled=ngonngupanel.Enabled=batdaubtn.Enabled=Loaisapxeppanel.Enabled=false;
             }
             else
             {
-                batdaubtn.Enabled = true;
-                thuattoanpanel.Enabled = Loaisapxeppanel.Enabled = khoitaopanel.Enabled = true;
+                thuattoanpanel.Enabled = sapxepPanel.Enabled = khoitaopanel.Enabled = ngonngupanel.Enabled =batdaubtn.Enabled=Loaisapxeppanel.Enabled= true;
+
             }
         }
+
         /// <summary>
         /// Khi sự kiện text đã thay đổi kiểm tra xem slnodetbx có là rỗng hay không nếu rổng rán lại số lượng node=0 vì trường hợp người dùng
         /// đã nhập 1 giá trị ví dụ số 12 mà muốn đổi thành số 20, nếu không có điều kiện sẽ bị lỗi không thể chuyển ra kiểu int được
@@ -99,8 +105,6 @@ namespace DoAnSapXep
         {
             if ((!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar)))
             {
-
-                MessageBox.Show("Số phần tử phải là số nguyên lớn hơn 2 và nhỏ hơn " + ThamSo.SoluongNodeLonNhat);
                 e.Handled = true;// dừng tất cả các tiến trình có liên quan đến thằng e
 
             }
@@ -134,7 +138,7 @@ namespace DoAnSapXep
         void VeNut()
         {
             DanhSachThamSo = new List<int>(SoLuongNode);
-            DanhSachButton = new List<Node>(SoLuongNode);
+            DanhSachNode = new List<Node>(SoLuongNode);
             sapxepPanel.Controls.Clear(); // Xóa những btn cũ trên panel ở phiên làm việc
             int temp = -SoLuongNode / 2;
             int temp2 = ThamSo.KhoangCachCacNode / 2;
@@ -169,8 +173,8 @@ namespace DoAnSapXep
 
 
                 sapxepPanel.Controls.Add(btn);
-                DanhSachButton.Add(btn);
-                DanhSachButton[i] = btn;
+                DanhSachNode.Add(btn);
+                DanhSachNode[i] = btn;
                 DanhSachThamSo.Add(value);
             }
 
@@ -271,14 +275,12 @@ namespace DoAnSapXep
             }
             Giay++;
             label11.Text = Phut + ":" + Giay;
-        }
-        Thread t2;
-        Action hamsapxep;
+        }  
         void batdaubtn_Click(object sender, EventArgs e)
         {
        
          isRunning = true;
-         Enable_Disable_Control(isRunning);  
+         DieuChinhControls(isRunning);  
          Reset_CountTime();
          timer1.Start();
           
@@ -296,9 +298,9 @@ namespace DoAnSapXep
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (DanhSachButton != null)
+            if (DanhSachNode != null)
             {
-                foreach (Node item in DanhSachButton)
+                foreach (Node item in DanhSachNode)
                 {
                     MessageBox.Show(item.Location.ToString()+item.X_vitri);
                 }
@@ -385,23 +387,23 @@ namespace DoAnSapXep
         //private void HoanVi2Node(int vitriNodeA, int vitriNodeB)
         //{
         //    // Cách dùng task
-        //    hoanVi1Task = Task.Factory.StartNew(() => { DiChuyenNodeDen(DanhSachButton[vitriNodeA], vitriNodeB); });
-        //    hoanVi2Task = Task.Factory.StartNew(() => { DiChuyenNodeDen(DanhSachButton[vitriNodeB], vitriNodeA); });
+        //    hoanVi1Task = Task.Factory.StartNew(() => { DiChuyenNodeDen(DanhSachNode[vitriNodeA], vitriNodeB); });
+        //    hoanVi2Task = Task.Factory.StartNew(() => { DiChuyenNodeDen(DanhSachNode[vitriNodeB], vitriNodeA); });
         //    // note: Task.Factory.StartNew = THÊM task vào cuối hàng đợi và CHẠY ngay khi có thể
 
         //    Task.WaitAll(hoanVi1Task, hoanVi1Task);
 
         //    // Thay đổi vị trí của node trong mảng nodeArray
-        //    if (DanhSachButton.Count != 0)                   //check xem nếu mảng còn tồn tại --> trong trường hợp mảng đã bị hủy
+        //    if (DanhSachNode.Count != 0)                   //check xem nếu mảng còn tồn tại --> trong trường hợp mảng đã bị hủy
         //    {
         //        // Đổi màu 2 node sau khi sắp xếp
-        //        Color tempColor = DanhSachButton[vitriNodeA].BackColor;
-        //        DanhSachButton[vitriNodeA].BackColor = DanhSachButton[vitriNodeB].BackColor;//nodeArr[vitriNodeB].BackColor;
-        //        DanhSachButton[vitriNodeB].BackColor = tempColor;
+        //        Color tempColor = DanhSachNode[vitriNodeA].BackColor;
+        //        DanhSachNode[vitriNodeA].BackColor = DanhSachNode[vitriNodeB].BackColor;//nodeArr[vitriNodeB].BackColor;
+        //        DanhSachNode[vitriNodeB].BackColor = tempColor;
 
-        //        TbxBtn t = DanhSachButton[vitriNodeA];
-        //        DanhSachButton[vitriNodeA] = DanhSachButton[vitriNodeB];
-        //        DanhSachButton[vitriNodeB] = t;
+        //        TbxBtn t = DanhSachNode[vitriNodeA];
+        //        DanhSachNode[vitriNodeA] = DanhSachNode[vitriNodeB];
+        //        DanhSachNode[vitriNodeB] = t;
         //    }
 
            
@@ -442,12 +444,12 @@ namespace DoAnSapXep
         //}
         //public void CapNhatDanhSachNode(int i,int j)
         //{
-        //    TbxBtn temp = DanhSachButton[i];
+        //    TbxBtn temp = DanhSachNode[i];
             
-        //    DanhSachButton[i] = DanhSachButton[j];
-        //    DanhSachButton[j] = temp;
-        //    //DanhSachButton[i].Location = new Point(DanhSachButton[j].X_vitri, sapxepPanel.Height / 2 - DanhSachButton[i].Height / 2);
-        //    //DanhSachButton[j].Location = new Point(DanhSachButton[i].X_vitri, sapxepPanel.Height / 2 - DanhSachButton[j].Height / 2);
+        //    DanhSachNode[i] = DanhSachNode[j];
+        //    DanhSachNode[j] = temp;
+        //    //DanhSachNode[i].Location = new Point(DanhSachNode[j].X_vitri, sapxepPanel.Height / 2 - DanhSachNode[i].Height / 2);
+        //    //DanhSachNode[j].Location = new Point(DanhSachNode[i].X_vitri, sapxepPanel.Height / 2 - DanhSachNode[j].Height / 2);
         //}
 
         #endregion
@@ -462,9 +464,9 @@ namespace DoAnSapXep
         }
         private void CapNhatDanhSachNode(int vt1,int vt2)
         {
-            Node temp = DanhSachButton[vt1];
-            DanhSachButton[vt1] = DanhSachButton[vt2];
-            DanhSachButton[vt2]=temp;
+            Node temp = DanhSachNode[vt1];
+            DanhSachNode[vt1] = DanhSachNode[vt2];
+            DanhSachNode[vt2]=temp;
         }
 
         private void InterchangeSort()
@@ -495,7 +497,7 @@ namespace DoAnSapXep
                     {
                         HienThiThuatToan.ChayCodeC(6);
                         Thread.Sleep(ThamSo.ThoiGianDoi);
-                        DanhSachButton[i].BackColor = DanhSachButton[j].BackColor = Color.Green;
+                        DanhSachNode[i].BackColor = DanhSachNode[j].BackColor = Color.Green;
                         CapNhatThamSo(i, j);
                         DichuyenCacNode(j, i);
                     }   
@@ -539,7 +541,7 @@ namespace DoAnSapXep
                         HienThiThuatToan.ChayCodeC(8);
                         HienThiThuatToan.ChayCodeC(9);
                         Thread.Sleep(ThamSo.ThoiGianDoi);
-                        DanhSachButton[i].BackColor = DanhSachButton[min].BackColor = Color.Green;
+                        DanhSachNode[i].BackColor = DanhSachNode[min].BackColor = Color.Green;
                         CapNhatThamSo(min, i);
                         DichuyenCacNode(min, i);
                     }
@@ -572,7 +574,7 @@ namespace DoAnSapXep
                     {
                         HienThiThuatToan.ChayCodeC(6);
                         Thread.Sleep(ThamSo.ThoiGianDoi);
-                        DanhSachButton[j].BackColor = DanhSachButton[j - 1].BackColor = Color.Green;
+                        DanhSachNode[j].BackColor = DanhSachNode[j - 1].BackColor = Color.Green;
                         CapNhatThamSo(j, j - 1);
                         DichuyenCacNode(j, j - 1);
                     }
@@ -584,49 +586,46 @@ namespace DoAnSapXep
         private void InsertionSort()
         {
             int pos, key;
-            bool flag = false;
-            HienThiThuatToan.ChayCodeC(2);
-            HienThiThuatToan.ChayCodeC(3);
+
+            Node Nodetam;
             for (int i = 1; i < SoLuongNode ; i++)
             {
                 key = DanhSachThamSo[i];
+                Nodetam = DanhSachNode[i];
                 pos = i - 1;
-                flag = false;
-                HienThiThuatToan.ChayCodeC(4);
-                HienThiThuatToan.ChayCodeC(6);
-                HienThiThuatToan.ChayCodeC(7);
+                DanhSachNode[i].ChuyenLen();
                 if (tangrdbtn.Checked == true)
                 {
                     while ((pos >= 0) && (DanhSachThamSo[pos] > key))
                     {
-                        HienThiThuatToan.ChayCodeC(9);
-                        Thread.Sleep(ThamSo.ThoiGianDoi);
-                        DanhSachButton[pos + 1].BackColor = DanhSachButton[pos].BackColor = Color.Green;
-                        CapNhatThamSo(pos + 1, pos);
-                        DichuyenCacNode(pos + 1, pos);
+                        DanhSachNode[pos].ChuyenNgang(pos+1);
+                        DanhSachNode[pos].vitriHienTai = pos + 1;                    
+                        DanhSachNode[pos + 1] = DanhSachNode[pos];
+                        DanhSachThamSo[pos+1]=DanhSachThamSo[pos];
                         HienThiThuatToan.ChayCodeC(10);
                         pos--;
                     }
-                    flag = true;
+              
                 }
-                if (giamrdbtn.Checked == true)
+                else
                 {
                     while ((pos >= 0) && (DanhSachThamSo[pos] < key))
                     {
-                        HienThiThuatToan.ChayCodeC(9);
-                        Thread.Sleep(ThamSo.ThoiGianDoi);
-                        DanhSachButton[pos + 1].BackColor = DanhSachButton[pos].BackColor = Color.Green;
-                        CapNhatThamSo(pos + 1, pos);
-                        DichuyenCacNode(pos + 1, pos);
+                        DanhSachNode[pos].ChuyenNgang(pos + 1);
+                        DanhSachNode[pos].vitriHienTai = pos + 1;
+                        DanhSachNode[pos + 1] = DanhSachNode[pos];
+                        DanhSachThamSo[pos + 1] = DanhSachThamSo[pos];
                         HienThiThuatToan.ChayCodeC(10);
                         pos--;
                     }
-                    flag = true;
                 }
-                if (flag == true)
-                {
-                    DanhSachThamSo[pos + 1] = key;
-                }
+                Nodetam.ChuyenNgang(pos+1);
+                Nodetam.ChuyenXuong();
+           
+                DanhSachThamSo[pos + 1] = key;
+                DanhSachNode[pos + 1] = Nodetam;
+                Nodetam.vitriHienTai = pos + 1;
+                
             }
         }//xong
 
@@ -683,7 +682,7 @@ namespace DoAnSapXep
         private void button2_Click(object sender, EventArgs e)
         {
             string mystring = "";
-            foreach (Node item in DanhSachButton)
+            foreach (Node item in DanhSachNode)
             {
                 mystring = mystring + item.Text + item.Location.ToString() + ": ";
             }
@@ -700,7 +699,7 @@ namespace DoAnSapXep
             }
             if (st.Type==LoaiDiChuyen.DUNG)
             {
-                DanhSachButton[st.vt1].BackColor = DanhSachButton[st.vt2].BackColor = Color.Honeydew;
+                DanhSachNode[st.vt1].BackColor = DanhSachNode[st.vt2].BackColor = Color.Honeydew;
                 CapNhatDanhSachNode(st.vt2, st.vt1);
                
                 return;
@@ -709,20 +708,20 @@ namespace DoAnSapXep
            
             if (st.Type==LoaiDiChuyen.Di_LEN_DI_XUONG)
             {
-                DanhSachButton[st.vt1].Location = new Point(DanhSachButton[st.vt1].Location.X,DanhSachButton[st.vt1].Location.Y+1);
-                DanhSachButton[st.vt2].Location = new Point(DanhSachButton[st.vt2].Location.X, DanhSachButton[st.vt2].Location.Y - 1);
+                DanhSachNode[st.vt1].Location = new Point(DanhSachNode[st.vt1].Location.X,DanhSachNode[st.vt1].Location.Y+1);
+                DanhSachNode[st.vt2].Location = new Point(DanhSachNode[st.vt2].Location.X, DanhSachNode[st.vt2].Location.Y - 1);
             }
           
            if (st.Type==LoaiDiChuyen.QUA_PHAI_QUA_TRAI)
                 {
-                    DanhSachButton[st.vt1].Location = new Point(DanhSachButton[st.vt1].Location.X-2, DanhSachButton[st.vt1].Location.Y);
-                    DanhSachButton[st.vt2].Location = new Point(DanhSachButton[st.vt2].Location.X+2, DanhSachButton[st.vt2].Location.Y);
+                    DanhSachNode[st.vt1].Location = new Point(DanhSachNode[st.vt1].Location.X-2, DanhSachNode[st.vt1].Location.Y);
+                    DanhSachNode[st.vt2].Location = new Point(DanhSachNode[st.vt2].Location.X+2, DanhSachNode[st.vt2].Location.Y);
                 }
                
                 if (st.Type==LoaiDiChuyen.DI_XUONG_DI_LEN)
                     {
-                        DanhSachButton[st.vt1].Location = new Point(DanhSachButton[st.vt1].Location.X, DanhSachButton[st.vt1].Location.Y -1);
-                        DanhSachButton[st.vt2].Location = new Point(DanhSachButton[st.vt2].Location.X, DanhSachButton[st.vt2].Location.Y +1);
+                        DanhSachNode[st.vt1].Location = new Point(DanhSachNode[st.vt1].Location.X, DanhSachNode[st.vt1].Location.Y -1);
+                        DanhSachNode[st.vt2].Location = new Point(DanhSachNode[st.vt2].Location.X, DanhSachNode[st.vt2].Location.Y +1);
                     }
                 
             
@@ -732,13 +731,12 @@ namespace DoAnSapXep
         {
             ///xong
             timer1.Stop();
-            isRunning = false;
+          
             
             MessageBox.Show("Sắp xếp hoàn tất");
-             Enable_Disable_Control(isRunning);
-            batdaubtn.Enabled = true;
-          
-            Loaisapxeppanel.Enabled = true;
+            isRunning = false;
+            DieuChinhControls(isRunning);
+  
         }
         private void Reset_CountTime()
         {

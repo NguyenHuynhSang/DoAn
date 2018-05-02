@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace DoAnSapXep
 {
@@ -34,8 +35,7 @@ namespace DoAnSapXep
 
 
         }
-        public event EventHandler ValueChange;
-        private int value = 0;
+        private int value;
         private int x_vitri;
        
         public override string Text
@@ -100,8 +100,6 @@ namespace DoAnSapXep
         { 
             if (e.KeyCode == Keys.Enter)
             {
-
-               // e.Handled = true;
                 btn1.Text = tbx1.ToString();
                 btn1.Visible = true;
                 btn1.BringToFront();
@@ -126,22 +124,21 @@ namespace DoAnSapXep
         public static System.Threading.ManualResetEvent pauseStatus = new System.Threading.ManualResetEvent(true);
         public void ChuyenLen() 
         {
-            int y_ViTriMoi = 120 - ThamSo.DoCaoDiChuyen;
+            int y_ViTriMoi = this.Location.Y - ThamSo.DoCaoDiChuyen;
             while (this.Location.Y > y_ViTriMoi)
-            {
-              
-                //Task.Delay(ThamSo.TocDo);
+            { 
                 this.Location = new Point(this.Location.X, this.Location.Y - 1);
+                Thread.Sleep(ThamSo.ThoiGianDoi);
             }   
 
         }
         public void ChuyenXuong()
         {
-            int y_ViTriMoi = 120+ ThamSo.DoCaoDiChuyen;
+            int y_ViTriMoi = this.Location.Y+ ThamSo.DoCaoDiChuyen;
             while (this.Location.Y < y_ViTriMoi)
-            {
-              
+            { 
                 this.Location = new Point(this.Location.X, this.Location.Y + 1);
+                Thread.Sleep(ThamSo.ThoiGianDoi);
             }
 
 
@@ -152,26 +149,22 @@ namespace DoAnSapXep
             int x_vitririMoi;
             if (vitriMoi > this.vitriHienTai)
             {
-                x_vitririMoi = this.Location.X + ((vitriMoi - vitriHienTai) * ThamSo.KhoangCachCacNode);
+                x_vitririMoi = this.Location.X + ((vitriMoi - vitriHienTai) * (ThamSo.KhoangCachCacNode+ThamSo.KichCoNode));
                 while (this.Location.X < x_vitririMoi)
                 {
-                  
+                    Thread.Sleep(ThamSo.ThoiGianDoi);
                     this.Location = new Point(this.Location.X + 2, this.Location.Y);
                 }
             }
             else
             {
-                x_vitririMoi = this.Location.X - ((vitriHienTai - vitriMoi) * ThamSo.KhoangCachCacNode);
+                x_vitririMoi = this.Location.X - ((vitriHienTai - vitriMoi) * (ThamSo.KhoangCachCacNode+ThamSo.KichCoNode));
                 while (this.Location.X > x_vitririMoi)
                 {
-                   
+                    Thread.Sleep(ThamSo.ThoiGianDoi);
                     this.Location = new Point(this.Location.X - 2, this.Location.Y);
                 }
             }
-        }
-        private void ChonDongListBox(int dong)
-        {
-            
         }
         private void TbxBtn_BackColorChanged(object sender, EventArgs e)
         {
