@@ -831,7 +831,8 @@ namespace DoAnSapXep
                     }
                     right = k;
                 }
-            }
+            }
+
         } //xong
         private void ShellSort()
         {
