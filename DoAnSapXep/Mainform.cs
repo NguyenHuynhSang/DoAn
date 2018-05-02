@@ -35,7 +35,7 @@ namespace DoAnSapXep
 
         public int loaiThuatToan;
         HienThiThuatToan HienThuattoan = new HienThiThuatToan();
-
+        Thread thread;
         private bool isRunning = false;
         private bool isTang = true;
         private int SoLuongNode;
@@ -278,14 +278,14 @@ namespace DoAnSapXep
         }  
         void batdaubtn_Click(object sender, EventArgs e)
         {
-       
+          
          isRunning = true;
          DieuChinhControls(isRunning);  
          Reset_CountTime();
          timer1.Start();
-          
-            backgroundWorker1.RunWorkerAsync(); // goi ham do work  
-          
+       
+         backgroundWorker1.RunWorkerAsync(); // goi ham do work  
+
         }
 
         private void dungbtn_Click(object sender, EventArgs e)
