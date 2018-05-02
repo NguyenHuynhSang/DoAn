@@ -87,7 +87,7 @@ namespace DoAnSapXep
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.HienThiPanel = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.ngonngupanel = new System.Windows.Forms.Panel();
             this.btnVi = new System.Windows.Forms.Button();
             this.btnEn = new System.Windows.Forms.Button();
             this.lbNgonNgu = new System.Windows.Forms.Label();
@@ -101,7 +101,7 @@ namespace DoAnSapXep
             this.khoitaopanel.SuspendLayout();
             this.huypanel.SuspendLayout();
             this.HienThiPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.ngonngupanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ManHinh_label
@@ -182,8 +182,8 @@ namespace DoAnSapXep
             this.sapxepPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.sapxepPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.sapxepPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.sapxepPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.sapxepPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.sapxepPanel.Controls.Add(this.ManHinh_label);
             this.sapxepPanel.Location = new System.Drawing.Point(6, 12);
             this.sapxepPanel.Name = "sapxepPanel";
@@ -201,7 +201,7 @@ namespace DoAnSapXep
             // 
             // chuasapxepPanel
             // 
-            this.chuasapxepPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.chuasapxepPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.chuasapxepPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.chuasapxepPanel.Controls.Add(this.lbMangChuaSapXep);
             this.chuasapxepPanel.Location = new System.Drawing.Point(6, 308);
@@ -211,7 +211,7 @@ namespace DoAnSapXep
             // 
             // DebugPanel
             // 
-            this.DebugPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.DebugPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.DebugPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DebugPanel.Controls.Add(this.yTuongTextBox);
             this.DebugPanel.Controls.Add(this.lbYTuongThuatToan);
@@ -223,7 +223,7 @@ namespace DoAnSapXep
             // 
             // yTuongTextBox
             // 
-            this.yTuongTextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.yTuongTextBox.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.yTuongTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.yTuongTextBox.Location = new System.Drawing.Point(5, 24);
             this.yTuongTextBox.Multiline = true;
@@ -234,7 +234,7 @@ namespace DoAnSapXep
             // 
             // thuattoanpanel
             // 
-            this.thuattoanpanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.thuattoanpanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.thuattoanpanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.thuattoanpanel.Controls.Add(this.insertionrdbtn);
             this.thuattoanpanel.Controls.Add(this.mergerdbtn);
@@ -364,7 +364,7 @@ namespace DoAnSapXep
             // 
             // Loaisapxeppanel
             // 
-            this.Loaisapxeppanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.Loaisapxeppanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.Loaisapxeppanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Loaisapxeppanel.Controls.Add(this.giamrdbtn);
             this.Loaisapxeppanel.Controls.Add(this.tangrdbtn);
@@ -400,7 +400,7 @@ namespace DoAnSapXep
             // 
             // dieukhienpanel
             // 
-            this.dieukhienpanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.dieukhienpanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.dieukhienpanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.dieukhienpanel.Controls.Add(this.label1);
             this.dieukhienpanel.Controls.Add(this.trackBar1);
@@ -476,7 +476,7 @@ namespace DoAnSapXep
             // 
             // khoitaopanel
             // 
-            this.khoitaopanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.khoitaopanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.khoitaopanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.khoitaopanel.Controls.Add(this.soluongNodetbx);
             this.khoitaopanel.Controls.Add(this.nhaptaybtn);
@@ -549,7 +549,7 @@ namespace DoAnSapXep
             // 
             // huypanel
             // 
-            this.huypanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.huypanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.huypanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.huypanel.Controls.Add(this.huyqtbtn);
             this.huypanel.Controls.Add(this.xoamangbtn);
@@ -579,7 +579,7 @@ namespace DoAnSapXep
             // 
             // panel10
             // 
-            this.panel10.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel10.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel10.Location = new System.Drawing.Point(267, 448);
             this.panel10.Name = "panel10";
@@ -600,7 +600,7 @@ namespace DoAnSapXep
             // 
             // codeListBox
             // 
-            this.codeListBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.codeListBox.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.codeListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.codeListBox.FormattingEnabled = true;
             this.codeListBox.Location = new System.Drawing.Point(3, 27);
@@ -639,7 +639,7 @@ namespace DoAnSapXep
             // 
             // HienThiPanel
             // 
-            this.HienThiPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.HienThiPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.HienThiPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.HienThiPanel.Controls.Add(this.button2);
             this.HienThiPanel.Controls.Add(this.button1);
@@ -650,17 +650,17 @@ namespace DoAnSapXep
             this.HienThiPanel.Size = new System.Drawing.Size(479, 295);
             this.HienThiPanel.TabIndex = 22;
             // 
-            // panel1
+            // ngonngupanel
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.btnVi);
-            this.panel1.Controls.Add(this.btnEn);
-            this.panel1.Controls.Add(this.lbNgonNgu);
-            this.panel1.Location = new System.Drawing.Point(1024, 598);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(126, 52);
-            this.panel1.TabIndex = 27;
+            this.ngonngupanel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ngonngupanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ngonngupanel.Controls.Add(this.btnVi);
+            this.ngonngupanel.Controls.Add(this.btnEn);
+            this.ngonngupanel.Controls.Add(this.lbNgonNgu);
+            this.ngonngupanel.Location = new System.Drawing.Point(1024, 598);
+            this.ngonngupanel.Name = "ngonngupanel";
+            this.ngonngupanel.Size = new System.Drawing.Size(126, 52);
+            this.ngonngupanel.TabIndex = 27;
             // 
             // btnVi
             // 
@@ -687,19 +687,19 @@ namespace DoAnSapXep
             // lbNgonNgu
             // 
             this.lbNgonNgu.AutoSize = true;
-            this.lbNgonNgu.Location = new System.Drawing.Point(3, 4);
+            this.lbNgonNgu.Location = new System.Drawing.Point(35, 4);
             this.lbNgonNgu.Name = "lbNgonNgu";
-            this.lbNgonNgu.Size = new System.Drawing.Size(109, 13);
+            this.lbNgonNgu.Size = new System.Drawing.Size(56, 13);
             this.lbNgonNgu.TabIndex = 0;
-            this.lbNgonNgu.Text = "Ngôn Ngữ/Language";
+            this.lbNgonNgu.Text = "Ngôn Ngữ";
             // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1162, 662);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.ngonngupanel);
             this.Controls.Add(this.thuattoanpanel);
             this.Controls.Add(this.DebugPanel);
             this.Controls.Add(this.panel10);
@@ -735,8 +735,8 @@ namespace DoAnSapXep
             this.huypanel.PerformLayout();
             this.HienThiPanel.ResumeLayout(false);
             this.HienThiPanel.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.ngonngupanel.ResumeLayout(false);
+            this.ngonngupanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -792,7 +792,7 @@ namespace DoAnSapXep
         private Button button1;
         private Button button2;
         private Panel HienThiPanel;
-        private Panel panel1;
+        private Panel ngonngupanel;
         private Button btnVi;
         private Button btnEn;
         private Label lbNgonNgu;

@@ -113,6 +113,7 @@ C:\Users\Admin\Downloads\DoAn-master\DoAn-master\DoAnSapXep\obj\Debug\en-US\DoAn
 C:\Users\Admin\Downloads\DoAn-master\DoAn-master\DoAnSapXep\obj\Debug\vi-VN\DoAnSapXep.resources.dll
 C:\Users\Admin\Downloads\DoAn-master\DoAn-master\DoAnSapXep\obj\Debug\DoAnSapXep.exe
 C:\Users\Admin\Downloads\DoAn-master\DoAn-master\DoAnSapXep\obj\Debug\DoAnSapXep.pdb
+<<<<<<< HEAD
 C:\Users\Admin\Desktop\DoAn_LTTQ\DoAn\DoAnSapXep\bin\Debug\DoAnSapXep.exe
 C:\Users\Admin\Desktop\DoAn_LTTQ\DoAn\DoAnSapXep\bin\Debug\DoAnSapXep.pdb
 C:\Users\Admin\Desktop\DoAn_LTTQ\DoAn\DoAnSapXep\bin\Debug\en-US\DoAnSapXep.resources.dll
@@ -130,3 +131,22 @@ C:\Users\Admin\Desktop\DoAn_LTTQ\DoAn\DoAnSapXep\obj\Debug\en-US\DoAnSapXep.reso
 C:\Users\Admin\Desktop\DoAn_LTTQ\DoAn\DoAnSapXep\obj\Debug\vi-VN\DoAnSapXep.resources.dll
 C:\Users\Admin\Desktop\DoAn_LTTQ\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.exe
 C:\Users\Admin\Desktop\DoAn_LTTQ\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.pdb
+=======
+C:\Users\buiqu\OneDrive\Documents\GitHub\DoAn\DoAnSapXep\bin\Debug\DoAnSapXep.exe
+C:\Users\buiqu\OneDrive\Documents\GitHub\DoAn\DoAnSapXep\bin\Debug\DoAnSapXep.pdb
+C:\Users\buiqu\OneDrive\Documents\GitHub\DoAn\DoAnSapXep\bin\Debug\en-US\DoAnSapXep.resources.dll
+C:\Users\buiqu\OneDrive\Documents\GitHub\DoAn\DoAnSapXep\bin\Debug\vi-VN\DoAnSapXep.resources.dll
+C:\Users\buiqu\OneDrive\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.csprojResolveAssemblyReference.cache
+C:\Users\buiqu\OneDrive\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.Lang.myResource.resources
+C:\Users\buiqu\OneDrive\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.Mainform.resources
+C:\Users\buiqu\OneDrive\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.Properties.Resources.resources
+C:\Users\buiqu\OneDrive\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.Node.resources
+C:\Users\buiqu\OneDrive\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.Lang.myResource.en-US.resources
+C:\Users\buiqu\OneDrive\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.Lang.myResource.vi-VN.resources
+C:\Users\buiqu\OneDrive\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.csproj.GenerateResource.cache
+C:\Users\buiqu\OneDrive\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.csproj.CoreCompileInputs.cache
+C:\Users\buiqu\OneDrive\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\en-US\DoAnSapXep.resources.dll
+C:\Users\buiqu\OneDrive\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\vi-VN\DoAnSapXep.resources.dll
+C:\Users\buiqu\OneDrive\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.exe
+C:\Users\buiqu\OneDrive\Documents\GitHub\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.pdb
+>>>>>>> 96cbc141d081492092c84d1c5ddeec8b396fb2f8
