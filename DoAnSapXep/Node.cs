@@ -36,8 +36,10 @@ namespace DoAnSapXep
 
         }
         private int value;
-        private int x_vitri;
-       
+        public int x_vitri;
+        //public static ManualResetEvent pauseStatus = new ManualResetEvent(true);
+        public static bool IsPause = false;
+
         public override string Text
         {
             get
@@ -63,6 +65,8 @@ namespace DoAnSapXep
                 this.x_vitri = value;
             }
         }
+
+        public int Value { get => value; set => this.value = value; }
 
         public int vitriHienTai;
 
@@ -126,7 +130,8 @@ namespace DoAnSapXep
         {
             int y_ViTriMoi = this.Location.Y - ThamSo.DoCaoDiChuyen;
             while (this.Location.Y > y_ViTriMoi)
-            { 
+            {
+                //pauseStatus.WaitOne(Timeout.Infinite);
                 this.Location = new Point(this.Location.X, this.Location.Y - 1);
                 Thread.Sleep(ThamSo.ThoiGianDoi);
             }   
@@ -136,7 +141,8 @@ namespace DoAnSapXep
         {
             int y_ViTriMoi = this.Location.Y+ ThamSo.DoCaoDiChuyen;
             while (this.Location.Y < y_ViTriMoi)
-            { 
+            {
+                //pauseStatus.WaitOne(Timeout.Infinite);
                 this.Location = new Point(this.Location.X, this.Location.Y + 1);
                 Thread.Sleep(ThamSo.ThoiGianDoi);
             }
@@ -152,6 +158,7 @@ namespace DoAnSapXep
                 x_vitririMoi = this.Location.X + ((vitriMoi - vitriHienTai) * (ThamSo.KhoangCachCacNode+ThamSo.KichCoNode));
                 while (this.Location.X < x_vitririMoi)
                 {
+                    //pauseStatus.WaitOne(Timeout.Infinite);
                     Thread.Sleep(ThamSo.ThoiGianDoi);
                     this.Location = new Point(this.Location.X + 2, this.Location.Y);
                 }
@@ -161,6 +168,7 @@ namespace DoAnSapXep
                 x_vitririMoi = this.Location.X - ((vitriHienTai - vitriMoi) * (ThamSo.KhoangCachCacNode+ThamSo.KichCoNode));
                 while (this.Location.X > x_vitririMoi)
                 {
+                    //pauseStatus.WaitOne(Timeout.Infinite);
                     Thread.Sleep(ThamSo.ThoiGianDoi);
                     this.Location = new Point(this.Location.X - 2, this.Location.Y);
                 }

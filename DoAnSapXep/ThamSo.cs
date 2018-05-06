@@ -14,5 +14,7 @@ namespace DoAnSapXep
         public static int ThoiGianDoi = 20;
         public static int GiaTriLonNhat=100;
         public static int DoCaoDiChuyen=KichCoNode;
+
+        public static object Color { get; internal set; }
     }
 }
