@@ -40,6 +40,7 @@
             this.btn1.TabIndex = 0;
             this.btn1.Text = "button1";
             this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
             this.btn1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn1_MouseDown);
             // 
             // tbx1
@@ -54,13 +55,13 @@
             this.tbx1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbx1_KeyDown);
             this.tbx1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbx1_KeyPress);
             // 
-            // TbxBtn
+            // Node
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.tbx1);
-            this.Name = "TbxBtn";
+            this.Name = "Node";
             this.Load += new System.EventHandler(this.TbxBtn_Load);
             this.BackColorChanged += new System.EventHandler(this.TbxBtn_BackColorChanged);
             this.ResumeLayout(false);

@@ -60,6 +60,7 @@ namespace DoAnSapXep
             trackBar1.Minimum = 0;
             trackBar1.Value = ThamSo.ThoiGianDoi;
             trackBar1.LargeChange = 1;
+            
         }
 
         /// <summary>
@@ -255,6 +256,7 @@ namespace DoAnSapXep
                 tam.Enabled = false;
                 Node btn = new Node(i);
                 int Value = rank.Next(2, 100);
+                btn.Value = Value;
                 btn.Text = Value.ToString();
                 btn.BackColor = Color.Honeydew;
                 if (SoLuongNode % 2 != 0)
@@ -285,11 +287,19 @@ namespace DoAnSapXep
                 DanhSachNode[i] = btn;
                 DanhSachThamSo.Add(Value);
                 danhSachLabel.Add(tam);
-
+                btn.Capnhat += Btn_Capnhat;
+             
             }
 
 
 
+        }
+        private void Btn_Capnhat(object sender, EventArgs e)
+        {
+            for (int i = 0; i < SoLuongNode; i++)
+            {
+                DanhSachThamSo[i] = DanhSachNode[i].Value;
+            }
         }
 
         private void radiobtn_CheckedChanged(object sender, EventArgs e)
@@ -396,7 +406,7 @@ namespace DoAnSapXep
          DieuChinhControls(isRunning);  
          Reset_CountTime();
          timer1.Start();
-            
+         
          backgroundWorker1.RunWorkerAsync(); // goi ham do work  
 
         }
@@ -404,7 +414,7 @@ namespace DoAnSapXep
         private void dungbtn_Click(object sender, EventArgs e)
         {
             isRunning = false;
-            //TamDung();
+            TamDung();
            
 
         }
@@ -825,7 +835,7 @@ namespace DoAnSapXep
             for (i = 0; i < SoLuongNode - 1; i++)
             {
                 HienThiThuatToan.ChayCodeC(4);
-                bienArr["i"].Location = new Point(danhSachLabel[i].Location.X, danhSachLabel[i].Location.Y - 20);
+                bienArr["i"].   Location = new Point(danhSachLabel[i].Location.X, danhSachLabel[i].Location.Y - 20);
                 bienArr["i"].Text = "i = " + i;
                 sapxepPanel.Controls.Add(bienArr["i"]);
                 for (j = SoLuongNode - 1; j > i; j--)
@@ -947,10 +957,7 @@ namespace DoAnSapXep
                     for (i = right; i > left; i--)
                     {
                         HienThiThuatToan.ChayCodeC(8);
-                        bienArr["j"].Location = new Point(danhSachLabel[j].Location.X, danhSachLabel[j].Location.Y - 20);
-                        bienArr["j"].Text = "j = " + j;
-                        bienArr["j"].Visible = true;
-                        bienArr["j"].SendToBack();
+                        
                         sapxepPanel.Controls.Add(bienArr["j"]);
                         if (DanhSachThamSo[i] < DanhSachThamSo[i - 1])
                         {
@@ -1123,7 +1130,7 @@ namespace DoAnSapXep
             string mystring = "";
             foreach (Node item in DanhSachNode)
             {
-                mystring = mystring + item.Text + item.Location.ToString() + ": ";
+                mystring = mystring + item.Value + item.Location.ToString() + ": ";
             }
             button2.Text = mystring;
         }
@@ -1141,5 +1148,9 @@ namespace DoAnSapXep
             label1.Text = trackBar1.Value.ToString();
         }
 
+        private void khoitaopanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

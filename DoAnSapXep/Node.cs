@@ -39,7 +39,7 @@ namespace DoAnSapXep
         public int x_vitri;
         //public static ManualResetEvent pauseStatus = new ManualResetEvent(true);
         public static bool IsPause = false;
-
+        public event EventHandler Capnhat;
         public override string Text
         {
             get
@@ -114,12 +114,18 @@ namespace DoAnSapXep
 
         private void tbx1_TextChanged(object sender, EventArgs e)
         {
+            btn1.Text = tbx1.Text;
+            this.Value = Int32.Parse(this.Text);
             if (tbx1.Text != "")
             {
                 //  value = Int32.Parse(tbx1.Text);
-                btn1.Text = tbx1.Text;
+              
             }
-
+            if (Capnhat!=null)
+            {
+                Capnhat(sender,e);
+            }
+        
         }
         /// <summary>
         /// Các hàm di chuyển node;
@@ -183,6 +189,11 @@ namespace DoAnSapXep
         {
             
             x_vitri = this.Location.X;
+        }
+
+        private void btn1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

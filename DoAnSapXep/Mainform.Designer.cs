@@ -488,6 +488,7 @@ namespace DoAnSapXep
             this.khoitaopanel.Name = "khoitaopanel";
             this.khoitaopanel.Size = new System.Drawing.Size(303, 115);
             this.khoitaopanel.TabIndex = 24;
+            this.khoitaopanel.Paint += new System.Windows.Forms.PaintEventHandler(this.khoitaopanel_Paint);
             // 
             // soluongNodetbx
             // 
