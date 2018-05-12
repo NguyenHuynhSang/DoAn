@@ -66,7 +66,18 @@ namespace DoAnSapXep
             }
         }
 
-        public int Value { get => value; set => this.value = value; }
+        public int Value
+        {
+            get
+            {
+                return value;
+            }
+
+            set
+            {
+                this.value = value;
+            }
+        }
 
         public int vitriHienTai;
 

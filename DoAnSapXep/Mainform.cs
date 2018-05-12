@@ -621,6 +621,14 @@ namespace DoAnSapXep
             {
                 QuickSort();
             }
+            if (binaryinsertionrdbtn.Checked==true)
+            {
+                BinaryInsertionSort();
+            }
+            if (mergerdbtn.Checked==true)
+            {
+                MergeSort();
+            }
             
         }
         private void DichuyenCacNode(int vt1, int vt2)
@@ -1421,7 +1429,297 @@ namespace DoAnSapXep
             }
         }
         #endregion//xong
-        
+        // chua cap nhat hien thi cac bien tren GUI
+        #region BinaryInsectionSort
+        public void BinaryInsertionSort()
+        {
+            yTuongTextBox.Clear();
+            int left, right, m, i, pos;
+            int x;
+            Node nodeTam, nodeTam2;
+            for (i = 1; i < DanhSachNode.Count; i++)
+            {
+                pos = i - 1;
+
+                nodeTam = DanhSachNode[i];
+                x = DanhSachThamSo[i];
+
+                DanhSachNode[i].ChuyenLen();
+                left = 0;
+                right = i - 1;
+                while (left <= right)
+                {
+                    m = (left + right) / 2;
+
+                    if (tangrdbtn.Checked == true)
+                    {
+
+                        if (x < DanhSachThamSo[m])
+                        {
+
+                            right = m - 1;
+
+                        }
+                        else
+                        {
+
+                            left = m + 1;
+
+
+                        }
+                    }
+                    else
+                    {
+                        if (x > DanhSachThamSo[m])
+                        {
+
+                            right = m - 1;
+
+                        }
+                        else
+                        {
+
+                            left = m + 1;
+
+
+                        }
+                    }
+
+
+                }
+
+                pos = i - 1;
+
+                for (pos = i - 1; pos >= left; pos--)
+                {
+
+
+                    DanhSachNode[pos].ChuyenNgang(pos + 1);
+                    DanhSachNode[pos].vitriHienTai = pos + 1;
+                    nodeTam2 = DanhSachNode[pos + 1];
+                    DanhSachNode[pos + 1] = DanhSachNode[pos];
+                    DanhSachThamSo[pos + 1] = DanhSachThamSo[pos];
+                    DanhSachNode[pos] = nodeTam2;
+                }
+
+
+                nodeTam.ChuyenNgang(pos + 1);
+                nodeTam.ChuyenXuong();
+                DanhSachNode[pos + 1] = nodeTam;
+                nodeTam.vitriHienTai = pos + 1;
+
+                DanhSachThamSo[left] = x;
+
+                //Cập nhật ý tưởng Text Box
+
+            }
+        }
+
+        #endregion
+        //mergesoft t chua coi ky nen k hieu y tuong thuat toan voi cho nao cap nhat lai danh sach tham so
+        // se bo xung file huong dan y tuong thuat toan sau
+        #region MergeSoft
+        List<Node> b = new List<Node>();
+        List<Node> c = new List<Node>();
+        int nb, nc;
+        int Min(int a, int b)
+        {
+            if (a > b) return b;
+            else return a;
+        }
+        void Distribute(List<Node> a, int N, ref int nb, ref int nc, int k)
+        {
+            int i, pa, pb, pc;
+            pa = pb = pc = 0;
+
+            while (pa < N)
+            {
+
+                for (i = 0; (pa < N) && (i < k); i++, pa++, pb++)
+                {
+
+                    //b[pb] = a[pa];
+
+                    a[pa].ChuyenLen();
+                    a[pa].ChuyenNgang(pb);
+                    a[pa].vitriHienTai = pb;
+
+                    b[pb] = a[pa];
+
+                }
+
+                for (i = 0; (pa < N) && (i < k); i++, pa++, pc++)
+                {
+
+                    //c[pc] = a[pa];
+                    a[pa].BackColor = Color.LightYellow;
+                    a[pa].ChuyenXuong();
+                    a[pa].ChuyenNgang(pc);
+                    a[pa].vitriHienTai = pc;
+
+                    c[pc] = a[pa];
+
+
+                }
+            }
+
+            nb = pb; nc = pc;
+        }
+        void Merge(List<Node> a, int nb, int nc, int k)
+        {
+            int p, pb, pc, ib, ic, kb, kc;
+            p = pb = pc = 0; ib = ic = 0;
+
+
+            while ((nb > 0) && (nc > 0))
+            {
+                kb = Min(k, nb);
+                kc = Min(k, nc);
+
+
+                bool thucHien = false; // dùng để xét tăng/giảm , nếu bằng true thì code sẽ chạy
+                if (tangrdbtn.Checked == true)
+                {
+                    if (c[pc + ic].Value >= b[pb + ib].Value)
+                        thucHien = true;
+                }
+                else
+                {
+                    if (c[pc + ic].Value <= b[pb + ib].Value)
+                        thucHien = true;
+                }
+                if (thucHien)
+                {
+
+                    //a[p++] = b[pb + ib];
+
+                    b[pb + ib].ChuyenXuong();
+                    b[pb + ib].ChuyenNgang(p);
+                    b[pb + ib].vitriHienTai = p;
+
+                    a[p] = b[pb + ib];
+                    p = p + 1;
+
+                    ib++;
+
+
+                    if (ib == kb)
+                    {
+
+                        for (; ic < kc; ic++)
+                        {
+
+                            //a[p++] = c[pc + ic];
+
+                            c[pc + ic].ChuyenLen();
+                            c[pc + ic].ChuyenNgang(p);
+                            c[pc + ic].vitriHienTai = p;
+
+                            a[p] = c[pc + ic];
+                            p = p + 1;
+                        }
+
+                        pb += kb; pc += kc; ib = ic = 0;
+                        nb -= kb; nc -= kc;
+                    }
+                }
+                else
+                {
+
+                    //a[p++] = c[pc + ic];
+                    c[pc + ic].ChuyenLen();
+                    c[pc + ic].ChuyenNgang(p);
+                    c[pc + ic].vitriHienTai = p;
+
+                    a[p] = c[pc + ic];
+                    p = p + 1;
+
+                    ic++;
+
+                    if (ic == kc)
+                    {
+
+                        for (; ib < kb; ib++)
+                        {
+
+                            //a[p++] = b[pb + ib];
+
+                            b[pb + ib].ChuyenXuong();
+                            b[pb + ib].ChuyenNgang(p);
+                            b[pb + ib].vitriHienTai = p;
+
+
+                            a[p] = b[pb + ib];
+                            p = p + 1;
+
+                        }
+
+                        pb += kb; pc += kc; ib = ic = 0;
+                        nb -= kb; nc -= kc;
+                    }
+                }
+
+
+            }  // while
+
+            if (a.Count % 2 == 1 && (k != (a.Count - 1)))
+            {
+                if (nb > nc)
+                {
+
+                    b[pb].ChuyenXuong();
+                    b[pb].ChuyenNgang(a.Count - 1);
+                    b[pb].vitriHienTai = a.Count - 1;
+
+                }
+
+            }
+            if (a.Count % 2 == 0 && Math.Abs(nb - nc) == 2)
+            {
+
+
+                b[pb].ChuyenXuong();
+                b[pb].ChuyenNgang(a.Count - 2);
+                b[pb].vitriHienTai = a.Count - 2;
+
+                b[pb + 1].ChuyenXuong();
+                b[pb + 1].ChuyenNgang(a.Count - 1);
+                b[pb + 1].vitriHienTai = a.Count - 1;
+
+
+            }
+
+            ;
+        }
+        void ThucHienMergeSort(List<Node> a, int N)
+        {
+            for (int i = 0; i < SoLuongNode; i++)
+            {
+                b.Add(new Node(i));
+                c.Add(new Node(i));
+            }
+            int k;
+
+            for (k = 1; k < N; k *= 2)
+            {
+
+                Distribute(a, N, ref nb, ref nc, k);
+
+                Merge(a, nb, nc, k);
+
+            }
+
+        }
+        void MergeSort()
+        {
+            yTuongTextBox.Clear();
+
+            ThucHienMergeSort(DanhSachNode, DanhSachNode.Count);
+
+        }
+
+
+        #endregion   
         #region Tạm dừng
         // Tạm dừng
         public static ManualResetEvent codeListBoxPauseStatus = new ManualResetEvent(true);
