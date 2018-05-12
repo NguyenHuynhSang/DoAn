@@ -176,6 +176,7 @@ namespace DoAnSapXep
             this.lbMangChuaSapXep.Size = new System.Drawing.Size(101, 13);
             this.lbMangChuaSapXep.TabIndex = 17;
             this.lbMangChuaSapXep.Text = "Mảng chưa sắp xếp";
+            this.lbMangChuaSapXep.Click += new System.EventHandler(this.lbMangChuaSapXep_Click);
             // 
             // sapxepPanel
             // 
@@ -185,10 +186,11 @@ namespace DoAnSapXep
             this.sapxepPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.sapxepPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.sapxepPanel.Controls.Add(this.ManHinh_label);
-            this.sapxepPanel.Location = new System.Drawing.Point(6, 12);
+            this.sapxepPanel.Location = new System.Drawing.Point(7, 12);
             this.sapxepPanel.Name = "sapxepPanel";
             this.sapxepPanel.Size = new System.Drawing.Size(1144, 290);
             this.sapxepPanel.TabIndex = 18;
+            this.sapxepPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.sapxepPanel_Paint);
             // 
             // lbTocDo
             // 
@@ -231,6 +233,7 @@ namespace DoAnSapXep
             this.yTuongTextBox.ReadOnly = true;
             this.yTuongTextBox.Size = new System.Drawing.Size(340, 106);
             this.yTuongTextBox.TabIndex = 12;
+            this.yTuongTextBox.TextChanged += new System.EventHandler(this.yTuongTextBox_TextChanged);
             // 
             // thuattoanpanel
             // 
@@ -594,6 +597,7 @@ namespace DoAnSapXep
             // backgroundWorker1
             // 
             this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
