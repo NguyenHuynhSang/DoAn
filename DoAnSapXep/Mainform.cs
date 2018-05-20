@@ -1440,13 +1440,26 @@ namespace DoAnSapXep
             for (i = 1; i < DanhSachNode.Count; i++)
             {
                 pos = i - 1;
-
+                bienArr["i"].Location = new Point(danhSachLabel[i].Location.X, danhSachLabel[i].Location.Y - 20);
+                bienArr["i"].Text = "i = " + i;
+                sapxepPanel.Controls.Add(bienArr["i"]);
                 nodeTam = DanhSachNode[i];
                 x = DanhSachThamSo[i];
 
                 DanhSachNode[i].ChuyenLen();
                 left = 0;
                 right = i - 1;
+                bienArr["left"].Location = new Point(danhSachLabel[left].Location.X, danhSachLabel[left].Location.Y - 140);
+                bienArr["left"].Text = "left = " + left;
+                sapxepPanel.Controls.Add(bienArr["left"]);
+
+                bienArr["pos"].Location = new Point(danhSachLabel[pos].Location.X, danhSachLabel[pos].Location.Y - 180);
+                bienArr["pos"].Text = "pos = " + pos;
+                sapxepPanel.Controls.Add(bienArr["pos"]);
+
+                bienArr["right"].Location = new Point(danhSachLabel[right].Location.X, danhSachLabel[right].Location.Y - 160);
+                bienArr["right"].Text = "right = " + right;
+                sapxepPanel.Controls.Add(bienArr["right"]);
                 while (left <= right)
                 {
                     m = (left + right) / 2;
@@ -1456,13 +1469,25 @@ namespace DoAnSapXep
 
                         if (x < DanhSachThamSo[m])
                         {
+                            bienArr["m"].Location = new Point(danhSachLabel[i].Location.X, danhSachLabel[i].Location.Y - 200);
+                            bienArr["m"].Text = "m = " + i;
+                            sapxepPanel.Controls.Add(bienArr["m"]);
+
+                            //bienArr["right"].Location = new Point(danhSachLabel[right].Location.X, danhSachLabel[right].Location.Y - 160);
+                            bienArr["right"].Text = "right = " + right;
+                            sapxepPanel.Controls.Add(bienArr["right"]);
 
                             right = m - 1;
 
+                            //bienArr["right"].Location = new Point(danhSachLabel[right].Location.X, danhSachLabel[right].Location.Y - 160);
+                            bienArr["right"].Text = "right = " + right;
+                            sapxepPanel.Controls.Add(bienArr["right"]);
                         }
                         else
                         {
-
+                            //bienArr["m"].Location = new Point(danhSachLabel[i].Location.X, danhSachLabel[i].Location.Y - 180);
+                            bienArr["m"].Text = "m = " + i;
+                            sapxepPanel.Controls.Add(bienArr["m"]);
                             left = m + 1;
 
 
@@ -1472,12 +1497,25 @@ namespace DoAnSapXep
                     {
                         if (x > DanhSachThamSo[m])
                         {
+                            //bienArr["m"].Location = new Point(danhSachLabel[i].Location.X, danhSachLabel[i].Location.Y - 180);
+                            bienArr["m"].Text = "m = " + i;
+                            sapxepPanel.Controls.Add(bienArr["m"]);
+
+                            //bienArr["right"].Location = new Point(danhSachLabel[right].Location.X, danhSachLabel[right].Location.Y - 160);
+                            bienArr["right"].Text = "right = " + right;
+                            sapxepPanel.Controls.Add(bienArr["right"]);
 
                             right = m - 1;
 
+                            //bienArr["right"].Location = new Point(danhSachLabel[right].Location.X, danhSachLabel[right].Location.Y - 160);
+                            bienArr["right"].Text = "right = " + right;
+                            sapxepPanel.Controls.Add(bienArr["right"]);
                         }
                         else
                         {
+                            //bienArr["m"].Location = new Point(danhSachLabel[i].Location.X, danhSachLabel[i].Location.Y - 200);
+                            bienArr["m"].Text = "m = " + i;
+                            sapxepPanel.Controls.Add(bienArr["m"]);
 
                             left = m + 1;
 
@@ -1487,12 +1525,18 @@ namespace DoAnSapXep
 
 
                 }
-
+                //bienArr["right"].Location = new Point(danhSachLabel[right].Location.X, danhSachLabel[right].Location.Y - 160);
+                bienArr["right"].Text = "right = " + right;
+                sapxepPanel.Controls.Add(bienArr["right"]);
                 pos = i - 1;
-
+                //bienArr["pos"].Location = new Point(danhSachLabel[pos].Location.X, danhSachLabel[pos].Location.Y - 60);
+                bienArr["pos"].Text = "pos = " + pos;
+                sapxepPanel.Controls.Add(bienArr["pos"]);
                 for (pos = i - 1; pos >= left; pos--)
                 {
-
+                    //bienArr["pos"].Location = new Point(danhSachLabel[pos].Location.X, danhSachLabel[pos].Location.Y - 180);
+                    bienArr["pos"].Text = "pos = " + pos;
+                    sapxepPanel.Controls.Add(bienArr["pos"]);
 
                     DanhSachNode[pos].ChuyenNgang(pos + 1);
                     DanhSachNode[pos].vitriHienTai = pos + 1;
@@ -1501,7 +1545,9 @@ namespace DoAnSapXep
                     DanhSachThamSo[pos + 1] = DanhSachThamSo[pos];
                     DanhSachNode[pos] = nodeTam2;
                 }
-
+                //bienArr["pos"].Location = new Point(danhSachLabel[pos].Location.X, danhSachLabel[pos].Location.Y - 180);
+                bienArr["pos"].Text = "pos = " + pos;
+                sapxepPanel.Controls.Add(bienArr["pos"]);
 
                 nodeTam.ChuyenNgang(pos + 1);
                 nodeTam.ChuyenXuong();
@@ -1702,7 +1748,9 @@ namespace DoAnSapXep
 
             for (k = 1; k < N; k *= 2)
             {
-
+                bienArr["k"].Location = new Point(danhSachLabel[k].Location.X, danhSachLabel[k].Location.Y - 60);
+                bienArr["k"].Text = "k = " + k;
+                sapxepPanel.Controls.Add(bienArr["k"]);
                 Distribute(a, N, ref nb, ref nc, k);
 
                 Merge(a, nb, nc, k);
@@ -1713,6 +1761,7 @@ namespace DoAnSapXep
         void MergeSort()
         {
             yTuongTextBox.Clear();
+            
 
             ThucHienMergeSort(DanhSachNode, DanhSachNode.Count);
 
