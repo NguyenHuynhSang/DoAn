@@ -455,6 +455,7 @@ namespace DoAnSapXep
             this.huybnt.TabIndex = 8;
             this.huybnt.Text = "Hủy";
             this.huybnt.UseVisualStyleBackColor = true;
+            this.huybnt.Click += new System.EventHandler(this.huybnt_Click);
             // 
             // dungbtn
             // 
@@ -598,9 +599,6 @@ namespace DoAnSapXep
             // 
             this.backgroundWorker1.WorkerReportsProgress = true;
             this.backgroundWorker1.WorkerSupportsCancellation = true;
-            //this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            //this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
-            //this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
             // codeListBox
             // 

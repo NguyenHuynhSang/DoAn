@@ -59,21 +59,23 @@ namespace DoAnSapXep
         /// </summary>
         public static bool isEnglish = false;
         CultureInfo culture;
-        private Thread sapxepThread;
+      
         public int loaiThuatToan;
         HienThiThuatToan HienThuattoan = new HienThiThuatToan();
-        Thread thread;
-        private bool isRunning = false;
+        private bool isRunning;
         private bool isTang = true;
         private int SoLuongNode;
         public List<int> DanhSachThamSo;
         public List<Node> DanhSachNode;
-        private List<Label> danhSachLabel;
-
+        public List<Label> danhSachLabel;
+        public List<int> MangChuaSapXep;
         Random rank = new Random();
         private int Phut=0;
         private int Giay=0;
 
+
+        Action ThuatToanSapXep;// giong delegate
+        private Thread sapxepThread;
         //int a = 2;
 
         #region Biến i, j, k, pos,...
@@ -151,12 +153,13 @@ namespace DoAnSapXep
         {
             interchangerdbtn.Checked = true;
             tangrdbtn.Checked = true;
+            isRunning = false;
             soluongNodetbx.Text = "5";
             SoLuongNode = 5;
             VeNut();
             DieuChinhControls(isRunning);
         }
-        Action ThuatToanSapXep;
+      
         void ChonThuatToan()
         {
             if (interchangerdbtn.Checked == true)
@@ -321,11 +324,18 @@ namespace DoAnSapXep
                 DanhSachNode.Add(btn);
                 DanhSachNode[i] = btn;
                 DanhSachThamSo.Add(Value);
+              
                 danhSachLabel.Add(tam);
                 btn.Capnhat += Btn_Capnhat;
-             
             }
-
+            if (isRunning == false)
+            {
+                MangChuaSapXep = new List<int>(SoLuongNode);
+                for (int i = 0; i < SoLuongNode; i++)
+                {
+                    MangChuaSapXep.Add(DanhSachThamSo[i]);
+                }
+            }
 
 
         }
@@ -441,15 +451,11 @@ namespace DoAnSapXep
          DieuChinhControls(isRunning);  
          Reset_CountTime();
          timer1.Start();
-            if (sapxepThread!=null)
-            {
-                sapxepThread.Abort();
-            }
-            else
-            {
-                sapxepThread = new Thread(new ThreadStart(ThuatToanSapXep));
-            }
-         //backgroundWorker1.RunWorkerAsync(); // goi ham do work  
+         ChonThuatToan();
+            sapxepThread = new Thread(new ThreadStart(ThuatToanSapXep));
+             sapxepThread.Start();
+ 
+            //backgroundWorker1.RunWorkerAsync(); // goi ham do work  
 
         }
 
@@ -467,7 +473,7 @@ namespace DoAnSapXep
             //    batdaubtn.Enabled = false;
             //    isRunning = true;
             //}
-           
+            //thread.Abort();           
 
         }
 
@@ -1822,6 +1828,21 @@ namespace DoAnSapXep
         private void sapxepPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void huybnt_Click(object sender, EventArgs e)
+        {
+            
+            sapxepThread.Abort();
+            VeNut();
+            isRunning = false;
+            for (int i = 0; i < SoLuongNode; i++)
+            {
+                DanhSachNode[i].Text = MangChuaSapXep[i].ToString();
+                DanhSachThamSo[i] = MangChuaSapXep[i];
+            }
+            DieuChinhControls(isRunning);
+            Reset_CountTime();
         }
 
         private void yTuongTextBox_TextChanged(object sender, EventArgs e)
