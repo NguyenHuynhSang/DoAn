@@ -311,7 +311,7 @@ namespace DoAnSapXep
                 int Value = rank.Next(2, 100);
                 btn.Value = Value;
                 btn.Text = Value.ToString();
-                btn.BackColor = Color.Honeydew;
+                btn.BackColor = ThamSo.mauNen;
                 if (SoLuongNode % 2 != 0)
                 {
                     newPoint = new Point(sapxepPanel.Width / 2 - btn.Width / 2,
@@ -594,6 +594,7 @@ namespace DoAnSapXep
         Task hoanVi2Task;
         private void DichuyenCacNode(int vitriNodeA, int vitriNodeB)
         {
+            DanhSachNode[vitriNodeA].BackColor = DanhSachNode[vitriNodeB].BackColor = ThamSo.mauNodeDangSX;
             // Cách dùng task
             hoanVi1Task = Task.Factory.StartNew(() => { DiChuyenNodeDen(DanhSachNode[vitriNodeA], vitriNodeB); });
             hoanVi2Task = Task.Factory.StartNew(() => { DiChuyenNodeDen(DanhSachNode[vitriNodeB], vitriNodeA); });
@@ -605,13 +606,10 @@ namespace DoAnSapXep
             if (DanhSachNode.Count != 0)                   //check xem nếu mảng còn tồn tại --> trong trường hợp mảng đã bị hủy
             {
                 // Đổi màu 2 node sau khi sắp xếp
-                Color tempColor = DanhSachNode[vitriNodeA].BackColor;
-                DanhSachNode[vitriNodeA].BackColor = DanhSachNode[vitriNodeB].BackColor;//DanhSachNode[vitriNodeB].BackColor;
-                DanhSachNode[vitriNodeB].BackColor = tempColor;
-
+                DanhSachNode[vitriNodeA].BackColor = DanhSachNode[vitriNodeB].BackColor = ThamSo.mauNodeHTSX;
                 CapNhatDanhSachNode(vitriNodeA, vitriNodeB);
             }
-
+            
         }
 
 
@@ -830,6 +828,7 @@ namespace DoAnSapXep
                     sapxepPanel.Controls.Add(bienArr["j"]);
                     bienArr["j"].Visible = true;
                     HienThiThuatToan.ChayCodeC(4);
+                                       
                     flag = false;
                     if (tangrdbtn.Checked == true)
                     {
@@ -845,11 +844,13 @@ namespace DoAnSapXep
                     {
                         HienThiThuatToan.ChayCodeC(6);
                         Thread.Sleep(ThamSo.ThoiGianDoi);
-                        DanhSachNode[i].BackColor = DanhSachNode[j].BackColor = Color.Green;
+                        
                         CapNhatThamSo(i, j);
                         DichuyenCacNode(j, i);
+                        
                         Hienthimangdangsapxep(i, j);
                     }
+                    DanhSachNode[DanhSachNode.Count-1].BackColor = ThamSo.mauNodeHTSX;
 
                 }
 
@@ -1296,12 +1297,6 @@ namespace DoAnSapXep
             }
             HienThiThuatToan.ChayCodeC(12);
 
-
-            foreach (Node node in DanhSachNode)
-            {
-
-                node.BackColor = Color.Green;
-            }
             if (DanhSachNode.Count != 0)
             {
                 hoanTatSapXep();
@@ -2027,6 +2022,7 @@ namespace DoAnSapXep
                 DanhSachThamSo[i] = MangChuaSapXep[i];
             }
             DieuChinhControls(isRunning);
+            Mangchuasapxep();
             Reset_CountTime();
             timer1.Stop();
         }

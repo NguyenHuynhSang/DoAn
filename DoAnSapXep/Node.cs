@@ -30,7 +30,7 @@ namespace DoAnSapXep
             btn1.BackColor = Color.Red;
             tbx1.BackColor = Color.White;
             tbx1.AcceptsReturn = true;
-            btn1.Font =tbx1.Font= new Font("Consolas", ThamSo.KichCoNode / 3, FontStyle.Bold);
+            btn1.Font =tbx1.Font= new Font("Consolas", ThamSo.KichCoNode /4, FontStyle.Bold);
             X_vitri = this.Location.X ;
 
 
@@ -148,7 +148,7 @@ namespace DoAnSapXep
             int y_ViTriMoi = this.Location.Y - ThamSo.DoCaoDiChuyen;
             while (this.Location.Y > y_ViTriMoi)
             {
-                //pauseStatus.WaitOne(Timeout.Infinite);
+                pauseStatus.WaitOne(Timeout.Infinite);
                 this.Location = new Point(this.Location.X, this.Location.Y - 1);
                 Thread.Sleep(ThamSo.ThoiGianDoi);
             }   
@@ -159,7 +159,7 @@ namespace DoAnSapXep
             int y_ViTriMoi = this.Location.Y+ ThamSo.DoCaoDiChuyen;
             while (this.Location.Y < y_ViTriMoi)
             {
-                //pauseStatus.WaitOne(Timeout.Infinite);
+                pauseStatus.WaitOne(Timeout.Infinite);
                 this.Location = new Point(this.Location.X, this.Location.Y + 1);
                 Thread.Sleep(ThamSo.ThoiGianDoi);
             }
@@ -175,7 +175,7 @@ namespace DoAnSapXep
                 x_vitririMoi = this.Location.X + ((vitriMoi - vitriHienTai) * (ThamSo.KhoangCachCacNode+ThamSo.KichCoNode));
                 while (this.Location.X < x_vitririMoi)
                 {
-                    //pauseStatus.WaitOne(Timeout.Infinite);
+                    pauseStatus.WaitOne(Timeout.Infinite);
                     Thread.Sleep(ThamSo.ThoiGianDoi);
                     this.Location = new Point(this.Location.X + 2, this.Location.Y);
                 }
@@ -185,7 +185,7 @@ namespace DoAnSapXep
                 x_vitririMoi = this.Location.X - ((vitriHienTai - vitriMoi) * (ThamSo.KhoangCachCacNode+ThamSo.KichCoNode));
                 while (this.Location.X > x_vitririMoi)
                 {
-                    //pauseStatus.WaitOne(Timeout.Infinite);
+                    pauseStatus.WaitOne(Timeout.Infinite);
                     Thread.Sleep(ThamSo.ThoiGianDoi);
                     this.Location = new Point(this.Location.X - 2, this.Location.Y);
                 }
