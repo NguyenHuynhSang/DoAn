@@ -91,8 +91,8 @@ namespace DoAnSapXep
             this.btnVi = new System.Windows.Forms.Button();
             this.btnEn = new System.Windows.Forms.Button();
             this.lbNgonNgu = new System.Windows.Forms.Label();
+            this.daydangxepListbox = new System.Windows.Forms.ListBox();
             this.sapxepPanel.SuspendLayout();
-            this.chuasapxepPanel.SuspendLayout();
             this.DebugPanel.SuspendLayout();
             this.thuattoanpanel.SuspendLayout();
             this.Loaisapxeppanel.SuspendLayout();
@@ -171,7 +171,7 @@ namespace DoAnSapXep
             // lbMangChuaSapXep
             // 
             this.lbMangChuaSapXep.AutoSize = true;
-            this.lbMangChuaSapXep.Location = new System.Drawing.Point(8, 14);
+            this.lbMangChuaSapXep.Location = new System.Drawing.Point(15, 320);
             this.lbMangChuaSapXep.Name = "lbMangChuaSapXep";
             this.lbMangChuaSapXep.Size = new System.Drawing.Size(101, 13);
             this.lbMangChuaSapXep.TabIndex = 17;
@@ -205,16 +205,16 @@ namespace DoAnSapXep
             // 
             this.chuasapxepPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.chuasapxepPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.chuasapxepPanel.Controls.Add(this.lbMangChuaSapXep);
-            this.chuasapxepPanel.Location = new System.Drawing.Point(6, 308);
+            this.chuasapxepPanel.Location = new System.Drawing.Point(129, 308);
             this.chuasapxepPanel.Name = "chuasapxepPanel";
-            this.chuasapxepPanel.Size = new System.Drawing.Size(1144, 41);
+            this.chuasapxepPanel.Size = new System.Drawing.Size(1021, 41);
             this.chuasapxepPanel.TabIndex = 19;
             // 
             // DebugPanel
             // 
             this.DebugPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.DebugPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DebugPanel.Controls.Add(this.daydangxepListbox);
             this.DebugPanel.Controls.Add(this.yTuongTextBox);
             this.DebugPanel.Controls.Add(this.lbYTuongThuatToan);
             this.DebugPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -695,12 +695,21 @@ namespace DoAnSapXep
             this.lbNgonNgu.TabIndex = 0;
             this.lbNgonNgu.Text = "Ngôn Ngữ";
             // 
+            // daydangxepListbox
+            // 
+            this.daydangxepListbox.FormattingEnabled = true;
+            this.daydangxepListbox.Location = new System.Drawing.Point(5, 27);
+            this.daydangxepListbox.Name = "daydangxepListbox";
+            this.daydangxepListbox.Size = new System.Drawing.Size(340, 95);
+            this.daydangxepListbox.TabIndex = 13;
+            // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1162, 662);
+            this.Controls.Add(this.lbMangChuaSapXep);
             this.Controls.Add(this.ngonngupanel);
             this.Controls.Add(this.Loaisapxeppanel);
             this.Controls.Add(this.panel10);
@@ -720,8 +729,6 @@ namespace DoAnSapXep
             this.Load += new System.EventHandler(this.Mainform_Load);
             this.sapxepPanel.ResumeLayout(false);
             this.sapxepPanel.PerformLayout();
-            this.chuasapxepPanel.ResumeLayout(false);
-            this.chuasapxepPanel.PerformLayout();
             this.DebugPanel.ResumeLayout(false);
             this.DebugPanel.PerformLayout();
             this.thuattoanpanel.ResumeLayout(false);
@@ -740,6 +747,7 @@ namespace DoAnSapXep
             this.ngonngupanel.ResumeLayout(false);
             this.ngonngupanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -800,6 +808,7 @@ namespace DoAnSapXep
         private Label lbNgonNgu;
         private TrackBar trackBar1;
         private Label label1;
+        private ListBox daydangxepListbox;
     }
 }
 
