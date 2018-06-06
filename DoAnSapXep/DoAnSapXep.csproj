@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInput.Designer.cs">
+      <DependentUpon>frmInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="Lang\myResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -70,6 +76,9 @@
     </Compile>
     <Compile Include="ThamSo.cs" />
     <Compile Include="HienThiThuatToan.cs" />
+    <EmbeddedResource Include="frmInput.resx">
+      <DependentUpon>frmInput.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Lang\myResource.en-US.resx" />
     <EmbeddedResource Include="Lang\myResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>

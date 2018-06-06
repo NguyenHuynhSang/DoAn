@@ -29,15 +29,24 @@ namespace DoAnSapXep
             this.Anchor = (AnchorStyles.Top | AnchorStyles.Left);
             btn1.BackColor = Color.Red;
             tbx1.BackColor = Color.White;
+            tbx1.MaxLength = 2;// chi nhap toi da la 99
             tbx1.AcceptsReturn = true;
             btn1.Font =tbx1.Font= new Font("Consolas", ThamSo.KichCoNode /4, FontStyle.Bold);
-            X_vitri = this.Location.X ;
-
-
+            //this.LostFocus += Node_LostFocus;
+            tbx1.LostFocus += Tbx1_LostFocus;
         }
+
+        private void Tbx1_LostFocus(object sender, EventArgs e)
+        {
+            btn1.Visible = true;
+            btn1.BringToFront();
+            btn1.Focus();
+        }
+
+
+
         private int value;
-        public int x_vitri;
-        //public static ManualResetEvent pauseStatus = new ManualResetEvent(true);
+       //public static ManualResetEvent pauseStatus = new ManualResetEvent(true);
         public static bool IsPause = false;
         public event EventHandler Capnhat;
         public override string Text
@@ -51,18 +60,6 @@ namespace DoAnSapXep
             {
 
                 btn1.Text = value.ToString();
-            }
-        }
-        public int X_vitri
-        {
-            get
-            {
-                return x_vitri;
-            }
-
-            set
-            {
-                this.x_vitri = value;
             }
         }
 
@@ -96,7 +93,7 @@ namespace DoAnSapXep
 
         private void tbx1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            if (!Char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -115,7 +112,7 @@ namespace DoAnSapXep
         { 
             if (e.KeyCode == Keys.Enter)
             {
-                btn1.Text = tbx1.ToString();
+                
                 btn1.Visible = true;
                 btn1.BringToFront();
                 btn1.Focus();
@@ -125,7 +122,7 @@ namespace DoAnSapXep
 
         private void tbx1_TextChanged(object sender, EventArgs e)
         {
-            btn1.Text = tbx1.Text;
+            this.Text = tbx1.Text;
             this.Value = Int32.Parse(this.Text);
             if (tbx1.Text != "")
             {
@@ -198,8 +195,7 @@ namespace DoAnSapXep
 
         private void TbxBtn_Load(object sender, EventArgs e)
         {
-            
-            x_vitri = this.Location.X;
+           
         }
 
         private void btn1_Click(object sender, EventArgs e)
