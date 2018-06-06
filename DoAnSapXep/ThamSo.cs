@@ -17,7 +17,7 @@ namespace DoAnSapXep
         public static int DoCaoDiChuyen=KichCoNode;
         public static Color mauNen = Color.White;
         public static Color mauNodeHTSX = Color.Gray;
-        public static Color mauNodeDangSX = Color.AliceBlue;
+        public static Color mauNodeDangSX = Color.Green;
 
         
     }

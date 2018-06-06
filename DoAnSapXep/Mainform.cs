@@ -597,11 +597,11 @@ namespace DoAnSapXep
             // Thay đổi vị trí của node trong mảng nodeArray
             if (DanhSachNode.Count != 0)                   //check xem nếu mảng còn tồn tại --> trong trường hợp mảng đã bị hủy
             {
-                // Đổi màu 2 node sau khi sắp xếp
-                DanhSachNode[vitriNodeA].BackColor = DanhSachNode[vitriNodeB].BackColor = ThamSo.mauNodeHTSX;
                 CapNhatDanhSachNode(vitriNodeA, vitriNodeB);
             }
-            
+
+            // Đổi màu 2 node sau khi sắp xếp
+            DanhSachNode[vitriNodeA].BackColor = DanhSachNode[vitriNodeB].BackColor = ThamSo.mauNodeHTSX;
         }
 
 
@@ -614,13 +614,18 @@ namespace DoAnSapXep
             int temp = DanhSachThamSo[vt1];
             DanhSachThamSo[vt1] = DanhSachThamSo[vt2];
             DanhSachThamSo[vt2] = temp;
+            DanhSachNode[vt1].BackColor = DanhSachNode[vt2].BackColor = ThamSo.mauNodeDangSX;
+
+
 
         }
         private void CapNhatDanhSachNode(int vt1, int vt2)
         {
+            
             Node temp = DanhSachNode[vt1];
             DanhSachNode[vt1] = DanhSachNode[vt2];
             DanhSachNode[vt2] = temp;
+            DanhSachNode[vt1].BackColor = DanhSachNode[vt2].BackColor = ThamSo.mauNodeDangSX;
         }
         #endregion
 
@@ -843,11 +848,13 @@ namespace DoAnSapXep
                         
                         Hienthimangdangsapxep(i, j);
                     }
-                    DanhSachNode[DanhSachNode.Count-1].BackColor = ThamSo.mauNodeHTSX;
+                    
 
                 }
 
             }
+            DanhSachNode[0].BackColor = ThamSo.mauNodeHTSX;
+            DanhSachNode[DanhSachNode.Count - 1].BackColor = ThamSo.mauNodeHTSX;
             hoanTatSapXep();
 
         }
@@ -932,6 +939,8 @@ namespace DoAnSapXep
                     }
                 }
             }
+            DanhSachNode[0].BackColor = ThamSo.mauNodeHTSX;
+            DanhSachNode[DanhSachNode.Count - 1].BackColor = ThamSo.mauNodeHTSX;
             hoanTatSapXep();
         }
         #endregion
@@ -982,6 +991,8 @@ namespace DoAnSapXep
 
                 }
             }
+            DanhSachNode[0].BackColor = ThamSo.mauNodeHTSX;
+            DanhSachNode[DanhSachNode.Count - 1].BackColor = ThamSo.mauNodeHTSX;
             hoanTatSapXep();
 
         } //xong
@@ -992,20 +1003,34 @@ namespace DoAnSapXep
             int pos, key;
 
             Node Nodetam;
+            DanhSachNode[0].BackColor = ThamSo.mauNodeDangSX;
             for (int i = 1; i < SoLuongNode; i++)
             {
+                HienThiThuatToan.ChayCodeC(5);
+
+                DanhSachNode[i].BackColor = ThamSo.mauNodeDangSX;
+
                 key = DanhSachThamSo[i];
+                HienThiThuatToan.ChayCodeC(7);
                 Nodetam = DanhSachNode[i];
                 pos = i - 1;
+
                 bienArr["i"].Location = new Point(danhSachLabel[i].Location.X, danhSachLabel[i].Location.Y - 20);
                 bienArr["i"].Text = "i = " + i;
                 sapxepPanel.Controls.Add(bienArr["i"]);
                 bienArr["i"].Visible = true;
+
                 DanhSachNode[i].ChuyenLen();
+
+                DanhSachNode[0].BackColor = ThamSo.mauNodeHTSX;
+
+                HienThiThuatToan.ChayCodeC(8);
+
                 bienArr["pos"].Location = new Point(danhSachLabel[pos].Location.X, danhSachLabel[pos].Location.Y - 200);
                 bienArr["pos"].Text = "pos = " + pos;
                 sapxepPanel.Controls.Add(bienArr["pos"]);
                 bienArr["pos"].Visible = true;
+
                 if (tangrdbtn.Checked == true)
                 {
                     while ((pos >= 0) && (DanhSachThamSo[pos] > key))
@@ -1018,6 +1043,7 @@ namespace DoAnSapXep
                         Hienthimangdangsapxep(pos + 1, pos);
 
                         HienThiThuatToan.ChayCodeC(10);
+
                         pos--;
                     }
 
@@ -1042,7 +1068,11 @@ namespace DoAnSapXep
                 DanhSachNode[pos + 1] = Nodetam;
                 Nodetam.vitriHienTai = pos + 1;
 
+                DanhSachNode[pos + 1].BackColor = ThamSo.mauNodeHTSX;
+
             }
+            DanhSachNode[0].BackColor = ThamSo.mauNodeHTSX;
+            DanhSachNode[DanhSachNode.Count - 1].BackColor = ThamSo.mauNodeHTSX;
             hoanTatSapXep();
         }
         #endregion
@@ -1193,6 +1223,8 @@ namespace DoAnSapXep
             }
 
             HienThiThuatToan.ChayCodeC(4);
+            DanhSachNode[0].BackColor = ThamSo.mauNodeHTSX;
+            DanhSachNode[DanhSachNode.Count - 1].BackColor = ThamSo.mauNodeHTSX;
             hoanTatSapXep();
         }
         #endregion
@@ -1248,6 +1280,8 @@ namespace DoAnSapXep
                 }
 
             }
+            DanhSachNode[0].BackColor = ThamSo.mauNodeHTSX;
+            DanhSachNode[DanhSachNode.Count - 1].BackColor = ThamSo.mauNodeHTSX;
             hoanTatSapXep();
         } // xong
         #endregion
@@ -1289,7 +1323,8 @@ namespace DoAnSapXep
                 HienThiThuatToan.ChayCodeC(5);
             }
             HienThiThuatToan.ChayCodeC(12);
-
+            DanhSachNode[0].BackColor = ThamSo.mauNodeHTSX;
+            DanhSachNode[DanhSachNode.Count - 1].BackColor = ThamSo.mauNodeHTSX;
             if (DanhSachNode.Count != 0)
             {
                 hoanTatSapXep();
@@ -1423,6 +1458,8 @@ namespace DoAnSapXep
         public void QuickSort()
         {
             ThucHienQuickSort(0, DanhSachThamSo.Count - 1);
+            DanhSachNode[0].BackColor = ThamSo.mauNodeHTSX;
+            DanhSachNode[DanhSachNode.Count - 1].BackColor = ThamSo.mauNodeHTSX;
             hoanTatSapXep();
         }
         private void ThucHienQuickSort(int left, int right)
@@ -1589,6 +1626,7 @@ namespace DoAnSapXep
             {
                 pos = i - 1;
                 HienThiThuatToan.ChayCodeC(4);
+                DanhSachNode[0].BackColor = ThamSo.mauNodeHTSX;
                 bienArr["i"].Location = new Point(danhSachLabel[i].Location.X, danhSachLabel[i].Location.Y - 20);
                 bienArr["i"].Text = "i = " + i;
                 sapxepPanel.Controls.Add(bienArr["i"]);
@@ -1597,22 +1635,23 @@ namespace DoAnSapXep
                 x = DanhSachThamSo[i];
                 HienThiThuatToan.ChayCodeC(6);
                 DanhSachNode[i].ChuyenLen();
+                DanhSachNode[i].BackColor = ThamSo.mauNodeDangSX;
                 left = 0;
                 right = i - 1;
                 bienArr["left"].Location = new Point(danhSachLabel[left].Location.X, danhSachLabel[left].Location.Y - 140);
                 bienArr["left"].Text = "left = " + left;
                 sapxepPanel.Controls.Add(bienArr["left"]);
-                bienArr["left"].Visible = true;
+                //bienArr["left"].Visible = true;
 
                 bienArr["pos"].Location = new Point(danhSachLabel[pos].Location.X, danhSachLabel[pos].Location.Y - 180);
                 bienArr["pos"].Text = "pos = " + pos;
                 sapxepPanel.Controls.Add(bienArr["pos"]);
-                bienArr["pos"].Visible = false;
+                //bienArr["pos"].Visible = false;
 
                 bienArr["right"].Location = new Point(danhSachLabel[right].Location.X, danhSachLabel[right].Location.Y - 160);
                 bienArr["right"].Text = "right = " + right;
                 sapxepPanel.Controls.Add(bienArr["right"]);
-                bienArr["right"].Visible = true;
+                //bienArr["right"].Visible = true;
                 HienThiThuatToan.ChayCodeC(7);
                 while (left <= right)
                 {
@@ -1627,24 +1666,24 @@ namespace DoAnSapXep
                             bienArr["m"].Location = new Point(danhSachLabel[i].Location.X, danhSachLabel[i].Location.Y - 200);
                             bienArr["m"].Text = "m = " + i;
                             sapxepPanel.Controls.Add(bienArr["m"]);
-                            bienArr["m"].Visible = true;
+                            //bienArr["m"].Visible = true;
 
                             bienArr["right"].Text = "right = " + right;
                             sapxepPanel.Controls.Add(bienArr["right"]);
-                            bienArr["right"].Visible = true;
+                           // bienArr["right"].Visible = true;
 
                             right = m - 1;
 
                             bienArr["right"].Text = "right = " + right;
                             sapxepPanel.Controls.Add(bienArr["right"]);
-                            bienArr["right"].Visible = true;
+                           // bienArr["right"].Visible = true;
                         }
                         else
                         {
                             HienThiThuatToan.ChayCodeC(11);
                             bienArr["m"].Text = "m = " + i;
                             sapxepPanel.Controls.Add(bienArr["m"]);
-                            bienArr["m"].Visible = true;
+                           // bienArr["m"].Visible = true;
                             left = m + 1;
 
 
@@ -1657,24 +1696,24 @@ namespace DoAnSapXep
                             HienThiThuatToan.ChayCodeC(10);
                             bienArr["m"].Text = "m = " + i;
                             sapxepPanel.Controls.Add(bienArr["m"]);
-                            bienArr["m"].Visible = true;
+                            //bienArr["m"].Visible = true;
 
                             bienArr["right"].Text = "right = " + right;
                             sapxepPanel.Controls.Add(bienArr["right"]);
-                            bienArr["right"].Visible = true;
+                            //bienArr["right"].Visible = true;
 
                             right = m - 1;
 
                             bienArr["right"].Text = "right = " + right;
                             sapxepPanel.Controls.Add(bienArr["right"]);
-                            bienArr["right"].Visible = true;
+                           // bienArr["right"].Visible = true;
                         }
                         else
                         {
                             HienThiThuatToan.ChayCodeC(11);
                             bienArr["m"].Text = "m = " + i;
                             sapxepPanel.Controls.Add(bienArr["m"]);
-                            bienArr["m"].Visible = true;
+                            //bienArr["m"].Visible = true;
 
                             left = m + 1;
 
@@ -1684,16 +1723,16 @@ namespace DoAnSapXep
                     HienThiThuatToan.ChayCodeC(7);
                     bienArr["left"].Text = "left = " + left;
                     sapxepPanel.Controls.Add(bienArr["left"]);
-                    bienArr["left"].Visible = true;
+                    //bienArr["left"].Visible = true;
                 }
                 HienThiThuatToan.ChayCodeC(13);
                 bienArr["right"].Text = "right = " + right;
                 sapxepPanel.Controls.Add(bienArr["right"]);
-                bienArr["right"].Visible = true;
+               // bienArr["right"].Visible = true;
                 pos = i - 1;
                 bienArr["pos"].Text = "pos = " + pos;
                 sapxepPanel.Controls.Add(bienArr["pos"]);
-                bienArr["pos"].Visible = true;
+                //bienArr["pos"].Visible = true;
                 for (pos = i - 1; pos >= left; pos--)
                 {
                     bienArr["pos"].Text = "pos = " + pos;
@@ -1707,20 +1746,25 @@ namespace DoAnSapXep
                     DanhSachThamSo[pos + 1] = DanhSachThamSo[pos];
                     DanhSachNode[pos] = nodeTam2;
                 }
+
                 bienArr["pos"].Text = "pos = " + pos;
                 sapxepPanel.Controls.Add(bienArr["pos"]);
                 bienArr["pos"].Visible = true;
                 HienThiThuatToan.ChayCodeC(15);
+
                 nodeTam.ChuyenNgang(pos + 1);
                 nodeTam.ChuyenXuong();
                 DanhSachNode[pos + 1] = nodeTam;
                 nodeTam.vitriHienTai = pos + 1;
+                DanhSachNode[pos+1].BackColor = ThamSo.mauNodeHTSX;
 
                 DanhSachThamSo[left] = x;
 
                 //Cập nhật ý tưởng Text Box
 
             }
+            DanhSachNode[0].BackColor = ThamSo.mauNodeHTSX;
+            DanhSachNode[DanhSachNode.Count - 1].BackColor = ThamSo.mauNodeHTSX;
             hoanTatSapXep();
         }
 
@@ -1752,6 +1796,7 @@ namespace DoAnSapXep
 
                     //b[pb] = a[pa];
                     HienThiThuatToan.ChayCodeC(13);
+                    a[pa].BackColor = ThamSo.mauNodeDangSX;
                     a[pa].ChuyenLen();
                     a[pa].ChuyenNgang(pb);
                     a[pa].vitriHienTai = pb;
@@ -1765,7 +1810,7 @@ namespace DoAnSapXep
                 {
                     HienThiThuatToan.ChayCodeC(15);
                     //c[pc] = a[pa];
-                    a[pa].BackColor = Color.LightYellow;
+                    a[pa].BackColor = ThamSo.mauNodeDangSX;
                     a[pa].ChuyenXuong();
                     a[pa].ChuyenNgang(pc);
                     a[pa].vitriHienTai = pc;
@@ -1795,12 +1840,12 @@ namespace DoAnSapXep
                 bool thucHien = false; // dùng để xét tăng/giảm , nếu bằng true thì code sẽ chạy
                 if (tangrdbtn.Checked == true)
                 {
-                    if (c[pc + ic].Value >= b[pb + ib].Value)
+                    if (c[pc + ic].Value <= b[pb + ib].Value)
                         thucHien = true;
                 }
                 else
                 {
-                    if (c[pc + ic].Value <= b[pb + ib].Value)
+                    if (c[pc + ic].Value >= b[pb + ib].Value)
                         thucHien = true;
                 }
                 if (thucHien)
@@ -1808,6 +1853,7 @@ namespace DoAnSapXep
 
                     //a[p++] = b[pb + ib];
                     HienThiThuatToan.ChayCodeC(28);
+                    b[pb + ib].BackColor = ThamSo.mauNen;
                     b[pb + ib].ChuyenXuong();
                     b[pb + ib].ChuyenNgang(p);
                     b[pb + ib].vitriHienTai = p;
@@ -1825,7 +1871,7 @@ namespace DoAnSapXep
                         {
                             HienThiThuatToan.ChayCodeC(32);
                             //a[p++] = c[pc + ic];
-
+                            c[pc + ic].BackColor = ThamSo.mauNen;
                             c[pc + ic].ChuyenLen();
                             c[pc + ic].ChuyenNgang(p);
                             c[pc + ic].vitriHienTai = p;
@@ -1843,6 +1889,7 @@ namespace DoAnSapXep
                 {
                     HienThiThuatToan.ChayCodeC(39);
                     //a[p++] = c[pc + ic];
+                    c[pc + ic].BackColor = ThamSo.mauNen;
                     c[pc + ic].ChuyenLen();
                     c[pc + ic].ChuyenNgang(p);
                     c[pc + ic].vitriHienTai = p;
@@ -1859,7 +1906,7 @@ namespace DoAnSapXep
                         {
                             HienThiThuatToan.ChayCodeC(43);
                             //a[p++] = b[pb + ib];
-
+                            b[pb + ib].BackColor = ThamSo.mauNen;
                             b[pb + ib].ChuyenXuong();
                             b[pb + ib].ChuyenNgang(p);
                             b[pb + ib].vitriHienTai = p;
@@ -1883,6 +1930,7 @@ namespace DoAnSapXep
                 if (nb > nc)
                 {
                     HienThiThuatToan.ChayCodeC(43);
+                    b[pb].BackColor = ThamSo.mauNen;
                     b[pb].ChuyenXuong();
                     b[pb].ChuyenNgang(a.Count - 1);
                     b[pb].vitriHienTai = a.Count - 1;
@@ -1894,10 +1942,12 @@ namespace DoAnSapXep
             {
 
                 HienThiThuatToan.ChayCodeC(43);
+                b[pb].BackColor = ThamSo.mauNen;
                 b[pb].ChuyenXuong();
                 b[pb].ChuyenNgang(a.Count - 2);
                 b[pb].vitriHienTai = a.Count - 2;
                 HienThiThuatToan.ChayCodeC(43);
+                b[pb + 1].BackColor = ThamSo.mauNen;
                 b[pb + 1].ChuyenXuong();
                 b[pb + 1].ChuyenNgang(a.Count - 1);
                 b[pb + 1].vitriHienTai = a.Count - 1;
@@ -1945,6 +1995,12 @@ namespace DoAnSapXep
             bienArr["a:"].Visible = bienArr["b:"].Visible = bienArr["c:"].Visible = true;
             HienThiThuatToan.ChayCodeC(51);
             ThucHienMergeSort(DanhSachNode, DanhSachNode.Count);
+            foreach (Node node in DanhSachNode)
+            {
+                node.BackColor = ThamSo.mauNodeHTSX;
+            }
+            DanhSachNode[0].BackColor = ThamSo.mauNodeHTSX;
+            DanhSachNode[DanhSachNode.Count - 1].BackColor = ThamSo.mauNodeHTSX;
             hoanTatSapXep();
 
         }
