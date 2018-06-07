@@ -177,7 +177,7 @@ namespace DoAnSapXep
             this.sapxepPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.sapxepPanel.Location = new System.Drawing.Point(7, 27);
             this.sapxepPanel.Name = "sapxepPanel";
-            this.sapxepPanel.Size = new System.Drawing.Size(1144, 288);
+            this.sapxepPanel.Size = new System.Drawing.Size(1144, 277);
             this.sapxepPanel.TabIndex = 18;
             this.sapxepPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.sapxepPanel_MouseClick);
             // 
@@ -194,9 +194,9 @@ namespace DoAnSapXep
             // 
             this.chuasapxepPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.chuasapxepPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.chuasapxepPanel.Location = new System.Drawing.Point(122, 308);
+            this.chuasapxepPanel.Location = new System.Drawing.Point(122, 310);
             this.chuasapxepPanel.Name = "chuasapxepPanel";
-            this.chuasapxepPanel.Size = new System.Drawing.Size(1028, 41);
+            this.chuasapxepPanel.Size = new System.Drawing.Size(1017, 39);
             this.chuasapxepPanel.TabIndex = 19;
             // 
             // DebugPanel
@@ -209,7 +209,7 @@ namespace DoAnSapXep
             this.DebugPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DebugPanel.Location = new System.Drawing.Point(6, 355);
             this.DebugPanel.Name = "DebugPanel";
-            this.DebugPanel.Size = new System.Drawing.Size(350, 135);
+            this.DebugPanel.Size = new System.Drawing.Size(402, 135);
             this.DebugPanel.TabIndex = 20;
             // 
             // yTuongTextBox
@@ -249,13 +249,13 @@ namespace DoAnSapXep
             this.thuattoanpanel.Controls.Add(this.lbThuatToan);
             this.thuattoanpanel.Location = new System.Drawing.Point(6, 496);
             this.thuattoanpanel.Name = "thuattoanpanel";
-            this.thuattoanpanel.Size = new System.Drawing.Size(255, 154);
+            this.thuattoanpanel.Size = new System.Drawing.Size(292, 154);
             this.thuattoanpanel.TabIndex = 4;
             // 
             // insertionrdbtn
             // 
             this.insertionrdbtn.AutoSize = true;
-            this.insertionrdbtn.Location = new System.Drawing.Point(147, 31);
+            this.insertionrdbtn.Location = new System.Drawing.Point(170, 31);
             this.insertionrdbtn.Name = "insertionrdbtn";
             this.insertionrdbtn.Size = new System.Drawing.Size(85, 17);
             this.insertionrdbtn.TabIndex = 12;
@@ -266,7 +266,7 @@ namespace DoAnSapXep
             // mergerdbtn
             // 
             this.mergerdbtn.AutoSize = true;
-            this.mergerdbtn.Location = new System.Drawing.Point(11, 123);
+            this.mergerdbtn.Location = new System.Drawing.Point(34, 123);
             this.mergerdbtn.Name = "mergerdbtn";
             this.mergerdbtn.Size = new System.Drawing.Size(75, 17);
             this.mergerdbtn.TabIndex = 21;
@@ -277,7 +277,7 @@ namespace DoAnSapXep
             // shellrdbtn
             // 
             this.shellrdbtn.AutoSize = true;
-            this.shellrdbtn.Location = new System.Drawing.Point(147, 123);
+            this.shellrdbtn.Location = new System.Drawing.Point(170, 123);
             this.shellrdbtn.Name = "shellrdbtn";
             this.shellrdbtn.Size = new System.Drawing.Size(68, 17);
             this.shellrdbtn.TabIndex = 20;
@@ -288,7 +288,7 @@ namespace DoAnSapXep
             // quickrdbtn
             // 
             this.quickrdbtn.AutoSize = true;
-            this.quickrdbtn.Location = new System.Drawing.Point(147, 100);
+            this.quickrdbtn.Location = new System.Drawing.Point(170, 100);
             this.quickrdbtn.Name = "quickrdbtn";
             this.quickrdbtn.Size = new System.Drawing.Size(73, 17);
             this.quickrdbtn.TabIndex = 19;
@@ -299,7 +299,7 @@ namespace DoAnSapXep
             // shakerrdbtn
             // 
             this.shakerrdbtn.AutoSize = true;
-            this.shakerrdbtn.Location = new System.Drawing.Point(147, 77);
+            this.shakerrdbtn.Location = new System.Drawing.Point(170, 77);
             this.shakerrdbtn.Name = "shakerrdbtn";
             this.shakerrdbtn.Size = new System.Drawing.Size(79, 17);
             this.shakerrdbtn.TabIndex = 18;
@@ -310,7 +310,7 @@ namespace DoAnSapXep
             // selectionrdbtn
             // 
             this.selectionrdbtn.AutoSize = true;
-            this.selectionrdbtn.Location = new System.Drawing.Point(147, 54);
+            this.selectionrdbtn.Location = new System.Drawing.Point(170, 54);
             this.selectionrdbtn.Name = "selectionrdbtn";
             this.selectionrdbtn.Size = new System.Drawing.Size(89, 17);
             this.selectionrdbtn.TabIndex = 17;
@@ -321,7 +321,7 @@ namespace DoAnSapXep
             // heaprdbtn
             // 
             this.heaprdbtn.AutoSize = true;
-            this.heaprdbtn.Location = new System.Drawing.Point(11, 100);
+            this.heaprdbtn.Location = new System.Drawing.Point(34, 100);
             this.heaprdbtn.Name = "heaprdbtn";
             this.heaprdbtn.Size = new System.Drawing.Size(71, 17);
             this.heaprdbtn.TabIndex = 12;
@@ -332,7 +332,7 @@ namespace DoAnSapXep
             // bubblerdbtn
             // 
             this.bubblerdbtn.AutoSize = true;
-            this.bubblerdbtn.Location = new System.Drawing.Point(11, 77);
+            this.bubblerdbtn.Location = new System.Drawing.Point(34, 77);
             this.bubblerdbtn.Name = "bubblerdbtn";
             this.bubblerdbtn.Size = new System.Drawing.Size(78, 17);
             this.bubblerdbtn.TabIndex = 16;
@@ -343,7 +343,7 @@ namespace DoAnSapXep
             // binaryinsertionrdbtn
             // 
             this.binaryinsertionrdbtn.AutoSize = true;
-            this.binaryinsertionrdbtn.Location = new System.Drawing.Point(11, 54);
+            this.binaryinsertionrdbtn.Location = new System.Drawing.Point(34, 54);
             this.binaryinsertionrdbtn.Name = "binaryinsertionrdbtn";
             this.binaryinsertionrdbtn.Size = new System.Drawing.Size(116, 17);
             this.binaryinsertionrdbtn.TabIndex = 12;
@@ -354,7 +354,7 @@ namespace DoAnSapXep
             // interchangerdbtn
             // 
             this.interchangerdbtn.AutoSize = true;
-            this.interchangerdbtn.Location = new System.Drawing.Point(11, 31);
+            this.interchangerdbtn.Location = new System.Drawing.Point(34, 31);
             this.interchangerdbtn.Name = "interchangerdbtn";
             this.interchangerdbtn.Size = new System.Drawing.Size(102, 17);
             this.interchangerdbtn.TabIndex = 12;
@@ -369,9 +369,9 @@ namespace DoAnSapXep
             this.Loaisapxeppanel.Controls.Add(this.giamrdbtn);
             this.Loaisapxeppanel.Controls.Add(this.tangrdbtn);
             this.Loaisapxeppanel.Controls.Add(this.lbSapXep);
-            this.Loaisapxeppanel.Location = new System.Drawing.Point(267, 496);
+            this.Loaisapxeppanel.Location = new System.Drawing.Point(304, 496);
             this.Loaisapxeppanel.Name = "Loaisapxeppanel";
-            this.Loaisapxeppanel.Size = new System.Drawing.Size(89, 87);
+            this.Loaisapxeppanel.Size = new System.Drawing.Size(104, 87);
             this.Loaisapxeppanel.TabIndex = 21;
             // 
             // giamrdbtn
@@ -585,9 +585,9 @@ namespace DoAnSapXep
             // 
             this.panel10.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel10.Location = new System.Drawing.Point(267, 589);
+            this.panel10.Location = new System.Drawing.Point(304, 589);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(89, 61);
+            this.panel10.Size = new System.Drawing.Size(104, 61);
             this.panel10.TabIndex = 26;
             // 
             // timer1
@@ -625,9 +625,9 @@ namespace DoAnSapXep
             this.HienThiPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.HienThiPanel.Controls.Add(this.codeListBox);
             this.HienThiPanel.Controls.Add(this.label2);
-            this.HienThiPanel.Location = new System.Drawing.Point(362, 355);
+            this.HienThiPanel.Location = new System.Drawing.Point(414, 355);
             this.HienThiPanel.Name = "HienThiPanel";
-            this.HienThiPanel.Size = new System.Drawing.Size(479, 295);
+            this.HienThiPanel.Size = new System.Drawing.Size(427, 295);
             this.HienThiPanel.TabIndex = 22;
             // 
             // ngonngupanel

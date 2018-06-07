@@ -371,16 +371,15 @@ namespace DoAnSapXep
             chuasapxepPanel.Controls.Add(lbtext);
         }
 
-        private void Hienthimangdangsapxep(int k, int j)
+        private void Hienthimangdangsapxep(int k, int j, string chuDau, string chuCuoi)
         {
-            string temp = "";
+            string temp = "\n" + chuDau + "=" + k + ", " + chuCuoi + "=" + j + " : ";
             for (int i = 0; i < SoLuongNode; i++)
             {
                 int t = DanhSachThamSo[i];
-                temp += t.ToString() + "   ";
+                temp += t.ToString() + "  ";
             }
-            string vt = "i = " + k.ToString() + ", j = " + j.ToString() + ": ";
-            daydangxepListbox.Items.Add(vt);
+       
             daydangxepListbox.Items.Add(temp);
         }
 
@@ -848,8 +847,8 @@ namespace DoAnSapXep
                         
                         CapNhatThamSo(i, j);
                         DichuyenCacNode(j, i);
-                        
-                        Hienthimangdangsapxep(i, j);
+
+                        Hienthimangdangsapxep(i, j, "i", "j");
                     }
                     
 
@@ -938,7 +937,7 @@ namespace DoAnSapXep
                         DanhSachNode[i].BackColor = DanhSachNode[min].BackColor = Color.Green;
                         CapNhatThamSo(min, i);
                         DichuyenCacNode(min, i);
-                        Hienthimangdangsapxep(min, i);
+                        Hienthimangdangsapxep(i, j, "i", "j");
                     }
                 }
             }
@@ -989,7 +988,7 @@ namespace DoAnSapXep
                         DanhSachNode[j].BackColor = DanhSachNode[j - 1].BackColor = Color.Green;
                         CapNhatThamSo(j, j - 1);
                         DichuyenCacNode(j, j - 1);
-                        Hienthimangdangsapxep(j, j - 1);
+                        Hienthimangdangsapxep(i, j, "i", "j");
                     }
 
                 }
@@ -1043,7 +1042,7 @@ namespace DoAnSapXep
                         DanhSachNode[pos + 1] = DanhSachNode[pos];
                         DanhSachThamSo[pos + 1] = DanhSachThamSo[pos];
 
-                        Hienthimangdangsapxep(pos + 1, pos);
+                        Hienthimangdangsapxep(pos, pos + 1, "pos", "i");
 
                         HienThiThuatToan.ChayCodeC(10);
 
@@ -1059,7 +1058,7 @@ namespace DoAnSapXep
                         DanhSachNode[pos].vitriHienTai = pos + 1;
                         DanhSachNode[pos + 1] = DanhSachNode[pos];
                         DanhSachThamSo[pos + 1] = DanhSachThamSo[pos];
-                        Hienthimangdangsapxep(pos + 1, pos);
+                        Hienthimangdangsapxep(pos, pos + 1, "pos", "i");
                         HienThiThuatToan.ChayCodeC(10);
                         pos--;
                     }
@@ -1140,7 +1139,7 @@ namespace DoAnSapXep
                         HienThiThuatToan.ChayCodeC(9);
                         CapNhatThamSo(j, j - 1);
                         DichuyenCacNode(j, j - 1);
-                        Hienthimangdangsapxep(j - 1, j); // mang dang sap xep
+                        Hienthimangdangsapxep(j - 1, j, "k", "j"); // mang dang sap xep
 
                         HienThiThuatToan.ChayCodeC(10);
                         k = j;
@@ -1190,7 +1189,7 @@ namespace DoAnSapXep
                         HienThiThuatToan.ChayCodeC(16);
                         CapNhatThamSo(j, j + 1);
                         DichuyenCacNode(j + 1, j);
-                        Hienthimangdangsapxep(j, j + 1);
+                        Hienthimangdangsapxep(j, j + 1, "k", "j");
 
                         HienThiThuatToan.ChayCodeC(17);
                         k = j;
@@ -1265,6 +1264,7 @@ namespace DoAnSapXep
                             DanhSachNode[j].BackColor = DanhSachNode[j - gap].BackColor = Color.Green;
                             CapNhatThamSo(j, j - gap);
                             DichuyenCacNode(j, j - gap);
+                            Hienthimangdangsapxep(i, j, "i", "j");
                         }
                     }
                     if (giamrdbtn.Checked == true)
@@ -1277,7 +1277,7 @@ namespace DoAnSapXep
                             DanhSachNode[j].BackColor = DanhSachNode[j - gap].BackColor = Color.Green;
                             CapNhatThamSo(j, j - gap);
                             DichuyenCacNode(j, j - gap);
-                            Hienthimangdangsapxep(j, j - gap);
+                            Hienthimangdangsapxep(i, j, "i", "j");
                         }
                     }
                 }
@@ -1405,7 +1405,7 @@ namespace DoAnSapXep
 
                         DichuyenCacNode(j, i);
                         CapNhatThamSo(i, j);
-                        Hienthimangdangsapxep(i, j); 
+                        Hienthimangdangsapxep(i, j, "i", "j");
 
 
                         HienThiThuatToan.ChayCodeC(36);
@@ -1430,7 +1430,7 @@ namespace DoAnSapXep
                         HienThiThuatToan.ChayCodeC(35);
                         CapNhatThamSo(i, j);
                         DichuyenCacNode(i, j);
-                        Hienthimangdangsapxep(i, j);
+                        Hienthimangdangsapxep(i, j, "i", "j");
 
 
 
@@ -1590,7 +1590,7 @@ namespace DoAnSapXep
                     HienThiThuatToan.ChayCodeC(13);
                     CapNhatThamSo(i, j);
                     DichuyenCacNode(j, i);
-
+                    Hienthimangdangsapxep(i, j, "i", "j");
                     bienArr["vt_x"].Location = new Point(danhSachLabel[vt_x].Location.X, danhSachLabel[vt_x].Location.Y - 60);
                     bienArr["vt_x"].Text = "x = a[" + vt_x + "]";
                     sapxepPanel.Controls.Add(bienArr["vt_x"]);
@@ -1764,6 +1764,8 @@ namespace DoAnSapXep
                 DanhSachThamSo[left] = x;
 
                 //Cập nhật ý tưởng Text Box
+                Hienthimangdangsapxep(pos, i, "pos", "i");
+
 
             }
             DanhSachNode[0].BackColor = ThamSo.mauNodeHTSX;
