@@ -89,7 +89,10 @@ namespace DoAnSapXep
             this.btnVi = new System.Windows.Forms.Button();
             this.btnEn = new System.Windows.Forms.Button();
             this.lbNgonNgu = new System.Windows.Forms.Label();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.caiDatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DebugPanel.SuspendLayout();
             this.thuattoanpanel.SuspendLayout();
             this.Loaisapxeppanel.SuspendLayout();
@@ -99,6 +102,7 @@ namespace DoAnSapXep
             this.huypanel.SuspendLayout();
             this.HienThiPanel.SuspendLayout();
             this.ngonngupanel.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbYTuongThuatToan
@@ -171,9 +175,9 @@ namespace DoAnSapXep
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.sapxepPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.sapxepPanel.Location = new System.Drawing.Point(7, 12);
+            this.sapxepPanel.Location = new System.Drawing.Point(7, 27);
             this.sapxepPanel.Name = "sapxepPanel";
-            this.sapxepPanel.Size = new System.Drawing.Size(1144, 290);
+            this.sapxepPanel.Size = new System.Drawing.Size(1144, 288);
             this.sapxepPanel.TabIndex = 18;
             this.sapxepPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.sapxepPanel_MouseClick);
             // 
@@ -669,12 +673,42 @@ namespace DoAnSapXep
             this.lbNgonNgu.TabIndex = 0;
             this.lbNgonNgu.Text = "Ngôn Ngữ";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.caiDatToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1162, 24);
+            this.menuStrip1.TabIndex = 28;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // caiDatToolStripMenuItem
+            // 
+            this.caiDatToolStripMenuItem.Name = "caiDatToolStripMenuItem";
+            this.caiDatToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.caiDatToolStripMenuItem.Text = "CaiDat";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1162, 662);
+            this.ClientSize = new System.Drawing.Size(1162, 675);
             this.Controls.Add(this.lbMangChuaSapXep);
             this.Controls.Add(this.ngonngupanel);
             this.Controls.Add(this.Loaisapxeppanel);
@@ -687,7 +721,9 @@ namespace DoAnSapXep
             this.Controls.Add(this.chuasapxepPanel);
             this.Controls.Add(this.sapxepPanel);
             this.Controls.Add(this.DebugPanel);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Mainform";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -710,6 +746,8 @@ namespace DoAnSapXep
             this.HienThiPanel.PerformLayout();
             this.ngonngupanel.ResumeLayout(false);
             this.ngonngupanel.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -770,7 +808,10 @@ namespace DoAnSapXep
         private ListBox daydangxepListbox;
         private Button nhaptaybtn;
         private Button docfilebtn;
-        private SaveFileDialog saveFileDialog1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem caiDatToolStripMenuItem;
+        private ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 

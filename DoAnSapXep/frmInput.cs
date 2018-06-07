@@ -24,6 +24,17 @@ namespace DoAnSapXep
 
         private void frmInput_Load(object sender, EventArgs e)
         {
+            label1.Focus();
+            textBox2.GotFocus += TextBox2_GotFocus;
+        }
+
+        private void TextBox2_GotFocus(object sender, EventArgs e)
+        {
+            textBox2.Text = "";
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

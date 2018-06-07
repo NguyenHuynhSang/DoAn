@@ -38,9 +38,22 @@ namespace DoAnSapXep
 
         private void Tbx1_LostFocus(object sender, EventArgs e)
         {
+            if (tbx1.Text=="")
+            {
+                tbx1.Text = "0";
+            }
+            else
+            {
+                this.Text = tbx1.Text;
+                this.Value = Int32.Parse(this.Text);
+            }
             btn1.Visible = true;
             btn1.BringToFront();
             btn1.Focus();
+            if (Capnhat != null)
+            {
+                Capnhat(sender, e);
+            }
         }
 
 
@@ -122,17 +135,13 @@ namespace DoAnSapXep
 
         private void tbx1_TextChanged(object sender, EventArgs e)
         {
-            this.Text = tbx1.Text;
-            this.Value = Int32.Parse(this.Text);
-            if (tbx1.Text != "")
-            {
-                //  value = Int32.Parse(tbx1.Text);
+         
+            //if (tbx1.Text != "")
+            //{
+            //    //  value = Int32.Parse(tbx1.Text);
               
-            }
-            if (Capnhat!=null)
-            {
-                Capnhat(sender,e);
-            }
+            
+          
         
         }
         /// <summary>

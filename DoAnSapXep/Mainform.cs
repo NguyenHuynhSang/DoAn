@@ -19,7 +19,7 @@ namespace DoAnSapXep
         {
             InitializeComponent();
             //bo check loi crossthread
-            Control.CheckForIllegalCrossThreadCalls = false;
+          Control.CheckForIllegalCrossThreadCalls = false;
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace DoAnSapXep
         public int loaiThuatToan;
         HienThiThuatToan HienThuattoan = new HienThiThuatToan();
         private bool isRunning;
-        private bool isTang = true;
+        private bool isTang;
         private int SoLuongNode;
         public List<int> DanhSachThamSo;
         public List<Node> DanhSachNode;
@@ -130,6 +130,7 @@ namespace DoAnSapXep
             }
 
             bienArr["i"].Size = bienArr["j"].Size = new Size(ThamSo.KichCoNode, 15);
+            
             bienArr["min"].Size = new Size(60, 20);
             bienArr["left"].Size = new Size(60, 20);
             bienArr["right"].Size = new Size(60, 20);
@@ -138,7 +139,7 @@ namespace DoAnSapXep
             bienArr["vt_x"].Size = new Size(60, 20);
             bienArr["gap"].Size = new Size(60, 20);
             bienArr["a:"].Size = bienArr["b:"].Size = bienArr["c:"].Size = new Size(40, 15);
-
+            
 
             culture = CultureInfo.CurrentCulture;
             huybnt.Enabled = false;
@@ -219,12 +220,12 @@ namespace DoAnSapXep
             {
                 daydangxepListbox.Items.Clear();
                 daydangxepListbox.BringToFront();
-                thuattoanpanel.Enabled = sapxepPanel.Enabled = khoitaopanel.Enabled = ngonngupanel.Enabled = batdaubtn.Enabled = Loaisapxeppanel.Enabled = HienThiPanel.Enabled = false;
+                thuattoanpanel.Enabled = khoitaopanel.Enabled = ngonngupanel.Enabled = batdaubtn.Enabled = Loaisapxeppanel.Enabled = HienThiPanel.Enabled = false;
             }
             else
             {
                
-                thuattoanpanel.Enabled = sapxepPanel.Enabled = khoitaopanel.Enabled = ngonngupanel.Enabled = batdaubtn.Enabled = Loaisapxeppanel.Enabled = HienThiPanel.Enabled = true;
+                thuattoanpanel.Enabled = khoitaopanel.Enabled = ngonngupanel.Enabled = batdaubtn.Enabled = Loaisapxeppanel.Enabled = HienThiPanel.Enabled = true;
 
             }
         }
@@ -307,7 +308,8 @@ namespace DoAnSapXep
             {
                 Label tam = new Label() { Text = i.ToString() };
                 tam.Size = new Size(ThamSo.KichCoNode / 2, ThamSo.KichCoNode / 2);
-                tam.Enabled = false;
+                tam.ForeColor = Color.Blue;
+                //tam.Enabled = false;
                 Node btn = new Node(i);
                 int Value = rank.Next(2, 100);
                 btn.Value = Value;
@@ -319,7 +321,7 @@ namespace DoAnSapXep
                                          sapxepPanel.Height / 2 - btn.Height / 2);
                     btn.Location = new Point(newPoint.X + temp * btn.Width + temp * ThamSo.KhoangCachCacNode, newPoint.Y);
                     temp++;
-                    tam.Location = new Point(btn.Location.X, btn.Location.Y + 120);
+                    tam.Location = new Point(btn.Location.X+btn.Width/2 - tam.Width / 2, btn.Location.Y + 120);
                 }
                 else
                 {
@@ -331,16 +333,14 @@ namespace DoAnSapXep
 
                     newPoint = new Point(sapxepPanel.Width / 2 - btn.Width / 2 + ThamSo.KichCoNode / 2, sapxepPanel.Height / 2 - btn.Height / 2);
                     btn.Location = new Point(newPoint.X - temp2 + temp3 * ThamSo.KhoangCachCacNode + temp * btn.Width, newPoint.Y);// Node Xuất hiện giữa panel
-                    tam.Location = new Point(btn.Location.X, btn.Location.Y + 120);
+                    tam.Location = new Point(btn.Location.X + btn.Width / 2-tam.Width/2, btn.Location.Y + 120);
                     temp++;
                     temp3++;
                 }
                 sapxepPanel.Controls.Add(tam);
                 sapxepPanel.Controls.Add(btn);
                 DanhSachNode.Add(btn);
-                DanhSachNode[i] = btn;
                 DanhSachThamSo.Add(Value);
-
                 danhSachLabel.Add(tam);
                 btn.Capnhat += Btn_Capnhat;
             }
@@ -483,14 +483,25 @@ namespace DoAnSapXep
         }
         private void DemThoiGian()
         {
+            Giay++;
             if (Giay > 59)
             {
                 Giay = 0;
                 Phut++;
             }
-            Giay++;
-            label11.Text = Phut + ":" + Giay;
+           
+            if (Giay<10)
+            {
+                label11.Text = Phut + ":0" + Giay;
+            }
+            else
+            {
+                label11.Text = Phut + ":" + Giay;
+            }
+            
         }
+
+
         void batdaubtn_Click(object sender, EventArgs e)
         {
             daydangxepListbox.Visible = true;
@@ -502,7 +513,7 @@ namespace DoAnSapXep
             ChonThuatToan();
             sapxepThread = new Thread(new ThreadStart(ThuatToanSapXep));
             sapxepThread.Start();
-
+           
             //backgroundWorker1.RunWorkerAsync(); // goi ham do work  
 
         }
@@ -545,14 +556,6 @@ namespace DoAnSapXep
 
         }
         #endregion
-
-
-        /// <summary>
-        /// Thử dùng backgoundWalker
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        ///  
 
         /// <summary>
         /// Khu vuc bao tri 
@@ -815,7 +818,7 @@ namespace DoAnSapXep
             for (i = 0; i < SoLuongNode - 1; i++)
             {
                 bienArr["i"].Location = new Point(danhSachLabel[i].Location.X, danhSachLabel[i].Location.Y - 20);
-                bienArr["i"].Text = "i = " + i;
+                bienArr["i"].Text = "i = " + i;   
                 sapxepPanel.Controls.Add(bienArr["i"]);
                 bienArr["i"].Visible = true;
                 HienThiThuatToan.ChayCodeC(3);
@@ -1840,12 +1843,12 @@ namespace DoAnSapXep
                 bool thucHien = false; // dùng để xét tăng/giảm , nếu bằng true thì code sẽ chạy
                 if (tangrdbtn.Checked == true)
                 {
-                    if (c[pc + ic].Value <= b[pb + ib].Value)
+                    if (c[pc + ic].Value >= b[pb + ib].Value)
                         thucHien = true;
                 }
                 else
                 {
-                    if (c[pc + ic].Value >= b[pb + ib].Value)
+                    if (c[pc + ic].Value <= b[pb + ib].Value)
                         thucHien = true;
                 }
                 if (thucHien)
