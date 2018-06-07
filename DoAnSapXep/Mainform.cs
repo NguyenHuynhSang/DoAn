@@ -113,6 +113,14 @@ namespace DoAnSapXep
         // Cac thong so mac dinh khi form duoc tao ra
         private void Mainform_Load(object sender, EventArgs e)
         {
+            List<Label> lbls = this.Controls.OfType<Label>().ToList();
+            foreach (Label lb in lbls)
+            {
+                if (lb.GetType() == typeof(Label))
+                {
+                    lb.Font = Properties.Settings.Default.labelFont;
+                }
+            }
             VeNut();
             KhoiTaoMacDinh();
             Mangchuasapxep();
@@ -2086,6 +2094,13 @@ namespace DoAnSapXep
         {
             frmInput input = new frmInput();
             input.ShowDialog();
+        }
+
+        private void caiDatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CaiDat caiDat = new CaiDat();
+            caiDat.ShowDialog();
+
         }
 
         private void Mainform_FormClosing(object sender, FormClosingEventArgs e)
