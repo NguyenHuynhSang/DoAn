@@ -31,14 +31,14 @@ namespace DoAnSapXep
 
             txbSoLuongPhanTuMacDinh.Text = Properties.Settings.Default.soLuongPhanTuMacDinh.ToString();
 
-            _txbLabelFont = txbLabelFont;
-            _txbFontChu = txbFontChu;
+          //  _txbLabelFont = txbLabelFont;
+          //  _txbFontChu = txbFontChu;
          
-            labelFontDialog.Font = txbLabelFont.Font;
-            chuFontDialog.Font = txbChuFont.Font;
+            //labelFontDialog.Font = txbLabelFont.Font;
+            //chuFontDialog.Font = txbChuFont.Font;
 
-            txbLabelFont.Text = string.Format("{0} {1}", txbLabelFont.Font.Name, txbLabelFont.Font.Size);
-            txbChuFont.Text = string.Format("{0} {1}", txbChuFont.Font.Name, txbChuFont.Font.Size);
+            //txbLabelFont.Text = string.Format("{0} {1}", txbLabelFont.Font.Name, txbLabelFont.Font.Size);
+            //txbChuFont.Text = string.Format("{0} {1}", txbChuFont.Font.Name, txbChuFont.Font.Size);
 
         }
 
@@ -92,9 +92,9 @@ namespace DoAnSapXep
             }
 
             rs = int.TryParse(txbSoLuongPhanTuMacDinh.Text, out soLuongPhanTuMacDinh);
-            if (rs = false || (soLuongPhanTuMacDinh < 1 || soLuongPhanTuMacDinh > ThamSo.SoLuongPhanTuMax))
+            if (rs = false || (soLuongPhanTuMacDinh < 1 || soLuongPhanTuMacDinh > ThamSo.SoluongNodeLonNhat))
             {
-                MessageBox.Show("Số lượng phần tử mặc định phải là số nguyên và thuộc khoản từ 1 đến " + ThamSo.SoLuongPhanTuMax + " !", "Giá trị công hợp lệ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Số lượng phần tử mặc định phải là số nguyên và thuộc khoản từ 1 đến " + ThamSo.SoluongNodeLonNhat + " !", "Giá trị công hợp lệ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -106,11 +106,11 @@ namespace DoAnSapXep
             Properties.Settings.Default.mauNodeHoanTatSapXep = ThamSo.mauNodeHTSX = btnMauNodeDaSapXep.BackColor;
             Properties.Settings.Default.mauNodeDangSapXep = ThamSo.mauNodeDangSX = btnMauNodeDangXet.BackColor;
 
-            Properties.Settings.Default.labelFont = txbLabelFont.Font = labelFontDialog.Font;
-            Properties.Settings.Default.chuFont = txbChuFont.Font = chuFontDialog.Font;
+          //  Properties.Settings.Default.labelFont = txbLabelFont.Font = labelFontDialog.Font;
+           // Properties.Settings.Default.chuFont = txbChuFont.Font = chuFontDialog.Font;
 
             Properties.Settings.Default.soLuongPhanTuMacDinh = soLuongPhanTuMacDinh;
-
+          
 
             Properties.Settings.Default.Save();
             this.Close();
@@ -122,7 +122,7 @@ namespace DoAnSapXep
             if (dialog == DialogResult.OK)
             {
                 Font font = labelFontDialog.Font;
-                txbLabelFont.Text = string.Format("{0} {1}", font.Name, font.Size);
+              //  txbLabelFont.Text = string.Format("{0} {1}", font.Name, font.Size);
 
             }
         }
@@ -133,12 +133,27 @@ namespace DoAnSapXep
             if (dialog == DialogResult.OK)
             {
                 Font font = labelFontDialog.Font;
-                txbLabelFont.Text = string.Format("{0} {1}", font.Name, font.Size);
+              //  txbLabelFont.Text = string.Format("{0} {1}", font.Name, font.Size);
 
             }
         }
 
         private void txbLabelFont_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMacDinh_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CaiDat_Load(object sender, EventArgs e)
         {
 
         }

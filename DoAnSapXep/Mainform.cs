@@ -13,13 +13,14 @@ using System.Resources;
 using System.Globalization;
 namespace DoAnSapXep
 {
-    public partial class Mainform : Form
+    public partial class    Mainform : Form
     {
         public Mainform()
         {
             InitializeComponent();
             //bo check loi crossthread
-          Control.CheckForIllegalCrossThreadCalls = false;
+            
+            Control.CheckForIllegalCrossThreadCalls = false;
         }
 
         /// <summary>
@@ -47,8 +48,6 @@ namespace DoAnSapXep
         //int a = 2;
 
         #region Biến i, j, k, pos,...
-
-        private List<Label> labelSTTArr = new List<Label>();
         private Dictionary<string, Label> bienArr;
         #endregion
 
@@ -74,7 +73,7 @@ namespace DoAnSapXep
             lbSoPhanTu.Text = rm.GetString("sophantu", culture);
             taongaunhienbtn.Text = rm.GetString("ngaunhien", culture);
             venutbtn.Text = rm.GetString("venut", culture);
-            docfilebtn.Text = rm.GetString("docfile", culture);
+            //docfilebtn.Text = rm.GetString("docfile", culture);
             nhaptaybtn.Text = rm.GetString("nhapbangtay", culture);
             lbHuy.Text = rm.GetString("huyquatrinh", culture);
             xoamangbtn.Text = rm.GetString("xoamang", culture);
@@ -113,14 +112,7 @@ namespace DoAnSapXep
         // Cac thong so mac dinh khi form duoc tao ra
         private void Mainform_Load(object sender, EventArgs e)
         {
-            List<Label> lbls = this.Controls.OfType<Label>().ToList();
-            foreach (Label lb in lbls)
-            {
-                if (lb.GetType() == typeof(Label))
-                {
-                    lb.Font = Properties.Settings.Default.labelFont;
-                }
-            }
+            //allControls.ForEach(k => k.Font = new System.Drawing.Font("Microsoft Sans Serif", 10));
             VeNut();
             KhoiTaoMacDinh();
             Mangchuasapxep();
@@ -163,20 +155,21 @@ namespace DoAnSapXep
             isRunning = false;
             soluongNodetbx.Text = "5";
             SoLuongNode = 5;
+            dungbtn.Enabled = huybnt.Enabled = false;
             VeNut();
             DieuChinhControls(isRunning);
-            setMauAllControl();
+            
+            // setMauAllControl();
         }
 
-        private void setMauAllControl()
-        {
-            this.BackColor = Color.White;
-            batdaubtn.BackColor = dungbtn.BackColor = huybnt.BackColor = taongaunhienbtn.BackColor
-            = venutbtn.BackColor = docfilebtn.BackColor = nhaptaybtn.BackColor = xoamangbtn.BackColor = thoatbtn.BackColor = Color.White;
-            DebugPanel.BackColor = thuattoanpanel.BackColor = Loaisapxeppanel.BackColor = panel10.BackColor = HienThiPanel.BackColor
-            = dieukhienpanel.BackColor = khoitaopanel.BackColor = huypanel.BackColor = ngonngupanel.BackColor = Color.White;
-            codeListBox.BackColor = chuasapxepPanel.BackColor =yTuongTextBox.BackColor= Color.White;
-        }
+        //private void setMauAllControl()
+        //{
+
+        //    this.BackColor = Color.White;
+        //    sapxepPanel.BackColor =Color.White;
+        //    codeListBox.BackColor = daydangxepListbox.BackColor = yTuongTextBox.BackColor = Color.Gainsboro;
+        //    codeListBox.Font = daydangxepListbox.Font = yTuongTextBox.Font = new Font("Centaur", 10);
+        //}
 
         void ChonThuatToan()
         {
@@ -224,15 +217,27 @@ namespace DoAnSapXep
 
         private void DieuChinhControls(bool isRunning)
         {
+          //  batdaubtn.Focus();
             if (isRunning == true)
             {
+                foreach (Node item in DanhSachNode)
+                {
+                    item.Enabled = false;
+                }
+                xoamangbtn.Enabled = false;
+                dungbtn.Enabled =huybnt.Enabled=true;
                 daydangxepListbox.Items.Clear();
                 daydangxepListbox.BringToFront();
                 thuattoanpanel.Enabled = khoitaopanel.Enabled = ngonngupanel.Enabled = batdaubtn.Enabled = Loaisapxeppanel.Enabled = HienThiPanel.Enabled = false;
             }
             else
             {
-               
+                foreach (Node item in DanhSachNode)
+                {
+                    item.Enabled = true;
+                }
+                xoamangbtn.Enabled = true;
+                dungbtn.Enabled = huybnt.Enabled = false;
                 thuattoanpanel.Enabled = khoitaopanel.Enabled = ngonngupanel.Enabled = batdaubtn.Enabled = Loaisapxeppanel.Enabled = HienThiPanel.Enabled = true;
 
             }
@@ -329,7 +334,7 @@ namespace DoAnSapXep
                                          sapxepPanel.Height / 2 - btn.Height / 2);
                     btn.Location = new Point(newPoint.X + temp * btn.Width + temp * ThamSo.KhoangCachCacNode, newPoint.Y);
                     temp++;
-                    tam.Location = new Point(btn.Location.X+btn.Width/2 - tam.Width / 2, btn.Location.Y + 120);
+                    tam.Location = new Point(btn.Location.X+btn.Width/2 - tam.Width / 2, btn.Location.Y + 150);
                 }
                 else
                 {
@@ -341,7 +346,7 @@ namespace DoAnSapXep
 
                     newPoint = new Point(sapxepPanel.Width / 2 - btn.Width / 2 + ThamSo.KichCoNode / 2, sapxepPanel.Height / 2 - btn.Height / 2);
                     btn.Location = new Point(newPoint.X - temp2 + temp3 * ThamSo.KhoangCachCacNode + temp * btn.Width, newPoint.Y);// Node Xuất hiện giữa panel
-                    tam.Location = new Point(btn.Location.X + btn.Width / 2-tam.Width/2, btn.Location.Y + 120);
+                    tam.Location = new Point(btn.Location.X + btn.Width / 2-tam.Width/2, btn.Location.Y + 150);
                     temp++;
                     temp3++;
                 }
@@ -374,14 +379,14 @@ namespace DoAnSapXep
                 _string += item + "    ";
             }
             Label lbtext = new Label() { Text = _string };
-            lbtext.Size = new Size(6000, 20);
+            lbtext.Size = new Size(600, 20);
             lbtext.Location = new Point(30, 12);
             chuasapxepPanel.Controls.Add(lbtext);
         }
 
-        private void Hienthimangdangsapxep(int k, int j, string chuDau, string chuCuoi)
+        private void Hienthimangdangsapxep(int k, int j, string thamso1, string thamso2)
         {
-            string temp = "\n" + chuDau + "=" + k + ", " + chuCuoi + "=" + j + " : ";
+            string temp = "\n" + thamso1 + "=" + k + ", " + thamso2 + "=" + j + " : ";
             for (int i = 0; i < SoLuongNode; i++)
             {
                 int t = DanhSachThamSo[i];
@@ -483,7 +488,7 @@ namespace DoAnSapXep
         }
         #endregion
 
-
+        #region Count Time
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             DemThoiGian();
@@ -507,10 +512,11 @@ namespace DoAnSapXep
             }
             
         }
-
+        #endregion
 
         void batdaubtn_Click(object sender, EventArgs e)
         {
+           
             daydangxepListbox.Visible = true;
             huybnt.Enabled = true;
             isRunning = true;
@@ -639,6 +645,9 @@ namespace DoAnSapXep
         }
         #endregion
 
+        /// <summary>
+        /// cach dung background worker loi khi sleep 0
+        /// </summary>
         //#region Khung chuong trinh
         ///// <summary>
         ///// Su dung backgroundWalker de mo phong su di chuyen cua cac Node
@@ -798,6 +807,10 @@ namespace DoAnSapXep
         private void hoanTatSapXep()
         {
             HienThiThuatToan.ChayCodeC(1);
+            foreach (Node item in DanhSachNode)
+            {
+                item.BackColor = ThamSo.mauNen;
+            }
             isRunning = false;
             DieuChinhControls(isRunning);
             MessageBox.Show("Hoàn tất sắp xếp!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -813,6 +826,7 @@ namespace DoAnSapXep
                 timer1.Stop();
             }
             huybnt.Enabled = false;
+          
         }
         #region InterchangeSort
         private void InterchangeSort()
@@ -831,6 +845,7 @@ namespace DoAnSapXep
                 HienThiThuatToan.ChayCodeC(3);
                 for (j = i + 1; j < SoLuongNode; j++)
                 {
+                    DanhSachNode[j].BackColor = ThamSo.Nodeketiep;
                     bienArr["j"].Location = new Point(danhSachLabel[j].Location.X, danhSachLabel[j].Location.Y - 40);
                     bienArr["j"].Text = "j = " + j;
                     sapxepPanel.Controls.Add(bienArr["j"]);
@@ -858,8 +873,12 @@ namespace DoAnSapXep
 
                         Hienthimangdangsapxep(i, j, "i", "j");
                     }
-                    
+                    else
+                    {
+                        DanhSachNode[j].BackColor = ThamSo.mauNen;
+                    }
 
+                    
                 }
 
             }
@@ -891,6 +910,7 @@ namespace DoAnSapXep
                 bienArr["i"].Visible = true;
                 for (j = i + 1; j < SoLuongNode; j++)
                 {
+                    DanhSachNode[j].BackColor = ThamSo.Nodeketiep;
                     HienThiThuatToan.ChayCodeC(6);
                     flag = false;
                     min = i;
@@ -947,6 +967,10 @@ namespace DoAnSapXep
                         DichuyenCacNode(min, i);
                         Hienthimangdangsapxep(i, j, "i", "j");
                     }
+                    else
+                    {
+                        DanhSachNode[j].BackColor = ThamSo.mauNen;
+                    }
                 }
             }
             DanhSachNode[0].BackColor = ThamSo.mauNodeHTSX;
@@ -970,6 +994,7 @@ namespace DoAnSapXep
                 bienArr["i"].Visible = true;
                 for (j = SoLuongNode - 1; j > i; j--)
                 {
+                    DanhSachNode[j].BackColor = ThamSo.Nodeketiep;
                     flag = false;
                     if (tangrdbtn.Checked == true)
                     {
@@ -997,6 +1022,10 @@ namespace DoAnSapXep
                         CapNhatThamSo(j, j - 1);
                         DichuyenCacNode(j, j - 1);
                         Hienthimangdangsapxep(i, j, "i", "j");
+                    }
+                    else
+                    {
+                        DanhSachNode[j].BackColor = ThamSo.mauNen;
                     }
 
                 }
@@ -1097,11 +1126,11 @@ namespace DoAnSapXep
             left = 0; right = DanhSachThamSo.Count - 1; k = DanhSachThamSo.Count - 1;
 
             HienThiThuatToan.ChayCodeC(4);
-            bienArr["left"].Location = new Point(danhSachLabel[left].Location.X, danhSachLabel[left].Location.Y - 140);
+            bienArr["left"].Location = new Point(danhSachLabel[left].Location.X, danhSachLabel[left].Location.Y - 240);
             bienArr["left"].Text = "left = " + left;
             sapxepPanel.Controls.Add(bienArr["left"]);
             bienArr["left"].Visible = true;
-            bienArr["right"].Location = new Point(danhSachLabel[right].Location.X, danhSachLabel[right].Location.Y - 160);
+            bienArr["right"].Location = new Point(danhSachLabel[right].Location.X, danhSachLabel[right].Location.Y - 240);
             bienArr["right"].Text = "right = " + right;
             sapxepPanel.Controls.Add(bienArr["right"]);
             bienArr["right"].Visible = true;
@@ -1623,9 +1652,7 @@ namespace DoAnSapXep
             }
 
         }
-        #endregion//xong  
-        // chưa xong mảng đang xếp
-        // chua cap nhat hien thi cac bien tren GUI
+        #endregion//xong      
         #region BinaryInsectionSort
         public void BinaryInsertionSort()
         {
@@ -1782,9 +1809,6 @@ namespace DoAnSapXep
         }
 
         #endregion
-        // chưa xong mảng đang xếp
-        //mergesoft t chua coi ky nen k hieu y tuong thuat toan voi cho nao cap nhat lai danh sach tham so
-        // se bo xung file huong dan y tuong thuat toan sau
         #region MergeSoft
         List<Node> b = new List<Node>();
         List<Node> c = new List<Node>();
@@ -2020,9 +2044,7 @@ namespace DoAnSapXep
 
 
         #endregion
-        // chưa xong mảng đang xếp
-
-
+      
 
         private void lbDieuKhien_Click(object sender, EventArgs e)
         {
@@ -2066,12 +2088,24 @@ namespace DoAnSapXep
         }
 
         private void sapxepPanel_MouseClick(object sender, MouseEventArgs e)
-        { 
+        {
+            foreach (Node item in DanhSachNode)
+            {
+                if (item.Text=="")
+                {
+                    item.Text = "0";
+                    item.Value = 0;
+                }
+            }
                 batdaubtn.Focus();  
         }
 
         private void thoatbtn_Click(object sender, EventArgs e)
         {
+            if (sapxepThread!=null)
+            {
+                sapxepThread.Abort();
+            }
             this.Close();
         }
 
@@ -2102,6 +2136,15 @@ namespace DoAnSapXep
             caiDat.ShowDialog();
 
         }
+
+        private void Mainform_FormClosing_1(object sender, FormClosingEventArgs e)
+        {
+            if (sapxepThread!=null)
+            {
+                sapxepThread.Abort();
+            }
+        }
+
 
         private void Mainform_FormClosing(object sender, FormClosingEventArgs e)
         {

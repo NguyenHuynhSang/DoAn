@@ -202,3 +202,5 @@ C:\Users\buiqu\Documents\GitHub\DoAn\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.pdb
 C:\Users\Admin\Desktop\DoAn_LTTQ\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.frmInput.resources
 C:\Users\buiqu\Documents\GitHub\DoAn\DoAn\DoAnSapXep\bin\Debug\DoAnSapXep.exe.config
 C:\Users\buiqu\Documents\GitHub\DoAn\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.CaiDat.resources
+D:\Git\DoAn\DoAnSapXep\bin\Debug\DoAnSapXep.exe.config
+D:\Git\DoAn\DoAnSapXep\obj\Debug\DoAnSapXep.CaiDat.resources
