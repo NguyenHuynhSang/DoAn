@@ -1124,16 +1124,14 @@ namespace DoAnSapXep
 
             HienThiThuatToan.ChayCodeC(2);
             int j, left, right, k;
-
             HienThiThuatToan.ChayCodeC(3);
             left = 0; right = DanhSachThamSo.Count - 1; k = DanhSachThamSo.Count - 1;
-
             HienThiThuatToan.ChayCodeC(4);
-            bienArr["left"].Location = new Point(danhSachLabel[left].Location.X, danhSachLabel[left].Location.Y - 240);
+            bienArr["left"].Location = new Point(danhSachLabel[left].Location.X, danhSachLabel[left].Location.Y - 140);
             bienArr["left"].Text = "left = " + left;
             sapxepPanel.Controls.Add(bienArr["left"]);
             bienArr["left"].Visible = true;
-            bienArr["right"].Location = new Point(danhSachLabel[right].Location.X, danhSachLabel[right].Location.Y - 240);
+            bienArr["right"].Location = new Point(danhSachLabel[right].Location.X, danhSachLabel[right].Location.Y - 160);
             bienArr["right"].Text = "right = " + right;
             sapxepPanel.Controls.Add(bienArr["right"]);
             bienArr["right"].Visible = true;
@@ -1141,22 +1139,17 @@ namespace DoAnSapXep
             bienArr["k"].Text = "k = " + k;
             sapxepPanel.Controls.Add(bienArr["k"]);
             bienArr["k"].Visible = true;
-
             while (left < right)
             {
-
                 HienThiThuatToan.ChayCodeC(6);
-
                 j = right;
                 bienArr["j"].Location = new Point(danhSachLabel[j].Location.X, danhSachLabel[j].Location.Y - 40);
                 bienArr["j"].Text = "j = " + j;
                 sapxepPanel.Controls.Add(bienArr["j"]);
                 bienArr["j"].Visible = true;
                 bienArr["j"].SendToBack();
-
                 for (j = right; j > left; j--)
                 {
-
                     bool thucHien = false;
                     if (tangrdbtn.Checked == true)
                     {
@@ -1172,7 +1165,6 @@ namespace DoAnSapXep
                             thucHien = true;
                         }
                     }
-
                     HienThiThuatToan.ChayCodeC(7);
                     if (thucHien)
                     {
@@ -1180,37 +1172,29 @@ namespace DoAnSapXep
                         CapNhatThamSo(j, j - 1);
                         DichuyenCacNode(j, j - 1);
                         Hienthimangdangsapxep(j - 1, j, "k", "j"); // mang dang sap xep
-
                         HienThiThuatToan.ChayCodeC(10);
                         k = j;
                         bienArr["k"].Location = new Point(danhSachLabel[k].Location.X, danhSachLabel[k].Location.Y - 60);
                         bienArr["k"].Text = "k = " + k;
                         sapxepPanel.Controls.Add(bienArr["k"]);
                     }
-
                     HienThiThuatToan.ChayCodeC(6);
-                    bienArr["k"].Location = new Point(danhSachLabel[k].Location.X, danhSachLabel[k].Location.Y - 60);
-                    bienArr["k"].Text = "k = " + k;
-                    sapxepPanel.Controls.Add(bienArr["k"]);
-
+                    bienArr["j"].Location = new Point(danhSachLabel[j].Location.X, danhSachLabel[j].Location.Y - 40);
+                    bienArr["j"].Text = "j = " + (j - 1);
+                    sapxepPanel.Controls.Add(bienArr["j"]);
                 }
-
                 HienThiThuatToan.ChayCodeC(12);
                 left = k;
                 bienArr["left"].Location = new Point(danhSachLabel[left].Location.X, danhSachLabel[left].Location.Y - 140);
                 bienArr["left"].Text = "left = " + left;
                 sapxepPanel.Controls.Add(bienArr["left"]);
-
-
                 HienThiThuatToan.ChayCodeC(13);
                 j = left;
                 bienArr["j"].Location = new Point(danhSachLabel[j].Location.X, danhSachLabel[j].Location.Y - 40);
                 bienArr["j"].Text = "j = " + j;
                 sapxepPanel.Controls.Add(bienArr["j"]);
-
                 for (j = left; j < right; j++)
                 {
-
                     bool thucHien = false;
                     if (tangrdbtn.Checked == true)
                     {
@@ -1222,7 +1206,6 @@ namespace DoAnSapXep
                         if (DanhSachThamSo[j + 1] > DanhSachThamSo[j])
                             thucHien = true;
                     }
-
                     HienThiThuatToan.ChayCodeC(14);
                     if (thucHien)
                     {
@@ -1237,21 +1220,16 @@ namespace DoAnSapXep
                         bienArr["k"].Text = "k = " + k;
                         sapxepPanel.Controls.Add(bienArr["k"]);
                     }
-
-
                     HienThiThuatToan.ChayCodeC(13);
                     bienArr["j"].Location = new Point(danhSachLabel[j].Location.X, danhSachLabel[j].Location.Y - 40);
                     bienArr["j"].Text = "j = " + j;
                     sapxepPanel.Controls.Add(bienArr["j"]);
-
                 }
-
                 HienThiThuatToan.ChayCodeC(19);
                 right = k;
                 bienArr["right"].Location = new Point(danhSachLabel[right].Location.X, danhSachLabel[right].Location.Y - 160);
                 bienArr["right"].Text = "right = " + right;
                 sapxepPanel.Controls.Add(bienArr["right"]);
-
                 HienThiThuatToan.ChayCodeC(4);
                 bienArr["left"].Location = new Point(danhSachLabel[left].Location.X, danhSachLabel[left].Location.Y - 140);
                 bienArr["left"].Text = "left = " + left;
@@ -1259,11 +1237,7 @@ namespace DoAnSapXep
                 bienArr["right"].Location = new Point(danhSachLabel[right].Location.X, danhSachLabel[right].Location.Y - 160);
                 bienArr["right"].Text = "right = " + right;
                 sapxepPanel.Controls.Add(bienArr["right"]);
-
-
-
             }
-
             HienThiThuatToan.ChayCodeC(4);
             DanhSachNode[0].BackColor = ThamSo.mauNodeHTSX;
             DanhSachNode[DanhSachNode.Count - 1].BackColor = ThamSo.mauNodeHTSX;
