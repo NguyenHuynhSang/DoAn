@@ -82,7 +82,6 @@ namespace DoAnSapXep
             this.label3 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.codeListBox = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.HienThiPanel = new System.Windows.Forms.Panel();
@@ -123,7 +122,7 @@ namespace DoAnSapXep
             this.lbHuy.AutoSize = true;
             this.lbHuy.Location = new System.Drawing.Point(3, 4);
             this.lbHuy.Name = "lbHuy";
-            this.lbHuy.Size = new System.Drawing.Size(30, 16);
+            this.lbHuy.Size = new System.Drawing.Size(26, 13);
             this.lbHuy.TabIndex = 12;
             this.lbHuy.Text = "Hủy";
             // 
@@ -132,7 +131,7 @@ namespace DoAnSapXep
             this.lbKhoiTao.AutoSize = true;
             this.lbKhoiTao.Location = new System.Drawing.Point(3, 18);
             this.lbKhoiTao.Name = "lbKhoiTao";
-            this.lbKhoiTao.Size = new System.Drawing.Size(59, 16);
+            this.lbKhoiTao.Size = new System.Drawing.Size(48, 13);
             this.lbKhoiTao.TabIndex = 13;
             this.lbKhoiTao.Text = "Khởi Tạo";
             // 
@@ -141,7 +140,7 @@ namespace DoAnSapXep
             this.lbDieuKhien.AutoSize = true;
             this.lbDieuKhien.Location = new System.Drawing.Point(3, 11);
             this.lbDieuKhien.Name = "lbDieuKhien";
-            this.lbDieuKhien.Size = new System.Drawing.Size(68, 16);
+            this.lbDieuKhien.Size = new System.Drawing.Size(58, 13);
             this.lbDieuKhien.TabIndex = 14;
             this.lbDieuKhien.Text = "Điều Khiển";
             this.lbDieuKhien.Click += new System.EventHandler(this.lbDieuKhien_Click);
@@ -151,7 +150,7 @@ namespace DoAnSapXep
             this.lbThuatToan.AutoSize = true;
             this.lbThuatToan.Location = new System.Drawing.Point(8, 5);
             this.lbThuatToan.Name = "lbThuatToan";
-            this.lbThuatToan.Size = new System.Drawing.Size(70, 16);
+            this.lbThuatToan.Size = new System.Drawing.Size(62, 13);
             this.lbThuatToan.TabIndex = 15;
             this.lbThuatToan.Text = "Thuật Toán";
             // 
@@ -160,18 +159,18 @@ namespace DoAnSapXep
             this.lbSapXep.AutoSize = true;
             this.lbSapXep.Location = new System.Drawing.Point(18, 11);
             this.lbSapXep.Name = "lbSapXep";
-            this.lbSapXep.Size = new System.Drawing.Size(54, 16);
+            this.lbSapXep.Size = new System.Drawing.Size(46, 13);
             this.lbSapXep.TabIndex = 16;
             this.lbSapXep.Text = "Sắp Xếp";
             // 
             // lbMangChuaSapXep
             // 
             this.lbMangChuaSapXep.AutoSize = true;
-            this.lbMangChuaSapXep.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbMangChuaSapXep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbMangChuaSapXep.Location = new System.Drawing.Point(0, 0);
+            this.lbMangChuaSapXep.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMangChuaSapXep.Location = new System.Drawing.Point(7, 10);
             this.lbMangChuaSapXep.Name = "lbMangChuaSapXep";
-            this.lbMangChuaSapXep.Size = new System.Drawing.Size(125, 16);
+            this.lbMangChuaSapXep.Size = new System.Drawing.Size(133, 16);
             this.lbMangChuaSapXep.TabIndex = 17;
             this.lbMangChuaSapXep.Text = "Mảng chưa sắp xếp";
             // 
@@ -192,16 +191,16 @@ namespace DoAnSapXep
             this.lbTocDo.AutoSize = true;
             this.lbTocDo.Location = new System.Drawing.Point(226, 39);
             this.lbTocDo.Name = "lbTocDo";
-            this.lbTocDo.Size = new System.Drawing.Size(49, 16);
+            this.lbTocDo.Size = new System.Drawing.Size(39, 13);
             this.lbTocDo.TabIndex = 4;
             this.lbTocDo.Text = "Tốc độ";
             // 
             // chuasapxepPanel
             // 
-            this.chuasapxepPanel.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.chuasapxepPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
             this.chuasapxepPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.chuasapxepPanel.Controls.Add(this.lbMangChuaSapXep);
-            this.chuasapxepPanel.Font = new System.Drawing.Font("Centaur", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chuasapxepPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chuasapxepPanel.Location = new System.Drawing.Point(7, 310);
             this.chuasapxepPanel.Name = "chuasapxepPanel";
             this.chuasapxepPanel.Size = new System.Drawing.Size(1143, 39);
@@ -209,7 +208,7 @@ namespace DoAnSapXep
             // 
             // DebugPanel
             // 
-            this.DebugPanel.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.DebugPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
             this.DebugPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DebugPanel.Controls.Add(this.lbYTuongThuatToan);
             this.DebugPanel.Controls.Add(this.yTuongTextBox);
@@ -222,7 +221,7 @@ namespace DoAnSapXep
             // 
             // yTuongTextBox
             // 
-            this.yTuongTextBox.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.yTuongTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
             this.yTuongTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.yTuongTextBox.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yTuongTextBox.Location = new System.Drawing.Point(-1, 14);
@@ -234,7 +233,7 @@ namespace DoAnSapXep
             // 
             // daydangxepListbox
             // 
-            this.daydangxepListbox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.daydangxepListbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
             this.daydangxepListbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.daydangxepListbox.FormattingEnabled = true;
             this.daydangxepListbox.ItemHeight = 16;
@@ -245,7 +244,7 @@ namespace DoAnSapXep
             // 
             // thuattoanpanel
             // 
-            this.thuattoanpanel.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.thuattoanpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
             this.thuattoanpanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.thuattoanpanel.Controls.Add(this.insertionrdbtn);
             this.thuattoanpanel.Controls.Add(this.mergerdbtn);
@@ -258,7 +257,7 @@ namespace DoAnSapXep
             this.thuattoanpanel.Controls.Add(this.binaryinsertionrdbtn);
             this.thuattoanpanel.Controls.Add(this.interchangerdbtn);
             this.thuattoanpanel.Controls.Add(this.lbThuatToan);
-            this.thuattoanpanel.Font = new System.Drawing.Font("Centaur", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thuattoanpanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thuattoanpanel.Location = new System.Drawing.Point(6, 496);
             this.thuattoanpanel.Name = "thuattoanpanel";
             this.thuattoanpanel.Size = new System.Drawing.Size(292, 154);
@@ -269,7 +268,7 @@ namespace DoAnSapXep
             this.insertionrdbtn.AutoSize = true;
             this.insertionrdbtn.Location = new System.Drawing.Point(170, 31);
             this.insertionrdbtn.Name = "insertionrdbtn";
-            this.insertionrdbtn.Size = new System.Drawing.Size(89, 20);
+            this.insertionrdbtn.Size = new System.Drawing.Size(90, 17);
             this.insertionrdbtn.TabIndex = 12;
             this.insertionrdbtn.Text = "Insertion sort";
             this.insertionrdbtn.UseVisualStyleBackColor = true;
@@ -280,7 +279,7 @@ namespace DoAnSapXep
             this.mergerdbtn.AutoSize = true;
             this.mergerdbtn.Location = new System.Drawing.Point(34, 123);
             this.mergerdbtn.Name = "mergerdbtn";
-            this.mergerdbtn.Size = new System.Drawing.Size(77, 20);
+            this.mergerdbtn.Size = new System.Drawing.Size(77, 17);
             this.mergerdbtn.TabIndex = 21;
             this.mergerdbtn.Text = "Merge sort";
             this.mergerdbtn.UseVisualStyleBackColor = true;
@@ -291,7 +290,7 @@ namespace DoAnSapXep
             this.shellrdbtn.AutoSize = true;
             this.shellrdbtn.Location = new System.Drawing.Point(170, 123);
             this.shellrdbtn.Name = "shellrdbtn";
-            this.shellrdbtn.Size = new System.Drawing.Size(70, 20);
+            this.shellrdbtn.Size = new System.Drawing.Size(69, 17);
             this.shellrdbtn.TabIndex = 20;
             this.shellrdbtn.Text = "Shell sort";
             this.shellrdbtn.UseVisualStyleBackColor = true;
@@ -302,7 +301,7 @@ namespace DoAnSapXep
             this.quickrdbtn.AutoSize = true;
             this.quickrdbtn.Location = new System.Drawing.Point(170, 100);
             this.quickrdbtn.Name = "quickrdbtn";
-            this.quickrdbtn.Size = new System.Drawing.Size(77, 20);
+            this.quickrdbtn.Size = new System.Drawing.Size(73, 17);
             this.quickrdbtn.TabIndex = 19;
             this.quickrdbtn.Text = "Quick sort";
             this.quickrdbtn.UseVisualStyleBackColor = true;
@@ -313,7 +312,7 @@ namespace DoAnSapXep
             this.shakerrdbtn.AutoSize = true;
             this.shakerrdbtn.Location = new System.Drawing.Point(170, 77);
             this.shakerrdbtn.Name = "shakerrdbtn";
-            this.shakerrdbtn.Size = new System.Drawing.Size(79, 20);
+            this.shakerrdbtn.Size = new System.Drawing.Size(80, 17);
             this.shakerrdbtn.TabIndex = 18;
             this.shakerrdbtn.Text = "Shaker sort";
             this.shakerrdbtn.UseVisualStyleBackColor = true;
@@ -324,7 +323,7 @@ namespace DoAnSapXep
             this.selectionrdbtn.AutoSize = true;
             this.selectionrdbtn.Location = new System.Drawing.Point(170, 54);
             this.selectionrdbtn.Name = "selectionrdbtn";
-            this.selectionrdbtn.Size = new System.Drawing.Size(90, 20);
+            this.selectionrdbtn.Size = new System.Drawing.Size(90, 17);
             this.selectionrdbtn.TabIndex = 17;
             this.selectionrdbtn.Text = "Selection sort";
             this.selectionrdbtn.UseVisualStyleBackColor = true;
@@ -335,7 +334,7 @@ namespace DoAnSapXep
             this.heaprdbtn.AutoSize = true;
             this.heaprdbtn.Location = new System.Drawing.Point(34, 100);
             this.heaprdbtn.Name = "heaprdbtn";
-            this.heaprdbtn.Size = new System.Drawing.Size(73, 20);
+            this.heaprdbtn.Size = new System.Drawing.Size(72, 17);
             this.heaprdbtn.TabIndex = 12;
             this.heaprdbtn.Text = "Heap sort";
             this.heaprdbtn.UseVisualStyleBackColor = true;
@@ -346,7 +345,7 @@ namespace DoAnSapXep
             this.bubblerdbtn.AutoSize = true;
             this.bubblerdbtn.Location = new System.Drawing.Point(34, 77);
             this.bubblerdbtn.Name = "bubblerdbtn";
-            this.bubblerdbtn.Size = new System.Drawing.Size(80, 20);
+            this.bubblerdbtn.Size = new System.Drawing.Size(79, 17);
             this.bubblerdbtn.TabIndex = 16;
             this.bubblerdbtn.Text = "Bubble sort";
             this.bubblerdbtn.UseVisualStyleBackColor = true;
@@ -357,7 +356,7 @@ namespace DoAnSapXep
             this.binaryinsertionrdbtn.AutoSize = true;
             this.binaryinsertionrdbtn.Location = new System.Drawing.Point(34, 54);
             this.binaryinsertionrdbtn.Name = "binaryinsertionrdbtn";
-            this.binaryinsertionrdbtn.Size = new System.Drawing.Size(121, 20);
+            this.binaryinsertionrdbtn.Size = new System.Drawing.Size(121, 17);
             this.binaryinsertionrdbtn.TabIndex = 12;
             this.binaryinsertionrdbtn.Text = "Binary insertion sort";
             this.binaryinsertionrdbtn.UseVisualStyleBackColor = true;
@@ -368,7 +367,7 @@ namespace DoAnSapXep
             this.interchangerdbtn.AutoSize = true;
             this.interchangerdbtn.Location = new System.Drawing.Point(34, 31);
             this.interchangerdbtn.Name = "interchangerdbtn";
-            this.interchangerdbtn.Size = new System.Drawing.Size(102, 20);
+            this.interchangerdbtn.Size = new System.Drawing.Size(106, 17);
             this.interchangerdbtn.TabIndex = 12;
             this.interchangerdbtn.Text = "Interchange sort";
             this.interchangerdbtn.UseVisualStyleBackColor = true;
@@ -376,12 +375,12 @@ namespace DoAnSapXep
             // 
             // Loaisapxeppanel
             // 
-            this.Loaisapxeppanel.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.Loaisapxeppanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
             this.Loaisapxeppanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Loaisapxeppanel.Controls.Add(this.giamrdbtn);
             this.Loaisapxeppanel.Controls.Add(this.tangrdbtn);
             this.Loaisapxeppanel.Controls.Add(this.lbSapXep);
-            this.Loaisapxeppanel.Font = new System.Drawing.Font("Centaur", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Loaisapxeppanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Loaisapxeppanel.Location = new System.Drawing.Point(304, 496);
             this.Loaisapxeppanel.Name = "Loaisapxeppanel";
             this.Loaisapxeppanel.Size = new System.Drawing.Size(104, 87);
@@ -392,7 +391,7 @@ namespace DoAnSapXep
             this.giamrdbtn.AutoSize = true;
             this.giamrdbtn.Location = new System.Drawing.Point(21, 58);
             this.giamrdbtn.Name = "giamrdbtn";
-            this.giamrdbtn.Size = new System.Drawing.Size(55, 20);
+            this.giamrdbtn.Size = new System.Drawing.Size(48, 17);
             this.giamrdbtn.TabIndex = 12;
             this.giamrdbtn.TabStop = true;
             this.giamrdbtn.Text = "Giảm";
@@ -404,7 +403,7 @@ namespace DoAnSapXep
             this.tangrdbtn.AutoSize = true;
             this.tangrdbtn.Location = new System.Drawing.Point(21, 36);
             this.tangrdbtn.Name = "tangrdbtn";
-            this.tangrdbtn.Size = new System.Drawing.Size(54, 20);
+            this.tangrdbtn.Size = new System.Drawing.Size(49, 17);
             this.tangrdbtn.TabIndex = 13;
             this.tangrdbtn.TabStop = true;
             this.tangrdbtn.Text = "Tăng";
@@ -413,7 +412,7 @@ namespace DoAnSapXep
             // 
             // dieukhienpanel
             // 
-            this.dieukhienpanel.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.dieukhienpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
             this.dieukhienpanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.dieukhienpanel.Controls.Add(this.label1);
             this.dieukhienpanel.Controls.Add(this.trackBar1);
@@ -423,7 +422,7 @@ namespace DoAnSapXep
             this.dieukhienpanel.Controls.Add(this.dungbtn);
             this.dieukhienpanel.Controls.Add(this.batdaubtn);
             this.dieukhienpanel.Controls.Add(this.lbDieuKhien);
-            this.dieukhienpanel.Font = new System.Drawing.Font("Centaur", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dieukhienpanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dieukhienpanel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dieukhienpanel.Location = new System.Drawing.Point(847, 355);
             this.dieukhienpanel.Name = "dieukhienpanel";
@@ -435,7 +434,7 @@ namespace DoAnSapXep
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(44, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(14, 16);
+            this.label1.Size = new System.Drawing.Size(13, 13);
             this.label1.TabIndex = 17;
             this.label1.Text = "5";
             // 
@@ -454,7 +453,7 @@ namespace DoAnSapXep
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(136, 23);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(35, 16);
+            this.label11.Size = new System.Drawing.Size(35, 13);
             this.label11.TabIndex = 15;
             this.label11.Text = "00:00";
             // 
@@ -490,7 +489,7 @@ namespace DoAnSapXep
             // 
             // khoitaopanel
             // 
-            this.khoitaopanel.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.khoitaopanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
             this.khoitaopanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.khoitaopanel.Controls.Add(this.soluongNodetbx);
             this.khoitaopanel.Controls.Add(this.nhaptaybtn);
@@ -498,7 +497,7 @@ namespace DoAnSapXep
             this.khoitaopanel.Controls.Add(this.venutbtn);
             this.khoitaopanel.Controls.Add(this.taongaunhienbtn);
             this.khoitaopanel.Controls.Add(this.lbKhoiTao);
-            this.khoitaopanel.Font = new System.Drawing.Font("Centaur", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.khoitaopanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.khoitaopanel.Location = new System.Drawing.Point(847, 477);
             this.khoitaopanel.Name = "khoitaopanel";
             this.khoitaopanel.Size = new System.Drawing.Size(303, 115);
@@ -507,7 +506,7 @@ namespace DoAnSapXep
             // 
             // soluongNodetbx
             // 
-            this.soluongNodetbx.Location = new System.Drawing.Point(145, 30);
+            this.soluongNodetbx.Location = new System.Drawing.Point(152, 27);
             this.soluongNodetbx.Multiline = true;
             this.soluongNodetbx.Name = "soluongNodetbx";
             this.soluongNodetbx.Size = new System.Drawing.Size(41, 18);
@@ -528,9 +527,9 @@ namespace DoAnSapXep
             // lbSoPhanTu
             // 
             this.lbSoPhanTu.AutoSize = true;
-            this.lbSoPhanTu.Location = new System.Drawing.Point(74, 30);
+            this.lbSoPhanTu.Location = new System.Drawing.Point(57, 30);
             this.lbSoPhanTu.Name = "lbSoPhanTu";
-            this.lbSoPhanTu.Size = new System.Drawing.Size(65, 16);
+            this.lbSoPhanTu.Size = new System.Drawing.Size(60, 13);
             this.lbSoPhanTu.TabIndex = 14;
             this.lbSoPhanTu.Text = "Số phần tử";
             // 
@@ -556,12 +555,12 @@ namespace DoAnSapXep
             // 
             // huypanel
             // 
-            this.huypanel.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.huypanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
             this.huypanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.huypanel.Controls.Add(this.thoatbtn);
             this.huypanel.Controls.Add(this.xoamangbtn);
             this.huypanel.Controls.Add(this.lbHuy);
-            this.huypanel.Font = new System.Drawing.Font("Centaur", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.huypanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.huypanel.Location = new System.Drawing.Point(847, 598);
             this.huypanel.Name = "huypanel";
             this.huypanel.Size = new System.Drawing.Size(171, 52);
@@ -589,11 +588,11 @@ namespace DoAnSapXep
             // 
             // panel10
             // 
-            this.panel10.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel10.Controls.Add(this.label3);
             this.panel10.Controls.Add(this.checkBox1);
-            this.panel10.Font = new System.Drawing.Font("Centaur", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel10.Controls.Add(this.label3);
+            this.panel10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel10.Location = new System.Drawing.Point(304, 589);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(104, 61);
@@ -602,9 +601,10 @@ namespace DoAnSapXep
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
             this.label3.Location = new System.Drawing.Point(18, 7);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 16);
+            this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 17;
             this.label3.Text = "Debug mode";
             // 
@@ -613,7 +613,7 @@ namespace DoAnSapXep
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(21, 29);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(58, 20);
+            this.checkBox1.Size = new System.Drawing.Size(57, 17);
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "Debug";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -623,14 +623,9 @@ namespace DoAnSapXep
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.WorkerReportsProgress = true;
-            this.backgroundWorker1.WorkerSupportsCancellation = true;
-            // 
             // codeListBox
             // 
-            this.codeListBox.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.codeListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
             this.codeListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.codeListBox.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.codeListBox.FormattingEnabled = true;
@@ -652,10 +647,10 @@ namespace DoAnSapXep
             // 
             // HienThiPanel
             // 
-            this.HienThiPanel.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.HienThiPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
             this.HienThiPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.HienThiPanel.Controls.Add(this.codeListBox);
             this.HienThiPanel.Controls.Add(this.label2);
+            this.HienThiPanel.Controls.Add(this.codeListBox);
             this.HienThiPanel.Font = new System.Drawing.Font("Centaur", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HienThiPanel.Location = new System.Drawing.Point(414, 355);
             this.HienThiPanel.Name = "HienThiPanel";
@@ -664,7 +659,7 @@ namespace DoAnSapXep
             // 
             // ngonngupanel
             // 
-            this.ngonngupanel.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.ngonngupanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
             this.ngonngupanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ngonngupanel.Controls.Add(this.btnVi);
             this.ngonngupanel.Controls.Add(this.btnEn);
@@ -751,6 +746,8 @@ namespace DoAnSapXep
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1162, 675);
+            this.Controls.Add(this.sapxepPanel);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.ngonngupanel);
             this.Controls.Add(this.Loaisapxeppanel);
             this.Controls.Add(this.panel10);
@@ -760,9 +757,7 @@ namespace DoAnSapXep
             this.Controls.Add(this.dieukhienpanel);
             this.Controls.Add(this.HienThiPanel);
             this.Controls.Add(this.chuasapxepPanel);
-            this.Controls.Add(this.sapxepPanel);
             this.Controls.Add(this.DebugPanel);
-            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
@@ -841,7 +836,6 @@ namespace DoAnSapXep
         private TextBox yTuongTextBox;
         private Timer timer1;
         private Label label11;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private ListBox codeListBox;
         private Label label2;
         private Panel HienThiPanel;

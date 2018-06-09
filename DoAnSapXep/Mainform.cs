@@ -373,6 +373,9 @@ namespace DoAnSapXep
         private void Mangchuasapxep()
         {
             chuasapxepPanel.Controls.Clear();
+            lbMangChuaSapXep.Location = new Point(chuasapxepPanel.Location.X,10);
+            chuasapxepPanel.Controls.Add(lbMangChuaSapXep);
+           
             string _string = "";
             foreach (var item in DanhSachThamSo)
             {
@@ -380,7 +383,7 @@ namespace DoAnSapXep
             }
             Label lbtext = new Label() { Text = _string };
             lbtext.Size = new Size(600, 20);
-            lbtext.Location = new Point(30, 12);
+            lbtext.Location = new Point(lbMangChuaSapXep.Location.X+lbMangChuaSapXep.Width+10, 12);
             chuasapxepPanel.Controls.Add(lbtext);
         }
 
@@ -914,7 +917,7 @@ namespace DoAnSapXep
                     HienThiThuatToan.ChayCodeC(6);
                     flag = false;
                     min = i;
-                    bienArr["min"].Location = new Point(danhSachLabel[min].Location.X, danhSachLabel[min].Location.Y - 140);
+                    bienArr["min"].Location = new Point(danhSachLabel[min].Location.X, danhSachLabel[min].Location.Y - ThamSo.KichCoNode-10);
                     bienArr["min"].Text = "min = " + min;
                     bienArr["min"].SendToBack();
                     sapxepPanel.Controls.Add(bienArr["min"]);
@@ -933,7 +936,7 @@ namespace DoAnSapXep
                             min = j;
 
                             flag = true;
-                            bienArr["min"].Location = new Point(danhSachLabel[min].Location.X, danhSachLabel[min].Location.Y - 140);
+                            bienArr["min"].Location = new Point(danhSachLabel[min].Location.X, danhSachLabel[min].Location.Y - ThamSo.KichCoNode-10);
                             bienArr["min"].Text = "min = " + min;
                             bienArr["min"].SendToBack();
                         }
