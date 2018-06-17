@@ -43,11 +43,11 @@ namespace DoAnSapXep
                 }
                 else
                 {
-                    int temp = 100;
+                    int temp = 10;
                     bool result = int.TryParse(item, out temp);
                     if (result == true && (temp < 0 || temp > 99))
                     {
-                        MessageBox.Show("aha");
+                        MessageBox.Show("Phần tử có giá trị nhỏ hơn 0 hoặc lớn hơn 99");
                         return;
                     }
                     if (result == true)
