@@ -63,12 +63,13 @@ namespace DoAnSapXep
             this.giamrdbtn = new System.Windows.Forms.RadioButton();
             this.tangrdbtn = new System.Windows.Forms.RadioButton();
             this.dieukhienpanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label11 = new System.Windows.Forms.Label();
             this.huybnt = new System.Windows.Forms.Button();
-            this.dungbtn = new System.Windows.Forms.Button();
             this.batdaubtn = new System.Windows.Forms.Button();
+            this.dungbtn = new System.Windows.Forms.Button();
             this.khoitaopanel = new System.Windows.Forms.Panel();
             this.soluongNodetbx = new System.Windows.Forms.TextBox();
             this.nhaptaybtn = new System.Windows.Forms.Button();
@@ -79,8 +80,8 @@ namespace DoAnSapXep
             this.thoatbtn = new System.Windows.Forms.Button();
             this.xoamangbtn = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.codeListBox = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -89,11 +90,6 @@ namespace DoAnSapXep
             this.btnVi = new System.Windows.Forms.Button();
             this.btnEn = new System.Windows.Forms.Button();
             this.lbNgonNgu = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.caiDatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hướngDẫnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chuasapxepPanel.SuspendLayout();
             this.DebugPanel.SuspendLayout();
             this.thuattoanpanel.SuspendLayout();
@@ -105,61 +101,71 @@ namespace DoAnSapXep
             this.panel10.SuspendLayout();
             this.HienThiPanel.SuspendLayout();
             this.ngonngupanel.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbYTuongThuatToan
             // 
             this.lbYTuongThuatToan.AutoSize = true;
+            this.lbYTuongThuatToan.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbYTuongThuatToan.ForeColor = System.Drawing.Color.Silver;
             this.lbYTuongThuatToan.Location = new System.Drawing.Point(3, 0);
             this.lbYTuongThuatToan.Name = "lbYTuongThuatToan";
-            this.lbYTuongThuatToan.Size = new System.Drawing.Size(105, 16);
+            this.lbYTuongThuatToan.Size = new System.Drawing.Size(143, 16);
             this.lbYTuongThuatToan.TabIndex = 11;
             this.lbYTuongThuatToan.Text = "Ý tưởng thuật toán";
             // 
             // lbHuy
             // 
             this.lbHuy.AutoSize = true;
-            this.lbHuy.Location = new System.Drawing.Point(3, 4);
+            this.lbHuy.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHuy.ForeColor = System.Drawing.Color.Silver;
+            this.lbHuy.Location = new System.Drawing.Point(5, 0);
             this.lbHuy.Name = "lbHuy";
-            this.lbHuy.Size = new System.Drawing.Size(26, 13);
+            this.lbHuy.Size = new System.Drawing.Size(36, 16);
             this.lbHuy.TabIndex = 12;
             this.lbHuy.Text = "Hủy";
             // 
             // lbKhoiTao
             // 
             this.lbKhoiTao.AutoSize = true;
-            this.lbKhoiTao.Location = new System.Drawing.Point(3, 18);
+            this.lbKhoiTao.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbKhoiTao.ForeColor = System.Drawing.Color.Silver;
+            this.lbKhoiTao.Location = new System.Drawing.Point(2, 0);
             this.lbKhoiTao.Name = "lbKhoiTao";
-            this.lbKhoiTao.Size = new System.Drawing.Size(48, 13);
+            this.lbKhoiTao.Size = new System.Drawing.Size(73, 16);
             this.lbKhoiTao.TabIndex = 13;
             this.lbKhoiTao.Text = "Khởi Tạo";
             // 
             // lbDieuKhien
             // 
             this.lbDieuKhien.AutoSize = true;
+            this.lbDieuKhien.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDieuKhien.ForeColor = System.Drawing.Color.Silver;
             this.lbDieuKhien.Location = new System.Drawing.Point(3, 11);
             this.lbDieuKhien.Name = "lbDieuKhien";
-            this.lbDieuKhien.Size = new System.Drawing.Size(58, 13);
+            this.lbDieuKhien.Size = new System.Drawing.Size(90, 16);
             this.lbDieuKhien.TabIndex = 14;
             this.lbDieuKhien.Text = "Điều Khiển";
-            this.lbDieuKhien.Click += new System.EventHandler(this.lbDieuKhien_Click);
             // 
             // lbThuatToan
             // 
             this.lbThuatToan.AutoSize = true;
+            this.lbThuatToan.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbThuatToan.ForeColor = System.Drawing.Color.Silver;
             this.lbThuatToan.Location = new System.Drawing.Point(8, 5);
             this.lbThuatToan.Name = "lbThuatToan";
-            this.lbThuatToan.Size = new System.Drawing.Size(62, 13);
+            this.lbThuatToan.Size = new System.Drawing.Size(90, 16);
             this.lbThuatToan.TabIndex = 15;
             this.lbThuatToan.Text = "Thuật Toán";
             // 
             // lbSapXep
             // 
             this.lbSapXep.AutoSize = true;
-            this.lbSapXep.Location = new System.Drawing.Point(18, 11);
+            this.lbSapXep.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSapXep.ForeColor = System.Drawing.Color.Silver;
+            this.lbSapXep.Location = new System.Drawing.Point(4, 8);
             this.lbSapXep.Name = "lbSapXep";
-            this.lbSapXep.Size = new System.Drawing.Size(46, 13);
+            this.lbSapXep.Size = new System.Drawing.Size(66, 16);
             this.lbSapXep.TabIndex = 16;
             this.lbSapXep.Text = "Sắp Xếp";
             // 
@@ -167,37 +173,41 @@ namespace DoAnSapXep
             // 
             this.lbMangChuaSapXep.AutoSize = true;
             this.lbMangChuaSapXep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbMangChuaSapXep.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMangChuaSapXep.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMangChuaSapXep.ForeColor = System.Drawing.Color.Silver;
             this.lbMangChuaSapXep.Location = new System.Drawing.Point(7, 10);
             this.lbMangChuaSapXep.Name = "lbMangChuaSapXep";
-            this.lbMangChuaSapXep.Size = new System.Drawing.Size(133, 16);
+            this.lbMangChuaSapXep.Size = new System.Drawing.Size(108, 16);
             this.lbMangChuaSapXep.TabIndex = 17;
-            this.lbMangChuaSapXep.Text = "Mảng chưa sắp xếp";
+            this.lbMangChuaSapXep.Text = "Mảng ban đầu\r\n";
             // 
             // sapxepPanel
             // 
             this.sapxepPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.sapxepPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.sapxepPanel.Location = new System.Drawing.Point(7, 27);
+            this.sapxepPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.sapxepPanel.Location = new System.Drawing.Point(7, 12);
             this.sapxepPanel.Name = "sapxepPanel";
-            this.sapxepPanel.Size = new System.Drawing.Size(1144, 277);
+            this.sapxepPanel.Size = new System.Drawing.Size(1144, 292);
             this.sapxepPanel.TabIndex = 18;
             this.sapxepPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.sapxepPanel_MouseClick);
             // 
             // lbTocDo
             // 
             this.lbTocDo.AutoSize = true;
+            this.lbTocDo.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTocDo.ForeColor = System.Drawing.Color.Silver;
             this.lbTocDo.Location = new System.Drawing.Point(226, 39);
             this.lbTocDo.Name = "lbTocDo";
-            this.lbTocDo.Size = new System.Drawing.Size(39, 13);
+            this.lbTocDo.Size = new System.Drawing.Size(56, 16);
             this.lbTocDo.TabIndex = 4;
             this.lbTocDo.Text = "Tốc độ";
+            this.lbTocDo.Click += new System.EventHandler(this.lbTocDo_Click);
             // 
             // chuasapxepPanel
             // 
-            this.chuasapxepPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
+            this.chuasapxepPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
             this.chuasapxepPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.chuasapxepPanel.Controls.Add(this.lbMangChuaSapXep);
             this.chuasapxepPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -208,12 +218,13 @@ namespace DoAnSapXep
             // 
             // DebugPanel
             // 
-            this.DebugPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
+            this.DebugPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.DebugPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DebugPanel.Controls.Add(this.lbYTuongThuatToan);
             this.DebugPanel.Controls.Add(this.yTuongTextBox);
             this.DebugPanel.Controls.Add(this.daydangxepListbox);
             this.DebugPanel.Font = new System.Drawing.Font("Centaur", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DebugPanel.ForeColor = System.Drawing.Color.DarkGray;
             this.DebugPanel.Location = new System.Drawing.Point(6, 355);
             this.DebugPanel.Name = "DebugPanel";
             this.DebugPanel.Size = new System.Drawing.Size(402, 135);
@@ -221,9 +232,10 @@ namespace DoAnSapXep
             // 
             // yTuongTextBox
             // 
-            this.yTuongTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
+            this.yTuongTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
             this.yTuongTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.yTuongTextBox.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yTuongTextBox.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yTuongTextBox.ForeColor = System.Drawing.Color.Silver;
             this.yTuongTextBox.Location = new System.Drawing.Point(-1, 14);
             this.yTuongTextBox.Multiline = true;
             this.yTuongTextBox.Name = "yTuongTextBox";
@@ -233,18 +245,20 @@ namespace DoAnSapXep
             // 
             // daydangxepListbox
             // 
-            this.daydangxepListbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
+            this.daydangxepListbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.daydangxepListbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.daydangxepListbox.Font = new System.Drawing.Font("Century", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.daydangxepListbox.ForeColor = System.Drawing.Color.Silver;
             this.daydangxepListbox.FormattingEnabled = true;
-            this.daydangxepListbox.ItemHeight = 16;
+            this.daydangxepListbox.ItemHeight = 15;
             this.daydangxepListbox.Location = new System.Drawing.Point(-1, 14);
             this.daydangxepListbox.Name = "daydangxepListbox";
-            this.daydangxepListbox.Size = new System.Drawing.Size(402, 128);
+            this.daydangxepListbox.Size = new System.Drawing.Size(402, 120);
             this.daydangxepListbox.TabIndex = 13;
             // 
             // thuattoanpanel
             // 
-            this.thuattoanpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
+            this.thuattoanpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
             this.thuattoanpanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.thuattoanpanel.Controls.Add(this.insertionrdbtn);
             this.thuattoanpanel.Controls.Add(this.mergerdbtn);
@@ -266,6 +280,7 @@ namespace DoAnSapXep
             // insertionrdbtn
             // 
             this.insertionrdbtn.AutoSize = true;
+            this.insertionrdbtn.ForeColor = System.Drawing.Color.DarkGray;
             this.insertionrdbtn.Location = new System.Drawing.Point(170, 31);
             this.insertionrdbtn.Name = "insertionrdbtn";
             this.insertionrdbtn.Size = new System.Drawing.Size(90, 17);
@@ -277,6 +292,7 @@ namespace DoAnSapXep
             // mergerdbtn
             // 
             this.mergerdbtn.AutoSize = true;
+            this.mergerdbtn.ForeColor = System.Drawing.Color.DarkGray;
             this.mergerdbtn.Location = new System.Drawing.Point(34, 123);
             this.mergerdbtn.Name = "mergerdbtn";
             this.mergerdbtn.Size = new System.Drawing.Size(77, 17);
@@ -288,6 +304,7 @@ namespace DoAnSapXep
             // shellrdbtn
             // 
             this.shellrdbtn.AutoSize = true;
+            this.shellrdbtn.ForeColor = System.Drawing.Color.DarkGray;
             this.shellrdbtn.Location = new System.Drawing.Point(170, 123);
             this.shellrdbtn.Name = "shellrdbtn";
             this.shellrdbtn.Size = new System.Drawing.Size(69, 17);
@@ -299,6 +316,7 @@ namespace DoAnSapXep
             // quickrdbtn
             // 
             this.quickrdbtn.AutoSize = true;
+            this.quickrdbtn.ForeColor = System.Drawing.Color.DarkGray;
             this.quickrdbtn.Location = new System.Drawing.Point(170, 100);
             this.quickrdbtn.Name = "quickrdbtn";
             this.quickrdbtn.Size = new System.Drawing.Size(73, 17);
@@ -310,6 +328,7 @@ namespace DoAnSapXep
             // shakerrdbtn
             // 
             this.shakerrdbtn.AutoSize = true;
+            this.shakerrdbtn.ForeColor = System.Drawing.Color.DarkGray;
             this.shakerrdbtn.Location = new System.Drawing.Point(170, 77);
             this.shakerrdbtn.Name = "shakerrdbtn";
             this.shakerrdbtn.Size = new System.Drawing.Size(80, 17);
@@ -321,6 +340,7 @@ namespace DoAnSapXep
             // selectionrdbtn
             // 
             this.selectionrdbtn.AutoSize = true;
+            this.selectionrdbtn.ForeColor = System.Drawing.Color.DarkGray;
             this.selectionrdbtn.Location = new System.Drawing.Point(170, 54);
             this.selectionrdbtn.Name = "selectionrdbtn";
             this.selectionrdbtn.Size = new System.Drawing.Size(90, 17);
@@ -332,6 +352,7 @@ namespace DoAnSapXep
             // heaprdbtn
             // 
             this.heaprdbtn.AutoSize = true;
+            this.heaprdbtn.ForeColor = System.Drawing.Color.DarkGray;
             this.heaprdbtn.Location = new System.Drawing.Point(34, 100);
             this.heaprdbtn.Name = "heaprdbtn";
             this.heaprdbtn.Size = new System.Drawing.Size(72, 17);
@@ -343,6 +364,7 @@ namespace DoAnSapXep
             // bubblerdbtn
             // 
             this.bubblerdbtn.AutoSize = true;
+            this.bubblerdbtn.ForeColor = System.Drawing.Color.DarkGray;
             this.bubblerdbtn.Location = new System.Drawing.Point(34, 77);
             this.bubblerdbtn.Name = "bubblerdbtn";
             this.bubblerdbtn.Size = new System.Drawing.Size(79, 17);
@@ -354,6 +376,7 @@ namespace DoAnSapXep
             // binaryinsertionrdbtn
             // 
             this.binaryinsertionrdbtn.AutoSize = true;
+            this.binaryinsertionrdbtn.ForeColor = System.Drawing.Color.DarkGray;
             this.binaryinsertionrdbtn.Location = new System.Drawing.Point(34, 54);
             this.binaryinsertionrdbtn.Name = "binaryinsertionrdbtn";
             this.binaryinsertionrdbtn.Size = new System.Drawing.Size(121, 17);
@@ -365,6 +388,7 @@ namespace DoAnSapXep
             // interchangerdbtn
             // 
             this.interchangerdbtn.AutoSize = true;
+            this.interchangerdbtn.ForeColor = System.Drawing.Color.DarkGray;
             this.interchangerdbtn.Location = new System.Drawing.Point(34, 31);
             this.interchangerdbtn.Name = "interchangerdbtn";
             this.interchangerdbtn.Size = new System.Drawing.Size(106, 17);
@@ -375,12 +399,13 @@ namespace DoAnSapXep
             // 
             // Loaisapxeppanel
             // 
-            this.Loaisapxeppanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
+            this.Loaisapxeppanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
             this.Loaisapxeppanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Loaisapxeppanel.Controls.Add(this.giamrdbtn);
             this.Loaisapxeppanel.Controls.Add(this.tangrdbtn);
             this.Loaisapxeppanel.Controls.Add(this.lbSapXep);
             this.Loaisapxeppanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Loaisapxeppanel.ForeColor = System.Drawing.Color.DarkGray;
             this.Loaisapxeppanel.Location = new System.Drawing.Point(304, 496);
             this.Loaisapxeppanel.Name = "Loaisapxeppanel";
             this.Loaisapxeppanel.Size = new System.Drawing.Size(104, 87);
@@ -389,6 +414,7 @@ namespace DoAnSapXep
             // giamrdbtn
             // 
             this.giamrdbtn.AutoSize = true;
+            this.giamrdbtn.ForeColor = System.Drawing.Color.DarkGray;
             this.giamrdbtn.Location = new System.Drawing.Point(21, 58);
             this.giamrdbtn.Name = "giamrdbtn";
             this.giamrdbtn.Size = new System.Drawing.Size(48, 17);
@@ -401,6 +427,7 @@ namespace DoAnSapXep
             // tangrdbtn
             // 
             this.tangrdbtn.AutoSize = true;
+            this.tangrdbtn.ForeColor = System.Drawing.Color.DarkGray;
             this.tangrdbtn.Location = new System.Drawing.Point(21, 36);
             this.tangrdbtn.Name = "tangrdbtn";
             this.tangrdbtn.Size = new System.Drawing.Size(49, 17);
@@ -412,15 +439,16 @@ namespace DoAnSapXep
             // 
             // dieukhienpanel
             // 
-            this.dieukhienpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
+            this.dieukhienpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
             this.dieukhienpanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dieukhienpanel.Controls.Add(this.button1);
             this.dieukhienpanel.Controls.Add(this.label1);
             this.dieukhienpanel.Controls.Add(this.trackBar1);
             this.dieukhienpanel.Controls.Add(this.label11);
             this.dieukhienpanel.Controls.Add(this.lbTocDo);
             this.dieukhienpanel.Controls.Add(this.huybnt);
-            this.dieukhienpanel.Controls.Add(this.dungbtn);
             this.dieukhienpanel.Controls.Add(this.batdaubtn);
+            this.dieukhienpanel.Controls.Add(this.dungbtn);
             this.dieukhienpanel.Controls.Add(this.lbDieuKhien);
             this.dieukhienpanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dieukhienpanel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -429,12 +457,24 @@ namespace DoAnSapXep
             this.dieukhienpanel.Size = new System.Drawing.Size(303, 116);
             this.dieukhienpanel.TabIndex = 23;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(219, 77);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(61, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Cài đặt";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Silver;
             this.label1.Location = new System.Drawing.Point(44, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(13, 13);
+            this.label1.Size = new System.Drawing.Size(16, 16);
             this.label1.TabIndex = 17;
             this.label1.Text = "5";
             // 
@@ -451,45 +491,47 @@ namespace DoAnSapXep
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Silver;
             this.label11.Location = new System.Drawing.Point(136, 23);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(35, 13);
+            this.label11.Size = new System.Drawing.Size(45, 16);
             this.label11.TabIndex = 15;
             this.label11.Text = "00:00";
             // 
             // huybnt
             // 
-            this.huybnt.Location = new System.Drawing.Point(216, 77);
+            this.huybnt.Location = new System.Drawing.Point(152, 77);
             this.huybnt.Name = "huybnt";
-            this.huybnt.Size = new System.Drawing.Size(75, 23);
+            this.huybnt.Size = new System.Drawing.Size(61, 23);
             this.huybnt.TabIndex = 8;
             this.huybnt.Text = "Hủy";
             this.huybnt.UseVisualStyleBackColor = true;
             this.huybnt.Click += new System.EventHandler(this.huybnt_Click);
             // 
-            // dungbtn
-            // 
-            this.dungbtn.Location = new System.Drawing.Point(118, 77);
-            this.dungbtn.Name = "dungbtn";
-            this.dungbtn.Size = new System.Drawing.Size(75, 23);
-            this.dungbtn.TabIndex = 9;
-            this.dungbtn.Text = "Dừng";
-            this.dungbtn.UseVisualStyleBackColor = true;
-            this.dungbtn.Click += new System.EventHandler(this.dungbtn_Click);
-            // 
             // batdaubtn
             // 
             this.batdaubtn.Location = new System.Drawing.Point(20, 77);
             this.batdaubtn.Name = "batdaubtn";
-            this.batdaubtn.Size = new System.Drawing.Size(75, 23);
+            this.batdaubtn.Size = new System.Drawing.Size(61, 23);
             this.batdaubtn.TabIndex = 10;
             this.batdaubtn.Text = "Bắt đầu";
             this.batdaubtn.UseVisualStyleBackColor = true;
             this.batdaubtn.Click += new System.EventHandler(this.batdaubtn_Click);
             // 
+            // dungbtn
+            // 
+            this.dungbtn.Location = new System.Drawing.Point(87, 77);
+            this.dungbtn.Name = "dungbtn";
+            this.dungbtn.Size = new System.Drawing.Size(61, 23);
+            this.dungbtn.TabIndex = 9;
+            this.dungbtn.Text = "Dừng";
+            this.dungbtn.UseVisualStyleBackColor = true;
+            this.dungbtn.Click += new System.EventHandler(this.dungbtn_Click);
+            // 
             // khoitaopanel
             // 
-            this.khoitaopanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
+            this.khoitaopanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
             this.khoitaopanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.khoitaopanel.Controls.Add(this.soluongNodetbx);
             this.khoitaopanel.Controls.Add(this.nhaptaybtn);
@@ -527,9 +569,11 @@ namespace DoAnSapXep
             // lbSoPhanTu
             // 
             this.lbSoPhanTu.AutoSize = true;
-            this.lbSoPhanTu.Location = new System.Drawing.Point(57, 30);
+            this.lbSoPhanTu.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSoPhanTu.ForeColor = System.Drawing.Color.Silver;
+            this.lbSoPhanTu.Location = new System.Drawing.Point(28, 28);
             this.lbSoPhanTu.Name = "lbSoPhanTu";
-            this.lbSoPhanTu.Size = new System.Drawing.Size(60, 13);
+            this.lbSoPhanTu.Size = new System.Drawing.Size(85, 16);
             this.lbSoPhanTu.TabIndex = 14;
             this.lbSoPhanTu.Text = "Số phần tử";
             // 
@@ -555,7 +599,7 @@ namespace DoAnSapXep
             // 
             // huypanel
             // 
-            this.huypanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
+            this.huypanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
             this.huypanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.huypanel.Controls.Add(this.thoatbtn);
             this.huypanel.Controls.Add(this.xoamangbtn);
@@ -588,35 +632,39 @@ namespace DoAnSapXep
             // 
             // panel10
             // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel10.Controls.Add(this.checkBox1);
             this.panel10.Controls.Add(this.label3);
             this.panel10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel10.ForeColor = System.Drawing.Color.DarkGray;
             this.panel10.Location = new System.Drawing.Point(304, 589);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(104, 61);
             this.panel10.TabIndex = 26;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
-            this.label3.Location = new System.Drawing.Point(18, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 13);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Debug mode";
-            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
+            this.checkBox1.ForeColor = System.Drawing.Color.DarkGray;
             this.checkBox1.Location = new System.Drawing.Point(21, 29);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(57, 17);
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "Debug";
             this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.label3.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Silver;
+            this.label3.Location = new System.Drawing.Point(-1, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 16);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Debug mode";
             // 
             // timer1
             // 
@@ -625,9 +673,10 @@ namespace DoAnSapXep
             // 
             // codeListBox
             // 
-            this.codeListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
+            this.codeListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
             this.codeListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.codeListBox.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codeListBox.ForeColor = System.Drawing.Color.Silver;
             this.codeListBox.FormattingEnabled = true;
             this.codeListBox.ItemHeight = 20;
             this.codeListBox.Location = new System.Drawing.Point(3, 27);
@@ -639,15 +688,17 @@ namespace DoAnSapXep
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Silver;
             this.label2.Location = new System.Drawing.Point(3, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 16);
+            this.label2.Size = new System.Drawing.Size(73, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Code C++";
             // 
             // HienThiPanel
             // 
-            this.HienThiPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
+            this.HienThiPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
             this.HienThiPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.HienThiPanel.Controls.Add(this.label2);
             this.HienThiPanel.Controls.Add(this.codeListBox);
@@ -656,10 +707,11 @@ namespace DoAnSapXep
             this.HienThiPanel.Name = "HienThiPanel";
             this.HienThiPanel.Size = new System.Drawing.Size(427, 295);
             this.HienThiPanel.TabIndex = 22;
+            this.HienThiPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.HienThiPanel_Paint_1);
             // 
             // ngonngupanel
             // 
-            this.ngonngupanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(229)))));
+            this.ngonngupanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
             this.ngonngupanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ngonngupanel.Controls.Add(this.btnVi);
             this.ngonngupanel.Controls.Add(this.btnEn);
@@ -694,60 +746,22 @@ namespace DoAnSapXep
             // lbNgonNgu
             // 
             this.lbNgonNgu.AutoSize = true;
-            this.lbNgonNgu.Location = new System.Drawing.Point(35, 4);
+            this.lbNgonNgu.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNgonNgu.ForeColor = System.Drawing.Color.Silver;
+            this.lbNgonNgu.Location = new System.Drawing.Point(21, 4);
             this.lbNgonNgu.Name = "lbNgonNgu";
-            this.lbNgonNgu.Size = new System.Drawing.Size(56, 13);
+            this.lbNgonNgu.Size = new System.Drawing.Size(77, 16);
             this.lbNgonNgu.TabIndex = 0;
             this.lbNgonNgu.Text = "Ngôn Ngữ";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.caiDatToolStripMenuItem,
-            this.aboutToolStripMenuItem,
-            this.hướngDẫnToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1162, 24);
-            this.menuStrip1.TabIndex = 28;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // caiDatToolStripMenuItem
-            // 
-            this.caiDatToolStripMenuItem.Name = "caiDatToolStripMenuItem";
-            this.caiDatToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.caiDatToolStripMenuItem.Text = "Cài Đặt";
-            this.caiDatToolStripMenuItem.Click += new System.EventHandler(this.caiDatToolStripMenuItem_Click);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.aboutToolStripMenuItem.Text = "About";
-            // 
-            // hướngDẫnToolStripMenuItem
-            // 
-            this.hướngDẫnToolStripMenuItem.Name = "hướngDẫnToolStripMenuItem";
-            this.hướngDẫnToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-            this.hướngDẫnToolStripMenuItem.Text = "Hướng Dẫn";
             // 
             // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(1162, 675);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.ClientSize = new System.Drawing.Size(1162, 652);
             this.Controls.Add(this.sapxepPanel);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.ngonngupanel);
             this.Controls.Add(this.Loaisapxeppanel);
             this.Controls.Add(this.panel10);
@@ -759,12 +773,12 @@ namespace DoAnSapXep
             this.Controls.Add(this.chuasapxepPanel);
             this.Controls.Add(this.DebugPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Mainform";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PHẦN MỀM MÔ PHỎNG THUẬT TOÁN SẮP XẾP v1.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Mainform_FormClosing_1);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Mainform_FormClosed_1);
             this.Load += new System.EventHandler(this.Mainform_Load);
             this.chuasapxepPanel.ResumeLayout(false);
             this.chuasapxepPanel.PerformLayout();
@@ -787,10 +801,7 @@ namespace DoAnSapXep
             this.HienThiPanel.PerformLayout();
             this.ngonngupanel.ResumeLayout(false);
             this.ngonngupanel.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -847,13 +858,9 @@ namespace DoAnSapXep
         private Label label1;
         private ListBox daydangxepListbox;
         private Button nhaptaybtn;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripMenuItem caiDatToolStripMenuItem;
-        private ToolStripMenuItem aboutToolStripMenuItem;
-        private ToolStripMenuItem hướngDẫnToolStripMenuItem;
         private Label label3;
         private CheckBox checkBox1;
+        private Button button1;
     }
 }
 

@@ -125,9 +125,7 @@ namespace DoAnSapXep
         private void Mainform_Load(object sender, EventArgs e)
         {
             //allControls.ForEach(k => k.Font = new System.Drawing.Font("Microsoft Sans Serif", 10));
-            VeNut();
-            KhoiTaoMacDinh();
-            Mangchuasapxep();
+            
             bienArr = new Dictionary<string, Label>();
             List<string> bienArrString = new List<string>() { "i", "j", "min", "right", "left", "k", "pos", "m", "vt_x", "gap", "a:", "b:", "c:" };
             foreach (string item in bienArrString)
@@ -150,8 +148,17 @@ namespace DoAnSapXep
             bienArr["pos"].Size = new Size(60, 20);
             bienArr["vt_x"].Size = new Size(60, 20);
             bienArr["gap"].Size = new Size(60, 20);
-            bienArr["a:"].Size = bienArr["b:"].Size = bienArr["c:"].Size = new Size(40, 15);
-            
+            bienArr["a:"].Size = bienArr["b:"].Size = bienArr["c:"].Size = new Size(40, 15); 
+            bienArr["i"].ForeColor= bienArr["j"].ForeColor = bienArr["left"].ForeColor= bienArr["right"].ForeColor= bienArr["m"].ForeColor=
+            bienArr["pos"].ForeColor= bienArr["vt_x"] .ForeColor = bienArr["gap"].ForeColor= bienArr["a:"].ForeColor= bienArr["b:"].ForeColor= bienArr["c:"].ForeColor = Color.White;
+
+            bienArr["i"].BorderStyle= bienArr["left"].BorderStyle= bienArr["j"].BorderStyle=bienArr["min"].BorderStyle=
+            bienArr["m"].BorderStyle= bienArr["right"].BorderStyle= bienArr["pos"].BorderStyle = bienArr["vt_x"].BorderStyle=
+            bienArr["gap"].BorderStyle=BorderStyle.FixedSingle;
+
+            VeNut();
+            KhoiTaoMacDinh();
+            Mangchuasapxep();
 
             culture = CultureInfo.CurrentCulture;
             huybnt.Enabled = false;
@@ -240,7 +247,7 @@ namespace DoAnSapXep
                 dungbtn.Enabled =huybnt.Enabled=true;
                 daydangxepListbox.Items.Clear();
                 daydangxepListbox.BringToFront();
-                thuattoanpanel.Enabled = khoitaopanel.Enabled = ngonngupanel.Enabled = batdaubtn.Enabled = Loaisapxeppanel.Enabled = HienThiPanel.Enabled = false;
+                thuattoanpanel.Enabled = khoitaopanel.Enabled = ngonngupanel.Enabled = batdaubtn.Enabled = Loaisapxeppanel.Enabled = false;
             }
             else
             {
@@ -250,7 +257,7 @@ namespace DoAnSapXep
                 }
                 xoamangbtn.Enabled = true;
                 dungbtn.Enabled = huybnt.Enabled = false;
-                thuattoanpanel.Enabled = khoitaopanel.Enabled = ngonngupanel.Enabled = batdaubtn.Enabled = Loaisapxeppanel.Enabled = HienThiPanel.Enabled = true;
+                thuattoanpanel.Enabled = khoitaopanel.Enabled = ngonngupanel.Enabled = batdaubtn.Enabled = Loaisapxeppanel.Enabled = true;
 
             }
         }
@@ -340,7 +347,7 @@ namespace DoAnSapXep
             {
                 Label tam = new Label() { Text = i.ToString() };
                 tam.Size = new Size(ThamSo.KichCoNode / 2, ThamSo.KichCoNode / 2);
-                tam.ForeColor = Color.Blue;
+                tam.ForeColor = Color.White;
                 //tam.Enabled = false;
                 Node btn = new Node(i);
                 int Value = rank.Next(2, 100);
@@ -401,9 +408,12 @@ namespace DoAnSapXep
                 _string += item + "    ";
             }
             Label lbtext = new Label() { Text = _string };
+            lbtext.ForeColor = Color.White;
             lbtext.Size = new Size(600, 20);
             lbtext.Location = new Point(lbMangChuaSapXep.Location.X+lbMangChuaSapXep.Width+10, 12);
             chuasapxepPanel.Controls.Add(lbtext);
+
+
         }
 
         private void Hienthimangdangsapxep(int k, int j, string thamso1, string thamso2)
@@ -414,8 +424,10 @@ namespace DoAnSapXep
                 int t = DanhSachThamSo[i];
                 temp += t.ToString() + "  ";
             }
-       
+      
             daydangxepListbox.Items.Add(temp);
+            daydangxepListbox.ForeColor = Color.DarkGray;
+            daydangxepListbox.SelectedIndex = daydangxepListbox.Items.Count - 1;
         }
 
         private void Btn_Capnhat(object sender, EventArgs e)
@@ -1504,7 +1516,7 @@ namespace DoAnSapXep
 
         }
 
-        #endregion // cần ktra lại   //cần ktra lại
+        #endregion // cần ktra lại   //cần ktra lại 
         #region QuickSort
         public void QuickSort()
         {
@@ -2064,11 +2076,6 @@ namespace DoAnSapXep
         #endregion
       
 
-        private void lbDieuKhien_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
             ThamSo.ThoiGianDoi = trackBar1.Value;
@@ -2146,15 +2153,22 @@ namespace DoAnSapXep
         {
             frmInput input = new frmInput();
             input.ShowDialog();
+            if (input.isNhap==true)
+            {
+                SoLuongNode = input.DayInput.Count();
+                soluongNodetbx.Text = SoLuongNode.ToString();
+                VeNut();
+                for (int i = 0; i < SoLuongNode; i++)
+                {
+                   // DanhSachNode[i].Value = input.DayInput[i];
+                    DanhSachNode[i].Text = input.DayInput[i].ToString();
+                    DanhSachThamSo[i] = input.DayInput[i];
+                }
+
+            }
+            
+
         }
-
-        private void caiDatToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CaiDat caiDat = new CaiDat();
-            caiDat.ShowDialog();
-
-        }
-
         private void Mainform_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             if (sapxepThread!=null)
@@ -2163,6 +2177,29 @@ namespace DoAnSapXep
             }
         }
 
+        private void HienThiPanel_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lbTocDo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CaiDat caiDat = new CaiDat();
+            caiDat.ShowDialog();
+        }
+
+        private void Mainform_FormClosed_1(object sender, FormClosedEventArgs e)
+        {
+            if (sapxepThread!=null)
+            {
+                sapxepThread.Abort();
+            }
+        }
 
         private void Mainform_FormClosing(object sender, FormClosingEventArgs e)
         {
