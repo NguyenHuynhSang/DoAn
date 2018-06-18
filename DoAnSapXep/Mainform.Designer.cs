@@ -78,7 +78,8 @@ namespace DoAnSapXep
             this.thoatbtn = new System.Windows.Forms.Button();
             this.xoamangbtn = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btndebug = new System.Windows.Forms.Button();
+            this.cboxdebug = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.codeListBox = new System.Windows.Forms.ListBox();
@@ -155,7 +156,7 @@ namespace DoAnSapXep
             this.lbSapXep.AutoSize = true;
             this.lbSapXep.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSapXep.ForeColor = System.Drawing.Color.Silver;
-            this.lbSapXep.Location = new System.Drawing.Point(4, 8);
+            this.lbSapXep.Location = new System.Drawing.Point(3, -1);
             this.lbSapXep.Name = "lbSapXep";
             this.lbSapXep.Size = new System.Drawing.Size(66, 16);
             this.lbSapXep.TabIndex = 16;
@@ -181,7 +182,7 @@ namespace DoAnSapXep
             this.sapxepPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.sapxepPanel.Location = new System.Drawing.Point(7, 12);
             this.sapxepPanel.Name = "sapxepPanel";
-            this.sapxepPanel.Size = new System.Drawing.Size(1144, 292);
+            this.sapxepPanel.Size = new System.Drawing.Size(1144, 298);
             this.sapxepPanel.TabIndex = 18;
             this.sapxepPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.sapxepPanel_MouseClick);
             // 
@@ -195,7 +196,6 @@ namespace DoAnSapXep
             this.lbTocDo.Size = new System.Drawing.Size(56, 16);
             this.lbTocDo.TabIndex = 4;
             this.lbTocDo.Text = "Tốc độ";
-      //      this.lbTocDo.Click += new System.EventHandler(this.lbTocDo_Click);
             // 
             // chuasapxepPanel
             // 
@@ -386,14 +386,14 @@ namespace DoAnSapXep
             this.Loaisapxeppanel.ForeColor = System.Drawing.Color.DarkGray;
             this.Loaisapxeppanel.Location = new System.Drawing.Point(304, 518);
             this.Loaisapxeppanel.Name = "Loaisapxeppanel";
-            this.Loaisapxeppanel.Size = new System.Drawing.Size(104, 72);
+            this.Loaisapxeppanel.Size = new System.Drawing.Size(104, 60);
             this.Loaisapxeppanel.TabIndex = 21;
             // 
             // giamrdbtn
             // 
             this.giamrdbtn.AutoSize = true;
             this.giamrdbtn.ForeColor = System.Drawing.Color.DarkGray;
-            this.giamrdbtn.Location = new System.Drawing.Point(21, 51);
+            this.giamrdbtn.Location = new System.Drawing.Point(20, 39);
             this.giamrdbtn.Name = "giamrdbtn";
             this.giamrdbtn.Size = new System.Drawing.Size(48, 17);
             this.giamrdbtn.TabIndex = 12;
@@ -406,7 +406,7 @@ namespace DoAnSapXep
             // 
             this.tangrdbtn.AutoSize = true;
             this.tangrdbtn.ForeColor = System.Drawing.Color.DarkGray;
-            this.tangrdbtn.Location = new System.Drawing.Point(21, 28);
+            this.tangrdbtn.Location = new System.Drawing.Point(20, 18);
             this.tangrdbtn.Name = "tangrdbtn";
             this.tangrdbtn.Size = new System.Drawing.Size(49, 17);
             this.tangrdbtn.TabIndex = 13;
@@ -522,7 +522,6 @@ namespace DoAnSapXep
             this.khoitaopanel.Name = "khoitaopanel";
             this.khoitaopanel.Size = new System.Drawing.Size(303, 115);
             this.khoitaopanel.TabIndex = 24;
-            //this.khoitaopanel.Paint += new System.Windows.Forms.PaintEventHandler(this.khoitaopanel_Paint);
             // 
             // soluongNodetbx
             // 
@@ -612,25 +611,38 @@ namespace DoAnSapXep
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel10.Controls.Add(this.checkBox1);
+            this.panel10.Controls.Add(this.btndebug);
+            this.panel10.Controls.Add(this.cboxdebug);
             this.panel10.Controls.Add(this.label3);
             this.panel10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel10.ForeColor = System.Drawing.Color.DarkGray;
-            this.panel10.Location = new System.Drawing.Point(304, 599);
+            this.panel10.Location = new System.Drawing.Point(304, 584);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(104, 51);
+            this.panel10.Size = new System.Drawing.Size(104, 66);
             this.panel10.TabIndex = 26;
             // 
-            // checkBox1
+            // btndebug
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.ForeColor = System.Drawing.Color.DarkGray;
-            this.checkBox1.Location = new System.Drawing.Point(13, 23);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(57, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Debug";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.btndebug.ForeColor = System.Drawing.Color.Black;
+            this.btndebug.Location = new System.Drawing.Point(13, 34);
+            this.btndebug.Name = "btndebug";
+            this.btndebug.Size = new System.Drawing.Size(61, 23);
+            this.btndebug.TabIndex = 11;
+            this.btndebug.Text = "Debug";
+            this.btndebug.UseVisualStyleBackColor = true;
+            this.btndebug.Click += new System.EventHandler(this.btndebug_Click);
+            // 
+            // cboxdebug
+            // 
+            this.cboxdebug.AutoSize = true;
+            this.cboxdebug.ForeColor = System.Drawing.Color.DarkGray;
+            this.cboxdebug.Location = new System.Drawing.Point(13, 16);
+            this.cboxdebug.Name = "cboxdebug";
+            this.cboxdebug.Size = new System.Drawing.Size(57, 17);
+            this.cboxdebug.TabIndex = 0;
+            this.cboxdebug.Text = "Debug";
+            this.cboxdebug.UseVisualStyleBackColor = true;
+            this.cboxdebug.CheckedChanged += new System.EventHandler(this.cboxdebug_CheckedChanged);
             // 
             // label3
             // 
@@ -685,7 +697,6 @@ namespace DoAnSapXep
             this.HienThiPanel.Name = "HienThiPanel";
             this.HienThiPanel.Size = new System.Drawing.Size(427, 295);
             this.HienThiPanel.TabIndex = 22;
-            //this.HienThiPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.HienThiPanel_Paint_1);
             // 
             // ngonngupanel
             // 
@@ -742,7 +753,6 @@ namespace DoAnSapXep
             this.tabctlytuong.SelectedIndex = 0;
             this.tabctlytuong.Size = new System.Drawing.Size(402, 157);
             this.tabctlytuong.TabIndex = 0;
-           // this.tabctlytuong.Click += new System.EventHandler(this.tabctlytuong_Click);
             // 
             // tabPage1
             // 
@@ -765,7 +775,6 @@ namespace DoAnSapXep
             this.tabPage2.Size = new System.Drawing.Size(394, 128);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Dãy đang sắp xếp";
-           // this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // Mainform
             // 
@@ -773,7 +782,7 @@ namespace DoAnSapXep
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(1162, 652);
+            this.ClientSize = new System.Drawing.Size(1162, 658);
             this.Controls.Add(this.tabctlytuong);
             this.Controls.Add(this.sapxepPanel);
             this.Controls.Add(this.ngonngupanel);
@@ -872,11 +881,12 @@ namespace DoAnSapXep
         private ListBox daydangxepListbox;
         private Button nhaptaybtn;
         private Label label3;
-        private CheckBox checkBox1;
+        private CheckBox cboxdebug;
         private Button button1;
         private TabControl tabctlytuong;
         private TabPage tabPage1;
         private TabPage tabPage2;
+        private Button btndebug;
     }
 }
 

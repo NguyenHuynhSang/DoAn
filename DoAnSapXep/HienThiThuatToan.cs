@@ -16,7 +16,7 @@ namespace DoAnSapXep
         public static string yTuongVi;
         public static string yTuongEn;
         public static bool isEn = false;
-
+        public static ManualResetEvent tamdunglistbox = new ManualResetEvent(true);
         public static string[] ChuyenText(string doc)
         {
             string[] text;
@@ -40,8 +40,16 @@ namespace DoAnSapXep
         #endregion
         public static void ChayCodeC(int line)
         {
-            Thread.Sleep(ThamSo.ThoiGianDoi*50);
+            Thread.Sleep(ThamSo.ThoiGianDoi * 50);
+            // chờ sign nếu có thì đợi đến vô tận 
+            tamdunglistbox.WaitOne(Timeout.Infinite);
+           
             codeListBox.SelectedIndex = line;
+            if (Mainform.isDebug==true)
+            {
+                tamdunglistbox.Reset();  
+            }
+
         }
 
 

@@ -21,6 +21,8 @@ namespace DoAnSapXep
             //bo check loi crossthread
             
             Control.CheckForIllegalCrossThreadCalls = false;
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.CurrentCulture;
+
         }
 
         /// <summary>
@@ -34,6 +36,7 @@ namespace DoAnSapXep
         HienThiThuatToan HienThuattoan = new HienThiThuatToan();
         private bool isRunning;
         private bool isTang;
+        public static bool isDebug = false;
         private int SoLuongNode;
         public List<int> DanhSachThamSo;
         public List<Node> DanhSachNode;
@@ -254,7 +257,7 @@ namespace DoAnSapXep
                 daydangxepListbox.Items.Clear();
                 daydangxepListbox.BringToFront();
                 tabctlytuong.SelectedIndex = 1; 
-                thuattoanpanel.Enabled = khoitaopanel.Enabled = ngonngupanel.Enabled = batdaubtn.Enabled = Loaisapxeppanel.Enabled = false;
+                thuattoanpanel.Enabled = khoitaopanel.Enabled = ngonngupanel.Enabled  = Loaisapxeppanel.Enabled = false;
             }
             else
             {
@@ -456,6 +459,7 @@ namespace DoAnSapXep
             }
             isTang = true;
             daydangxepListbox.Visible = false;
+            tabctlytuong.SelectedIndex = 0;
         }
         #region Thêm ý tưởng vào yTuongTextBox
         private void addYTuong()
@@ -556,26 +560,30 @@ namespace DoAnSapXep
             
         }
         #endregion
-
         void batdaubtn_Click(object sender, EventArgs e)
         {
-           
-            daydangxepListbox.Visible = true;
-            huybnt.Enabled = true;
-            isRunning = true;
-            DieuChinhControls(isRunning);
-            Reset_CountTime();
-            timer1.Start();
-            ChonThuatToan();
-            sapxepThread = new Thread(new ThreadStart(ThuatToanSapXep));
-            sapxepThread.Start();
-           
+
+                if (sapxepThread != null)
+                {
+                    sapxepThread.Abort();
+                }
+                daydangxepListbox.Visible = true;
+                huybnt.Enabled = true;
+                isRunning = true;
+                DieuChinhControls(isRunning);
+                Reset_CountTime();
+                timer1.Start();
+                ChonThuatToan();
+                sapxepThread = new Thread(new ThreadStart(ThuatToanSapXep));
+                sapxepThread.Start();
+        
+
             //backgroundWorker1.RunWorkerAsync(); // goi ham do work  
 
         }
         #region Tạm dừng
         // Tạm dừng
-        public static ManualResetEvent codeListBoxPauseStatus = new ManualResetEvent(true);
+       // public static ManualResetEvent codeListBoxPauseStatus = new ManualResetEvent(true);
         public static bool CodeListBoxIsPause = false;
 
 
@@ -852,34 +860,19 @@ namespace DoAnSapXep
         private void hoanTatSapXep()
         {
             
-            HienThiThuatToan.ChayCodeC(1);
+         //   HienThiThuatToan.ChayCodeC(1);
             foreach (Node item in DanhSachNode)
             {
                 item.BackColor = ThamSo.mauNodeHTSX;
             }
             isRunning = false;
             DieuChinhControls(isRunning);
-            if (DanhSachNode.Count !=0)
-            {
-                if (isEnglish == true)
-                {
-                    setLang("en-US");
-                }
-                else
-                    setLang("vi-VN");
-                MessageBox.Show(hoanTat, hoanTatMessageBoxName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            }
+            MessageBox.Show("Hoàn tất sắp xếp");
             timer1.Stop();
-
-            sapxepThread.Abort();
+            Reset_CountTime();
             foreach (Label label in bienArr.Values)
             {
                 label.Visible = false;
-            }
-            if (!isRunning)
-            {
-                timer1.Stop();
             }
             huybnt.Enabled = false;
           
@@ -1026,6 +1019,52 @@ namespace DoAnSapXep
             }
         }
 
+        public void XuLyDebug()
+        {
+            if (cboxdebug.Checked==true)
+            {
+                ThamSo.ThoiGianDoi = 1;
+                dungbtn.Enabled = false;
+                Node.pauseStatus.Set();
+                Node.IsPause = false;
+                isDebug = true;
+                timer1.Stop();
+                Reset_CountTime();
+            }
+            else
+            {
+
+                HienThiThuatToan.tamdunglistbox.Set();
+                Node.pauseStatus.Set();
+                Node.IsPause = false;
+                isDebug = false;
+            }
+
+           
+
+        }
+
+        private void cboxdebug_CheckedChanged(object sender, EventArgs e)
+        {
+            XuLyDebug();
+            
+        }
+
+        private void btndebug_Click(object sender, EventArgs e)
+        {
+            if (isDebug == true)
+            {
+               // batdaubtn.Enabled = true;
+                //  Nếu đang ở chế độ thường thì chuyển thành Debug
+                if (!cboxdebug.Checked)
+                    cboxdebug.Checked = true;
+
+                // Chạy code
+                //đặt sign kích hoạt manualresetevent => tạm dừng đợi trong khoảng thời gian vô tận
+                HienThiThuatToan.tamdunglistbox.Set();
+                CodeListBoxIsPause = false;
+            }
+        }
 
 
         #region Phần Thuật toán
@@ -2203,6 +2242,8 @@ namespace DoAnSapXep
             }
             HienThiThuatToan.ChayCodeC(53);
         }
+
+ 
         void MergeSort()
         {
             //  yTuongTextBox.Clear();
