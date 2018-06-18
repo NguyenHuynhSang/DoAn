@@ -1,13 +1,17 @@
 # DoAn
-Ðiều chỉnh lại GUI
-Danh sách các thut toán dã xong
-1. Interchangesoft ---sang
-2.Bubble Soft-- sang
-3.insection soft-sang
-4.shakersoft--Nhung
-5.shellsort--Nhung
-6.selectionsoft
-Other
-Multilanguage --Quy-- tự nhiên thấy m khiêm tốn dữ :D
-Thể hiên tham số trên GUI--(dự kiến)--Quy
-Form Desider --Nhung
+Chương trình Mô phỏng thuật toán sắp xếp
+---------------------------------------------------
+Nhóm: sky
+Nguyễn Huỳnh Sáng
+Bùi Đang Quy
+Nguyễn Tuyết Nhung
+GV hướng dẫn: thầy Huỳnh Tuấn Anh
+----------------------------------------------------
+Đối tượng hướng đến
+- Các bạn sinh viên hay các Dev young blood có nhu cầu tìm hiểu về các giải thuật sắp xếp- là một
+trong những giải thuật thống trị
+----------------------------------------------------
+Mô tả chức năng
+
+Mô phỏng các phần tử của mảng => Node hiển thị trực tiếp trên GUI , có animation để việc hoán
+đổi vị trí các phần tử sinh động và dễ hiểu
