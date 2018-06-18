@@ -5,7 +5,6 @@ Nhóm: sky
 Nguyễn Huỳnh Sáng
 Bùi Đang Quy
 Nguyễn Tuyết Nhung
-GV hướng dẫn: thầy Huỳnh Tuấn Anh
 ----------------------------------------------------
 Đối tượng hướng đến
 - Các bạn sinh viên hay các Dev young blood có nhu cầu tìm hiểu về các giải thuật sắp xếp- là một
