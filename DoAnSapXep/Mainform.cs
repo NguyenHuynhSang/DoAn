@@ -21,7 +21,7 @@ namespace DoAnSapXep
             //bo check loi crossthread
             
             Control.CheckForIllegalCrossThreadCalls = false;
-            Thread.CurrentThread.CurrentUICulture = CultureInfo.CurrentCulture;
+            //Thread.CurrentThread.CurrentUICulture = CultureInfo.CurrentCulture;
 
         }
 
@@ -66,7 +66,7 @@ namespace DoAnSapXep
         #endregion
 
         #region Set Ngôn Ngữ
-        void setLang(string cultureName)
+        private void setLang(string cultureName)
         {
             culture = new CultureInfo(cultureName);
             ResourceManager rm = new ResourceManager("DoAnSapXep.Lang.myResource", typeof(Mainform).Assembly);
@@ -76,7 +76,7 @@ namespace DoAnSapXep
             lbSapXep.Text = rm.GetString("sapxep", culture);
             tangrdbtn.Text = rm.GetString("tang", culture);
             giamrdbtn.Text = rm.GetString("giam", culture);
-            //lbYTuongThuatToan.Text = rm.GetString("ytuongthuattoan", culture);
+            tabPage1.Text = rm.GetString("ytuongthuattoan", culture);
             lbDieuKhien.Text = rm.GetString("dieukhien", culture);
             lbTocDo.Text = rm.GetString("tocdo", culture);
             batdaubtn.Text = rm.GetString("batdau", culture);
@@ -98,7 +98,9 @@ namespace DoAnSapXep
             hoanTatMessageBoxName = rm.GetString("hoantat", culture);
             hoanTat = rm.GetString("hoantatsapxep", culture);
             strSoLuongNode = rm.GetString("soluongnode", culture);
-
+            tabPage2.Text = rm.GetString("daydangsapxep", culture);
+            btnCaiDat.Text = rm.GetString("caidat", culture);
+            //sua cái setting luon ko? ok
         }
 
         #region Set English
@@ -252,6 +254,7 @@ namespace DoAnSapXep
                 {
                     item.Enabled = false;
                 }
+                batdaubtn.Enabled = false;
                 xoamangbtn.Enabled = false;
                 dungbtn.Enabled =huybnt.Enabled=true;
                 daydangxepListbox.Items.Clear();
@@ -867,7 +870,13 @@ namespace DoAnSapXep
             }
             isRunning = false;
             DieuChinhControls(isRunning);
-            MessageBox.Show("Hoàn tất sắp xếp");
+            if (isEnglish == true)
+            {
+                setLang("en-US");
+            }
+            else
+                setLang("vi-VN");
+            MessageBox.Show(hoanTat);
             timer1.Stop();
             Reset_CountTime();
             foreach (Label label in bienArr.Values)
@@ -953,6 +962,7 @@ namespace DoAnSapXep
             input.ShowDialog();
             if (input.isNhap==true)
             {
+                string temp = "";
                 SoLuongNode = input.DayInput.Count();
                 soluongNodetbx.Text = SoLuongNode.ToString();
                 VeNut();
@@ -961,8 +971,9 @@ namespace DoAnSapXep
                    // DanhSachNode[i].Value = input.DayInput[i];
                     DanhSachNode[i].Text = input.DayInput[i].ToString();
                     DanhSachThamSo[i] = input.DayInput[i];
+                    
                 }
-
+                Mangchuasapxep();
             }
             
 
@@ -991,19 +1002,19 @@ namespace DoAnSapXep
             }
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-            yTuongTextBox.Visible = false;
-            daydangxepListbox.Visible = true;
-        }
+        //private void label4_Click(object sender, EventArgs e)
+        //{
+        //    yTuongTextBox.Visible = false;
+        //    daydangxepListbox.Visible = true;
+        //}
 
-        private void lbYTuongThuatToan_Click(object sender, EventArgs e)
-        {
-            yTuongTextBox.Visible = true;
+        //private void lbYTuongThuatToan_Click(object sender, EventArgs e)
+        //{
+        //    yTuongTextBox.Visible = true;
            
-            daydangxepListbox.Visible = false;
+        //    daydangxepListbox.Visible = false;
             
-        }
+        //}
 
         private void Mainform_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -1013,12 +1024,13 @@ namespace DoAnSapXep
             }
             else
                 setLang("vi-VN");
-            if (MessageBox.Show("thoatMessageBoxName", "thoat", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+            if (MessageBox.Show(thoatMessageBoxName, thoat, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
             {
                 e.Cancel = true;
             }
         }
 
+        #region Phần Debug dùng manualresetevent
         public void XuLyDebug()
         {
             if (cboxdebug.Checked==true)
@@ -1065,7 +1077,7 @@ namespace DoAnSapXep
                 CodeListBoxIsPause = false;
             }
         }
-
+        #endregion
 
         #region Phần Thuật toán
         #region InterchangeSort

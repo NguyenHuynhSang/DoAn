@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Windows.Forms;
 
@@ -11,17 +13,41 @@ namespace DoAnSapXep
 {
     public partial class frmInput : Form
     {
+
         public frmInput()
         {
             InitializeComponent();
+            if (Mainform.isEnglish == true)
+            {
+                setLang("en-US");
+            }
+            else
+                setLang("vi-VN");
             textBox2.Text = ThamSo.SoluongNodeLonNhat.ToString();
         }
         //public string DayInput;
         public List<int> DayInput;
         public bool isNhap;
 
+
+        CultureInfo culture;
+        private void setLang(string cultureName)
+        {
+            culture = new CultureInfo(cultureName);
+            ResourceManager rm = new ResourceManager("DoAnSapXep.Lang.myResource", typeof(Mainform).Assembly);
+            lbNhapMotDay.Text = rm.GetString("nhapmotday", culture);
+            lbDaySo.Text = rm.GetString("dayso", culture);
+            lbSoNodeToiDa.Text = rm.GetString("sonodetoida", culture);
+            lb1.Text = rm.GetString("lb1", culture);
+            lb2.Text = rm.GetString("lb2", culture);
+            btnhuy.Text = rm.GetString("huy", culture);
+        }
+        //xong
+        // m xem cái slide chỉnh lại đi , t làm cái báo cáo
+
         private void frmInput_Load(object sender, EventArgs e)
         {
+
             DayInput = new List<int>();
             isNhap = false;
 

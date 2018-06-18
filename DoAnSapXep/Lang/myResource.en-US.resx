@@ -123,6 +123,18 @@
   <data name="batdau" xml:space="preserve">
     <value>Start</value>
   </data>
+  <data name="caidat" xml:space="preserve">
+    <value>Setting</value>
+  </data>
+  <data name="capnhat" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="daydangsapxep" xml:space="preserve">
+    <value>Sorting Array</value>
+  </data>
+  <data name="dayso" xml:space="preserve">
+    <value>Array Number</value>
+  </data>
   <data name="dieukhien" xml:space="preserve">
     <value>Controls</value>
   </data>
@@ -144,6 +156,9 @@
   <data name="hoantatsapxep" xml:space="preserve">
     <value>Sorting completed</value>
   </data>
+  <data name="huy" xml:space="preserve">
+    <value>Exit</value>
+  </data>
   <data name="huydieukhien" xml:space="preserve">
     <value>Stop</value>
   </data>
@@ -153,14 +168,38 @@
   <data name="huyxoamang" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="khoangcachgiuacacnode" xml:space="preserve">
+    <value>Node's Distance</value>
+  </data>
   <data name="khoitao" xml:space="preserve">
     <value>Creation</value>
+  </data>
+  <data name="kichconode" xml:space="preserve">
+    <value>Node's Size</value>
+  </data>
+  <data name="lb1" xml:space="preserve">
+    <value>Separated by spaces</value>
+  </data>
+  <data name="lb2" xml:space="preserve">
+    <value>Element value is from 0 to 99</value>
+  </data>
+  <data name="macdinh" xml:space="preserve">
+    <value>Default</value>
   </data>
   <data name="mangchuasapxep" xml:space="preserve">
     <value>Unarranged Array</value>
   </data>
   <data name="manhinh" xml:space="preserve">
     <value>Display</value>
+  </data>
+  <data name="maunennode" xml:space="preserve">
+    <value>Node's Background Color</value>
+  </data>
+  <data name="maunodedangXet" xml:space="preserve">
+    <value>Sorting Node's Color</value>
+  </data>
+  <data name="maunodedasapxep" xml:space="preserve">
+    <value>Sorted Node's Color</value>
   </data>
   <data name="ngaunhien" xml:space="preserve">
     <value>Automatic</value>
@@ -171,11 +210,20 @@
   <data name="nhapbangtay" xml:space="preserve">
     <value>Manual</value>
   </data>
+  <data name="nhapmotday" xml:space="preserve">
+    <value>Input An Array Number</value>
+  </data>
   <data name="sapxep" xml:space="preserve">
     <value>Arrange</value>
   </data>
   <data name="soluongnode" xml:space="preserve">
     <value>The Number Of Node Must Be More Than 2 Or Equal To</value>
+  </data>
+  <data name="soluongphantumacdinh" xml:space="preserve">
+    <value>Default Number Of Node</value>
+  </data>
+  <data name="sonodetoida" xml:space="preserve">
+    <value>Maximum Node Number</value>
   </data>
   <data name="sophantu" xml:space="preserve">
     <value>Number of Node</value>

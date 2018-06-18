@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Windows.Forms;
 
@@ -14,14 +16,40 @@ namespace DoAnSapXep
         // public
         public TextBox _txbLabelFont;
         public TextBox _txbFontChu;
+        CultureInfo culture;
+        private void setLang(string cultureName)
+        {
+            culture = new CultureInfo(cultureName);
+            ResourceManager rm = new ResourceManager("DoAnSapXep.Lang.myResource", typeof(Mainform).Assembly);
+            this.Text = rm.GetString("caidat", culture);
+            lbFormName.Text = rm.GetString("caidat", culture);
+            lbMauNenNode.Text = rm.GetString("maunennode", culture);
+            lbMauNodeDangSapXep.Text = rm.GetString("maunodedangsapxep", culture);
+            lbMauNodeDaSapXep.Text = rm.GetString("maunodedasapxep", culture);
+            lbSoPhanTuMacDinh.Text = rm.GetString("soluongphantumacdinh", culture);
+            lbKichCoNode.Text = rm.GetString("kichconode", culture);
+            lbKhoangCachGiuaCacNode.Text = rm.GetString("khoangcachgiuacacnode", culture);
+            btnCapNhat.Text = rm.GetString("capnhat", culture);
+            btnMacDinh.Text = rm.GetString("macdinh", culture);
+            btnHuy.Text = rm.GetString("huy", culture);
+            //xong con gi nua ko?
+            // cai frm input
+        }
 
         public CaiDat()
         {
             TextBox txbLabelFont= new TextBox();
             TextBox txbFontChu= new TextBox();
 
+            
             InitializeComponent();
-
+            if (Mainform.isEnglish == true)
+            {
+                setLang("en-US");
+            }
+            else
+                setLang("vi-VN");
+                
             txbKichCoNode.Text = ThamSo.KichCoNode.ToString();
             txbKhoangCachGiuaCacNode.Text = ThamSo.KhoangCachCacNode.ToString();
 

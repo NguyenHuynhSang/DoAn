@@ -61,7 +61,7 @@ namespace DoAnSapXep
             this.giamrdbtn = new System.Windows.Forms.RadioButton();
             this.tangrdbtn = new System.Windows.Forms.RadioButton();
             this.dieukhienpanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCaiDat = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label11 = new System.Windows.Forms.Label();
@@ -419,7 +419,7 @@ namespace DoAnSapXep
             // 
             this.dieukhienpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
             this.dieukhienpanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dieukhienpanel.Controls.Add(this.button1);
+            this.dieukhienpanel.Controls.Add(this.btnCaiDat);
             this.dieukhienpanel.Controls.Add(this.label1);
             this.dieukhienpanel.Controls.Add(this.trackBar1);
             this.dieukhienpanel.Controls.Add(this.label11);
@@ -435,15 +435,15 @@ namespace DoAnSapXep
             this.dieukhienpanel.Size = new System.Drawing.Size(303, 116);
             this.dieukhienpanel.TabIndex = 23;
             // 
-            // button1
+            // btnCaiDat
             // 
-            this.button1.Location = new System.Drawing.Point(219, 77);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(61, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Cài đặt";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCaiDat.Location = new System.Drawing.Point(219, 77);
+            this.btnCaiDat.Name = "btnCaiDat";
+            this.btnCaiDat.Size = new System.Drawing.Size(61, 23);
+            this.btnCaiDat.TabIndex = 0;
+            this.btnCaiDat.Text = "Cài đặt";
+            this.btnCaiDat.UseVisualStyleBackColor = true;
+            this.btnCaiDat.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -882,7 +882,7 @@ namespace DoAnSapXep
         private Button nhaptaybtn;
         private Label label3;
         private CheckBox cboxdebug;
-        private Button button1;
+        private Button btnCaiDat;
         private TabControl tabctlytuong;
         private TabPage tabPage1;
         private TabPage tabPage2;

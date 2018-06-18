@@ -123,6 +123,18 @@
   <data name="batdau" xml:space="preserve">
     <value>Bắt Đầu</value>
   </data>
+  <data name="caidat" xml:space="preserve">
+    <value>Cài Đặt</value>
+  </data>
+  <data name="capnhat" xml:space="preserve">
+    <value>Cập Nhật</value>
+  </data>
+  <data name="daydangsapxep" xml:space="preserve">
+    <value>Dãy Đang Sắp Xếp</value>
+  </data>
+  <data name="dayso" xml:space="preserve">
+    <value>Dãy Số</value>
+  </data>
   <data name="dieukhien" xml:space="preserve">
     <value>Điều Khiển</value>
   </data>
@@ -144,6 +156,9 @@
   <data name="hoantatsapxep" xml:space="preserve">
     <value>Sắp Xếp Hoàn Tất</value>
   </data>
+  <data name="huy" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
   <data name="huydieukhien" xml:space="preserve">
     <value>Hủy</value>
   </data>
@@ -153,14 +168,38 @@
   <data name="huyxoamang" xml:space="preserve">
     <value>Hủy</value>
   </data>
+  <data name="khoangcachgiuacacnode" xml:space="preserve">
+    <value>Khoảng Cách Giữa Các Node</value>
+  </data>
   <data name="khoitao" xml:space="preserve">
     <value>Khởi Tạo</value>
+  </data>
+  <data name="kichconode" xml:space="preserve">
+    <value>Kích Cỡ Node</value>
+  </data>
+  <data name="lb1" xml:space="preserve">
+    <value>Cách nhau bởi dấu cách</value>
+  </data>
+  <data name="lb2" xml:space="preserve">
+    <value>Giá trị phần tử từ 0 đến 99</value>
+  </data>
+  <data name="macdinh" xml:space="preserve">
+    <value>Mặc Định</value>
   </data>
   <data name="mangchuasapxep" xml:space="preserve">
     <value>Mảng Ban Đầu</value>
   </data>
   <data name="manhinh" xml:space="preserve">
     <value>Màn Hình</value>
+  </data>
+  <data name="maunennode" xml:space="preserve">
+    <value>Màu Nền Node</value>
+  </data>
+  <data name="maunodedangxet" xml:space="preserve">
+    <value>Màu Node Đang Xét</value>
+  </data>
+  <data name="maunodedasapxep" xml:space="preserve">
+    <value>Màu Node Đã Sắp Xếp</value>
   </data>
   <data name="ngaunhien" xml:space="preserve">
     <value>Ngẫu Nhiên</value>
@@ -171,11 +210,20 @@
   <data name="nhapbangtay" xml:space="preserve">
     <value>Nhập Tay</value>
   </data>
+  <data name="nhapmotday" xml:space="preserve">
+    <value>Nhập Một Dãy</value>
+  </data>
   <data name="sapxep" xml:space="preserve">
     <value>Sắp Xếp</value>
   </data>
   <data name="soluongnode" xml:space="preserve">
     <value>Số Lượng Node Phải Lớn Hơn Hoặc Bằng 2 Và Nhỏ Hơn</value>
+  </data>
+  <data name="soluongphantumacdinh" xml:space="preserve">
+    <value>Số Lượng Phần Tử Mặc Định</value>
+  </data>
+  <data name="sonodetoida" xml:space="preserve">
+    <value>Số Node Tối Đa</value>
   </data>
   <data name="sophantu" xml:space="preserve">
     <value>Số Phần Tử</value>
