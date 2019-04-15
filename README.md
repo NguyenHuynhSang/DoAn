@@ -7,7 +7,7 @@ Bùi Đang Quy
 Nguyễn Thị Tuyết Nhung
 ----------------------------------------------------
 Đối tượng hướng đến
-- Các bạn sinh viên hay các Dev young blood có nhu cầu tìm hiểu về các giải thuật sắp xếp- là một
+- Các bạn sinh viên hay các Dev có nhu cầu tìm hiểu về các giải thuật sắp xếp- là một
 trong những giải thuật thống trị
 ----------------------------------------------------
 Mô tả chức năng
